@@ -1,0 +1,225 @@
+.input-div-user {
+	border: solid 1px #ccc;
+	text-align: left !important;
+	height: 35px;
+	font-style: normal;
+	padding: 10px;
+	width: 100%;
+	border-radius:3px;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+}
+
+.main-div.animate1 {
+    transform: scale(1.3);
+    
+}
+
+.input-div-db {
+	border: solid 1px #ccc;
+	text-align: left !important;
+	height: 40px;
+	font-style: normal;
+	padding: 10px;
+	width: 100%;
+	border-radius:3px;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+}
+
+.radiodiv {
+	margin-top: 30px;
+	background-color: #F5F5F5;
+}
+
+.radiodiv span{
+	}
+
+.input-div2 {
+	background: rgba(255, 255, 255, 0.7);
+}
+
+.tenant-div {
+	margin-top: 20px;
+	margin-bottom: -20px;
+}
+
+.main_div {
+	margin-bottom: 100px;
+	background-color: #e9ebf0;
+}
+
+.summary_div {
+    background-color: #fff;
+	height: min-content;
+	padding:15px;
+	margin:15px;
+}
+
+.summary_div h2{
+	text-align: center; 
+	margin:10px 0;
+}
+
+.checkout_autoformat{
+	padding-left: 20px;
+    border: 1px solid #45b974;
+    background-color: #F5F5F5;
+    margin-right: 15px;
+    margin-left: 30px;
+    padding-top: 28px;
+    padding-bottom: 30px;
+    margin-bottom: 70px;
+    padding-right: 30px;
+    width: 60%;
+    height:100%;
+}
+
+
+.product_check {
+	width: 22px;
+	height: 22px;
+	margin-right: 5px;
+}
+
+.banner {
+	background-color: #0773D5;
+}
+
+.banner .jumbotron{
+	background:none;
+	padding:2rem 0rem;
+}
+
+.banner_text{
+}
+
+.banner_text h2{
+	color:#fff;
+	font-weight:bold;
+	text-align:center;
+}
+
+
+.instance-div{
+	min-height: 160px;
+/*     background-color: grey; */
+    max-height: 160px;
+}
+
+.calc-div{
+	min-height: 200px;
+/*     background-color: grey; */
+    max-height: 200px;
+}
+
+
+.sub_btn{
+	background-color: #0669BD;
+    width: 100%;
+    border-radius: 3px;
+    text-transform: uppercase;
+    height: 35px;
+    margin-top: 50px;
+    color: #fff;
+	border:none;
+	font-weight:bold;
+}
+
+
+
+
+
+.deact{
+	border-color: #03DDE1;
+	background-color:#03DDE1;
+	border-radius: 3px;
+}
+
+
+.react{
+	border-color: #03DDE1;
+	background-color:#03DDE1;
+	border-radius: 3px;
+}
+
+
+.btncolor{
+	border-color: #03DDE1;
+	background-color:#03DDE1;
+	border-radius: 3px;
+}
+
+#wrapwrap{min-height: 20%}
+/* #wrapwrap {
+    position: relative;
+    
+} */
+
+.cart_total_custom_calss
+   { margin-left: 49.5%;}
+
+
+.app-bg{
+	height: 105px;
+	background-color: #d8b960;
+	border-bottom: solid firebrick 5px;
+}
+
+.app-bg .middle-content{
+	font-size: 0.75em;
+	margin-left: 5px;
+	margin-top: 15px;
+	font-weight:bold;
+	width: 50%;
+}
+
+.app-bg .more-info{
+	padding: 5px;
+	line-height: auto;
+}
+
+
+#products_calc .nav-tabs{
+	border-bottom:none;
+}
+
+.pricing-rules p{
+	color:red;
+	font-size:13px;
+	line-height:6px;
+}
+
+#payement_base{
+    background-color: buttonface;
+    border: solid 1px #ccc;
+    height: 40px;
+    font-style: normal;
+    padding: 10px;
+    width: 100%;
+    border-radius: 3px;
+
+}
+
+
+
+@media only screen and (min-width: 320px) and (max-width: 667px) {
+
+.app-bg .middle-content{
+	width: 40%;
+}
+
+.app-bg .more-info{
+	font-size:0.75em;
+	font-weight:bold;
+}
+
+}
+
+
+
+
+
+
+
+

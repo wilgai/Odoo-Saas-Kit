@@ -1,0 +1,298 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<odoo>
+	<data>
+
+
+		<menuitem id="saas_panel_main" 
+			name="SaaS" 
+			web_icon="saas_base,static/description/icon.png" 
+			sequence="0" 
+			groups="group_admin_saas" />
+
+		<menuitem id="menu_tenant_database_list" name="Tenant Database List"
+			parent="saas_panel_main" sequence="6" />
+			
+			
+		<record id="saas_admin_dblist_form" model="ir.ui.view">
+			<field name="name">saas.admin.dblist.form</field>
+			<field name="model">tenant.database.list</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Tenant Database" version="7.0">
+					<header>
+						<field name="stage_id" widget="statusbar" />
+					</header>
+					<sheet>
+						<group col="2" colspan="4">
+							<h1>
+								<label for="name" class="oe_edit_only" />
+								<field name="name" default_focus="1" nolabel="1" readonly="1"
+									class="oe_inline" />
+							</h1>
+							<h3 class="oe_right">
+
+								<label for="expired" />
+								<field name="expired" nolabel="1" readonly="1" />
+							</h3>
+						</group>
+						<group colspan="4" col="4">
+							<field name="sale_order_ref" colspan="2" readonly="1"></field>
+							<field name="exp_date" readonly="1" />
+							<field name="no_of_users" readonly="1" />
+						</group>
+
+
+						<notebook>
+							<page string="Deactivation details">
+								<group>
+									<field name="deactivated_date" />
+									<field name="user_id" />
+									<field name="reason" />
+								</group>
+							</page>
+							<page string="Database Credentials">
+								<group colspan="2" col="2" string="Pseudo Users Initial Credentials">
+									<field name="tenant_url" readonly="1"></field>
+									<field name="user_login" readonly="1"></field>
+									<field name="user_pwd" readonly="1" />
+								</group>
+								<group colspan="2" col="2" string="Super Users Initial Credentials">
+									<field name="super_user_login" readonly="1"></field>
+									<field name="super_user_pwd" readonly="1" />
+								</group>
+							</page>
+							<page string="User History">
+								<group colspan="2" col="2">
+									<field name="user_history_ids" readonly="1" nolabel='1'></field>
+								</group>
+							</page>
+
+						</notebook>
+					</sheet>
+				</form>
+			</field>
+		</record>
+		<record id="saas_admin_dblist_tree" model="ir.ui.view">
+			<field name="name">saas.admin.dblist.tree</field>
+			<field name="model">tenant.database.list</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Tenant Database List">
+					<field name="name" />
+					<field name="exp_date" />
+					<field name="no_of_users" />
+					<field name="expired" />
+					<field name="free_trial" />
+				</tree>
+			</field>
+		</record>
+		
+		<record id="saas_users_tree" model="ir.ui.view">
+			<field name="name">saas users tree</field>
+			<field name="model">user.history</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+				<tree string="Users History">
+					<field name="rec_date" />
+					<field name="pre_users" />
+					<field name="adding" />
+					<field name="total" />
+				</tree>
+			</field>
+		</record>
+		
+
+
+		<!-- Kanban view of tenant_database_list -->
+		<record id="saas_admin_dblist_kanban" model="ir.ui.view">
+			<field name="name">saas.admin.dblist.kanban</field>
+			<field name="model">tenant.database.list</field>
+			<field name="arch" type="xml">
+				<kanban default_group_by="stage_id" create="false" edit="false"
+					quick_create="false">
+					<field name="stage_id" />
+					<field name="color" />
+					<templates>
+						<t t-name="kanban-box">
+							<div
+								t-attf-class="oe_kanban_color_#{kanban_getcolor(record.color.raw_value)} oe_kanban_card oe_kanban_global_click">
+								<div class="oe_dropdown_toggle oe_dropdown_kanban">
+									<span class="oe_e">í</span>
+									<ul class="oe_dropdown_menu">
+										<!-- <t t-if="widget.view.is_action_enabled('edit')"><li><a type="edit">Edit...</a></li></t> -->
+										<!-- <t t-if="widget.view.is_action_enabled('delete')"><li><a type="delete">Delete</a></li></t> -->
+										<li>
+											<a name="action_schedule_meeting" type="object">Schedule Meeting</a>
+										</li>
+										<!-- <li><ul class="oe_kanban_colorpicker" data-field="color"/></li> -->
+									</ul>
+								</div>
+								<div>
+									<font color="green">
+										<field name="name" />
+										<br />
+									</font>
+								</div>
+								(
+								<field name="no_of_users" />
+								users)
+								<div>
+									<font color="red">
+										Expiry Date :
+										<field name="exp_date" />
+										<br />
+									</font>
+								</div>
+							</div>
+
+						</t>
+					</templates>
+				</kanban>
+			</field>
+		</record>
+
+
+		<!-- Lead/Opportunity Categories Action -->
+		<record id="view_db_admin_filter" model="ir.ui.view">
+			<field name="name">list.of.db</field>
+			<field name="model">tenant.database.list</field>
+			<field name="arch" type="xml">
+				<search string="Search Db List">
+					<field name="name" string="DB Name" />
+				</search>
+			</field>
+		</record>
+
+
+		<record id="base_dblist_tree_action" model="ir.actions.act_window">
+			<field name="name">Tenant Database List</field>
+			<field name="res_model">tenant.database.list</field>
+			<!--<field name="view_type">form</field>-->
+			<field name="view_mode">kanban,tree,form</field>
+			<field name="view_id" ref="saas_admin_dblist_kanban" />
+		</record>
+
+		<menuitem action="base_dblist_tree_action" id="menu_dblist_tree"
+			name="Database List" parent="menu_tenant_database_list" sequence="0" />
+
+	</data>
+	<data noupdate="0">
+
+		<record  id="check_db_expire_date" model="ir.cron">
+			<field name="name">Check Tenant DB Expiry</field>
+			<field name="model_id" ref="model_tenant_database_list" />
+			<field name="state">code</field>
+			<field name="code">model.check_tenant_database_expire()</field>
+			<field name="user_id" ref="base.user_root" />
+			<field name="interval_number">2</field>
+			<field name="interval_type">hours</field>
+			<field name="numbercall">-1</field>
+			<field eval="False" name="doall" />
+			 <field name="active" eval="False"/>
+		</record>
+
+
+		<record id="email_template_renew_tenant_subscription_alert"
+			model="mail.template">
+			<field name="name">Subscription Renew Alert Email</field>
+			<field name="email_from">${object.sale_order_ref.company_id.email or
+				object.sale_order_ref.user_id.email or ''}</field>
+			<field name="model_id" ref="saas_base.model_tenant_database_list" />
+			<field name="email_to">${object.sale_order_ref.partner_id.email}</field>
+			<field name="subject">Subscription renew</field>
+			<field name="body_html"> <![CDATA[ 
+	            Dear ${object.sale_order_ref.partner_id.name}<br/><br/>             
+							This is a reminder that your subscription instance on SaaS, for ${object.name}, is nearing its end of usable period by  ${object.exp_date}<br/>
+				
+				We request you to kindly renew the subscription to continue using the services. <br/><br/>
+				
+				Renewal Methods<br/>
+											
+				If you have any questions, please do not hesitate to contact us! <br/>
+	            ]]>
+			</field>
+			<field name="partner_to">${object.sale_order_ref.partner_id.id}</field>
+			<field name="auto_delete" eval="False" />
+		</record>
+
+	
+		<record id="email_template_renew_tenant_Expired_today"
+			model="mail.template">
+			<field name="name">Subscription Renew Alert Email</field>
+			<field name="email_from">${object.sale_order_ref.company_id.email or
+				object.sale_order_ref.user_id.email or ''}</field>
+			<field name="email_to">${object.sale_order_ref.partner_id.email}</field>
+			<field name="model_id" ref="saas_base.model_tenant_database_list" />
+			<field name="subject">Database Expired Today</field>
+			<field name="body_html"> <![CDATA[
+	            Dear ${object.sale_order_ref.partner_id.name}<br/><br/>
+							This is a reminder that your subscription instance on SaaS, for ${object.name}, is nearing its end of usable period by  ${object.exp_date}<br/>
+
+				We request you to kindly Note That your Db expired Today . <br/><br/>
+
+				Renewal Methods<br/>
+
+				If you have any questions, please do not hesitate to contact us! <br/>
+	            ]]>
+			</field>
+			<field name="partner_to">${object.sale_order_ref.partner_id.id}</field>
+			<field name="auto_delete" eval="False" />
+		</record>
+		
+
+
+		<!-- Email alert template for tenant to inform that grace period is started -->
+		<record id="email_template_tenant_db_grace_alert" model="mail.template">
+			<field name="name">Database Grace Period Alert Email</field>
+			<field name="email_from">${object.sale_order_ref.company_id.email or
+				object.sale_order_ref.user_id.email or ''}</field>
+			<field name="model_id" ref="saas_base.model_tenant_database_list" />
+			<field name="email_to">${object.sale_order_ref.partner_id.email}</field>
+			<field name="subject">Database Grace Period is started</field>
+			<field name="body_html"> <![CDATA[ 
+	            Dear ${object.sale_order_ref.partner_id.name}<br/><br/>             
+							This is to inform you that your subscription with  ${object.sale_order_ref.company_id.name} instance on Odoo SaaS, for ${object.name}, has expired on ${object.exp_date} and you are on grace period.<br/>
+				Your service would be inactive from ${object.grace_period_date}.<br/>
+				We request you to kindly renew the subscription to continue using the services. <br/><br/>
+				
+				
+				If you have any questions, please do not hesitate to contact us! <br/>
+	            ]]>
+			</field>
+			<field name="partner_to">${object.sale_order_ref.partner_id.id}</field>
+			<field name="auto_delete" eval="False" />
+		</record>
+
+		<!-- Email alert template for tenant to inform that database is going to 
+			purge -->
+		<record id="email_template_tenant_db_purge_alert" model="mail.template">
+			<field name="name">Database Ready to Purge Alert Email</field>
+			<field name="email_from">${object.sale_order_ref.company_id.email or
+				object.sale_order_ref.user_id.email or ''}</field>
+			<field name="model_id" ref="saas_base.model_tenant_database_list" />
+			<field name="email_to">${object.sale_order_ref.partner_id.email}</field>
+			<field name="subject">Purge Database</field>
+			<field name="body_html"> <![CDATA[ 
+	            Dear ${object.sale_order_ref.partner_id.name}<br/><br/>             
+							This is to inform you that your subscription with  ${object.sale_order_ref.company_id.name} instance on Odoo SaaS, for ${object.name}, has expired on ${object.grace_period_date}.<br/>
+				
+				As per contractual agreement, we are going to purge your data from cloud. <br/><br/>
+				
+				
+				If you have any questions, please do not hesitate to contact us! <br/>
+	            ]]>
+			</field>
+			<field name="partner_to">${object.sale_order_ref.partner_id.id}</field>
+			<field name="auto_delete" eval="False" />
+		</record>
+
+	</data>
+</odoo>
+
+<!-- This is to inform you that your subscription with ${object.company_id.name}instance 
+	on SaaS, for ${object.name}, is expired<br/> -->
+<!-- 1. Please contact ${object.company_id.name} SaaS <br/> -->
+<!-- Thanking you in advance for your business with ${object.company_id.name}. 
+	<br/> -->

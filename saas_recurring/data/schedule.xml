@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        
+       <record id="ir_cron_make_agreement_invoice_action" model="ir.cron">
+            <field name="name">Run agreement invoice Scheduler</field>
+            <field name="model_id" ref="model_agreement_schedule"/>
+            <field name="state">code</field>
+            <field name="code">model.run_scheduler_of_invoice()</field>
+            <field name="user_id" ref="base.user_root"/>
+            <field name="interval_number">1</field>
+            <field name="interval_type">days</field>
+             <field eval="False" name="active"/>
+            <field name="numbercall">-1</field>
+        </record>
+        
+      </data>
+</odoo>

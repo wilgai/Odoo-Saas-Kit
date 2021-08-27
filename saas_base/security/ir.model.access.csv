@@ -1,0 +1,12 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_tenant_database_list,tenant.database.list,model_tenant_database_list,group_admin_saas_db_admin,1,1,0,0
+access_tenant_database_list,tenant.database.list,model_tenant_database_list,group_admin_saas,1,1,1,1
+access_res_partner,res.patner,base.model_res_partner,group_admin_saas,1,1,1,1
+access_deactive_db_wizard,deactive_db.wizard,model_deactive_db_wizard,group_admin_saas,1,1,1,1
+access_deactive_db_wizard,deactive_db.wizard,model_deactive_db_wizard,group_admin_saas_db_admin,1,1,1,1
+tenant_database_stage_saas_admin_access,tenant_stages,model_tenant_database_stage,group_admin_saas_db_admin,1,1,1,1
+saas_admin_res_users_id1,res.users1,base.model_res_users,group_admin_saas,1,1,1,1
+user.history,user.history,model_user_history,group_admin_saas,1,1,1,1
+user.history,user.history,model_user_history,group_admin_saas_db_admin,1,1,1,1
+ir.module.module_user_level_access11,ir.module.module,base.model_ir_module_module,group_admin_saas,1,1,1,1
+product.template_user_level_access,product.template,product.model_product_template,group_admin_saas,1,1,1,1

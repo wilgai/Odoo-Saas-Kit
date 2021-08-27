@@ -1,0 +1,6 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+sale_recurring_orders_agreement_id,sale.recurring.orders.agreement,saas_recurring.model_sale_recurring_orders_agreement,sales_team.group_sale_manager,1,1,1,1
+sale_recurring_orders_agreement_id1,sale.recurring.orders.agreement1,saas_recurring.model_sale_recurring_orders_agreement_order,sales_team.group_sale_manager,1,1,1,1
+sale_recurring_orders_agreement_id2,sale.recurring.orders.agreement2,saas_recurring.model_sale_recurring_orders_agreement_line,sales_team.group_sale_manager,1,1,1,1
+access_agreement_schedule,access_agreement_schedule,model_agreement_schedule,base.group_user,1,1,1,1
+

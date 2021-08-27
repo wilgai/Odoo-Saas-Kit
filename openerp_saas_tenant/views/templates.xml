@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+
+		<template id="login_layout" inherit_id="web.login_layout" name="Login Layout">
+			<xpath expr="." position="inside">
+				<script type="text/javascript" src="/openerp_saas_tenant/static/src/js/web.js"></script>
+			</xpath>
+		</template>
+
+
+
+
+		<!-- Hide some setting menus from tenant users -->
+		<menuitem action="base.grant_menu_access" id="base.menu_grant_menu_access" parent="base.next_id_2" sequence="1"
+			groups="group_saas_tenant_user"/>
+		<menuitem action="base.action_ui_view" id="base.menu_action_ui_view" parent="base.next_id_2" sequence="2" groups="group_saas_tenant_user"/>
+		<menuitem id="base.menu_action_ui_view_custom" action="base.action_ui_view_custom" parent="base.next_id_2" sequence="3"
+			groups="group_saas_tenant_user"/>
+		<menuitem id="base.menu_security" name="Security" parent="base.menu_custom" sequence="25" groups="group_saas_tenant_user"/>
+
+
+		<template id="openerp_saas_tenant.login_locked" name="Login">
+			<t t-call="web.layout">
+<!-- 				<form class="oe_login_form" role="form" t-attf-action="/web/login" method="post" onsubmit="this.action = this.action + location.hash"> -->
+				<form class="oe_login_form" role="form">
+						<h3 >Services has been deactivated. Please pay pending bills from portal</h3>
+				</form>
+			</t>
+		</template>
+	</data>
+</odoo>

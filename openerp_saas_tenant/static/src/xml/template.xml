@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+		<!-- <template id="menu_secondary_tenant" inherit_id="web.menu_secondary">
+			<xpath expr="." position="inside">
+				<script type="text/javascript" src="/openerp_saas_tenant/static/src/js/main.js"></script>
+				<input id="brand_name" type="hidden" t-att-value="menu_data['brand_name']"/>
+			</xpath>
+			<xpath expr="//div[@class='o_sub_menu_footer']" position="replace">
+				<div class='oe_footer'>
+					 Powered by <a t-att-href="menu_data['brand_website']" target="_blank"><span><t t-esc="menu_data['brand_name']"/></span></a>
+				</div>
+			</xpath>
+		</template> -->
+		
+		
+	</data>
+</odoo>
+
+

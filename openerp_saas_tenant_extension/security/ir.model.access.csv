@@ -1,0 +1,7 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+saas_res_users_id1,res.users1,base.model_res_users,group_psuedo_admin,1,1,1,1
+saas_tenant_super_user_res_users_id1,res.users2,base.model_res_users,openerp_saas_tenant.group_saas_tenant_user,1,1,1,1
+ir_rule_psuedo_admin,id_ir_rule_psuedo_admin,base.model_ir_rule,group_psuedo_admin,1,1,1,1
+access_control_psuedo_admin,id_access_control_psuedo_admin,base.model_ir_model_access,group_psuedo_admin,1,1,1,1
+contact,res.partner22,base.model_res_partner,openerp_saas_tenant.group_saas_service,1,1,1,1
+

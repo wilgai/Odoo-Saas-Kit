@@ -1,0 +1,485 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* openerp_saas_instance
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2016-02-05 09:57+0000\n"
+"PO-Revision-Date: 2016-02-05 09:57+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: openerp_saas_instance
+#: model:mail.template,body_html:openerp_saas_instance.email_template_renew_subscription
+msgid " \n"
+"	            \n"
+"					            Dear ${object.sale_order_ref.partner_id.name}<br/><br/>             \n"
+"							Your subscription of instance on SaaS, for ${object.instance_name}, has been Renewed  till  ${object.exp_date}. <br/>\n"
+"				\n"
+"				<br/><br/>\n"
+"				\n"
+"				If you have any questions, please do not hesitate to contact us! <br/>\n"
+"				\n"
+"				\n"
+"				Have A Great Day !\n"
+"	            \n"
+"			"
+msgstr " \n"
+"	            \n"
+"					            Dear ${object.sale_order_ref.partner_id.name}<br/><br/>             \n"
+"							Your subscription of instance on SaaS, for ${object.instance_name}, has been Renewed  till  ${object.exp_date}. <br/>\n"
+"				\n"
+"				<br/><br/>\n"
+"				\n"
+"				If you have any questions, please do not hesitate to contact us! <br/>\n"
+"				\n"
+"				\n"
+"				Have A Great Day !\n"
+"	            \n"
+"			"
+
+#. module: openerp_saas_instance
+#: model:mail.template,body_html:openerp_saas_instance.email_template_on_order_import
+msgid "   Hello ${object.partner_id.name},<br/><br/>\n"
+"            Your order (${object.name}) is accepted at ${object.company_id.name} ,${object.create_date} <br/><br/>\n"
+"            Order Status: Under Processing.<br/><br/>\n"
+"            Note: You will receive a link of your on-line store with the login credentials within the next 24 hours after we confirm your payment.<br/><br/>\n"
+"\n"
+"			We Thank You for the business with  ${object.company_id.name}.\n"
+"             \n"
+"            \n"
+"			"
+msgstr "   Hello ${object.partner_id.name},<br/><br/>\n"
+"            Your order (${object.name}) is accepted at ${object.company_id.name} ,${object.create_date} <br/><br/>\n"
+"            Order Status: Under Processing.<br/><br/>\n"
+"            Note: You will receive a link of your on-line store with the login credentials within the next 24 hours after we confirm your payment.<br/><br/>\n"
+"\n"
+"			We Thank You for the business with  ${object.company_id.name}.\n"
+"             \n"
+"            \n"
+"			"
+
+#. module: openerp_saas_instance
+#: model:mail.template,body_html:openerp_saas_instance.email_template_database_creation
+msgid "  Hello ${object.partner_id.name}<br/><br/> Your database on SaaS has been created :\n"
+"            ${object.instance_name} and this is the link to access the same<br/>\n"
+"            http://${object.instance_name}${object.saas_domain}\n"
+"            \n"
+"            <br/><br/>Tenant user is created, :\n"
+"            <br/>The login details are as follows:\n"
+"            <br/>UserName:<strong>${object.user_uid.customer_email}</strong>\n"
+"            <br/>Password:<strong>${object.pwd}</strong>\n"
+"            \n"
+"            \n"
+"			"
+msgstr "  Hello ${object.partner_id.name}<br/><br/> Your database on SaaS has been created :\n"
+"            ${object.instance_name} and this is the link to access the same<br/>\n"
+"            http://${object.instance_name}${object.saas_domain}\n"
+"            \n"
+"            <br/><br/>Tenant user is created, :\n"
+"            <br/>The login details are as follows:\n"
+"            <br/>UserName:<strong>${object.user_uid.customer_email}</strong>\n"
+"            <br/>Password:<strong>${object.pwd}</strong>\n"
+"            \n"
+"            \n"
+"			"
+
+#. module: openerp_saas_instance
+#: model:mail.template,subject:openerp_saas_instance.email_template_on_order_import
+msgid "${object.company_id.name} Purchase Order Acceptance\n"
+"			"
+msgstr "${object.company_id.name} Purchase Order Acceptance\n"
+"			"
+
+#. module: openerp_saas_instance
+#: view:website:website_sale.cart
+msgid "&nbsp;"
+msgstr "&nbsp;"
+
+#. module: openerp_saas_instance
+#: view:website:website_sale.checkout
+msgid "--Order type--"
+msgstr "--ordersoort--"
+
+#. module: openerp_saas_instance
+#: view:website:website_sale.checkout
+msgid "--Select Instance--"
+msgstr "--Select Instance--"
+
+#. module: openerp_saas_instance
+#: field:product.template,is_account_product:0
+msgid "Account Product"
+msgstr "Account Product"
+
+#. module: openerp_saas_instance
+#: model:ir.model,name:openerp_saas_instance.model_account_voucher
+msgid "Accounting Voucher"
+msgstr "Boekhouding betaalbewijzen"
+
+#. module: openerp_saas_instance
+#: selection:product.template,saas_product_type:0
+msgid "Add Ons"
+msgstr "Add Ons"
+
+#. module: openerp_saas_instance
+#: view:website:website_sale.product
+msgid "Add to Cart"
+msgstr "Voeg toe aan mandje"
+
+#. module: openerp_saas_instance
+#: view:saas.config.setting:openerp_saas_instance.res_config_saas_product_type
+msgid "Auto Process"
+msgstr "Auto Process"
+
+#. module: openerp_saas_instance
+#: field:saas.config.setting,auto_process_if_success_payment:0
+msgid "Auto process for Successful Payment"
+msgstr "Automatische proces voor het succesvolle betaling"
+
+#. module: openerp_saas_instance
+#: field:saas.config.setting,auto_process_if_topup:0
+msgid "Auto process for TopUp"
+msgstr "Automatische proces voor het TopUp"
+
+#. module: openerp_saas_instance
+#: field:saas.config.setting,auto_process_so_trial_period:0
+msgid "Auto process free trial SO's"
+msgstr "Automatische proces voor het gratis trial SO's"
+
+#. module: openerp_saas_instance
+#: selection:product.template,saas_product_type:0
+msgid "Base"
+msgstr "Base"
+
+#. module: openerp_saas_instance
+#: view:website:website_sale.cart
+msgid "Checkout"
+msgstr "Checkout"
+
+#. module: openerp_saas_instance
+#: view:website:website_sale.checkout
+msgid "Confirm"
+msgstr "Bevestig"
+
+#. module: openerp_saas_instance
+#: field:product.template,currency_symbol:0
+#: field:product.template,trial_days:0
+msgid "Currency"
+msgstr "Currency"
+
+#. module: openerp_saas_instance
+#: field:account.invoice,instance_name:0
+#: field:sale.order,instance_name:0
+msgid "Database Name"
+msgstr "Database Name"
+
+#. module: openerp_saas_instance
+#: code:addons/openerp_saas_instance/sale.py:346
+#, python-format
+msgid "Database already exist."
+msgstr "Database already exist."
+
+#. module: openerp_saas_instance
+#: view:website:website_sale.checkout
+msgid "Domain"
+msgstr "Domein"
+
+#. module: openerp_saas_instance
+#: code:addons/openerp_saas_instance/sale.py:533
+#, python-format
+msgid "Error"
+msgstr "Error"
+
+#. module: openerp_saas_instance
+#: code:addons/openerp_saas_instance/sale.py:348
+#: code:addons/openerp_saas_instance/sale.py:437
+#: code:addons/openerp_saas_instance/sale.py:453
+#, python-format
+msgid "Error!"
+msgstr "Error!"
+
+#. module: openerp_saas_instance
+#: code:addons/openerp_saas_instance/sale.py:346
+#, python-format
+msgid "Error!\n"
+""
+msgstr "Error!\n"
+""
+
+#. module: openerp_saas_instance
+#: view:website:website_sale.checkout
+msgid "Instance"
+msgstr "Instance"
+
+#. module: openerp_saas_instance
+#: view:website:website_sale.checkout
+msgid "Instance Name"
+msgstr "Instance Name"
+
+#. module: openerp_saas_instance
+#: model:ir.model,name:openerp_saas_instance.model_account_invoice
+msgid "Invoice"
+msgstr "Factuur"
+
+#. module: openerp_saas_instance
+#: field:sale.order.line,month:0
+msgid "Invoice Term"
+msgstr "Invoice Term"
+
+#. module: openerp_saas_instance
+#: field:sale.order,is_top_up:0
+msgid "Is top-up?"
+msgstr "Is top-up?"
+
+#. module: openerp_saas_instance
+#: view:product.template:openerp_saas_instance.product_template_form_view_saas
+msgid "Module Details"
+msgstr "Module Details"
+
+#. module: openerp_saas_instance
+#: field:product.product,module_list:0
+#: field:product.template,module_list:0
+msgid "Module List"
+msgstr "Module List"
+
+#. module: openerp_saas_instance
+#: view:product.template:openerp_saas_instance.product_template_form_view_saas
+msgid "Modules to Install"
+msgstr "Modules to Install"
+
+#. module: openerp_saas_instance
+#: view:website:website_sale.checkout
+msgid "New Instance"
+msgstr "Nieuwe Instantie"
+
+#. module: openerp_saas_instance
+#: view:website:website_sale.checkout
+msgid "No. Of Users"
+msgstr "Aantal Gebruikers"
+
+#. module: openerp_saas_instance
+#: field:sale.order,no_of_users:0
+msgid "No. of Users"
+msgstr "Aantal Gebruikers"
+
+#. module: openerp_saas_instance
+#: view:saas.config.setting:openerp_saas_instance.res_config_saas_product_type
+msgid "Only for Tenant users, not applicable for Free Trials"
+msgstr "Only for Tenant users, not applicable for Free Trials"
+
+#. module: openerp_saas_instance
+#: view:website:website_sale.checkout
+msgid "Order is"
+msgstr "Order is"
+
+#. module: openerp_saas_instance
+#: code:addons/openerp_saas_instance/sale.py:533
+#, python-format
+msgid "Please provide Instance Name!"
+msgstr "Gelieve Aanleg Naam!"
+
+#. module: openerp_saas_instance
+#: view:website:website_sale.cart
+#: view:website:website_sale.payment
+msgid "Price"
+msgstr "Bedrag"
+
+#. module: openerp_saas_instance
+#: view:website:website_sale.cart
+msgid "Price / Per User"
+msgstr "Prijs / Per Gebruiker"
+
+#. module: openerp_saas_instance
+#: view:website:website_sale.cart
+msgid "Process Checkout"
+msgstr "Bestelling afronden"
+
+#. module: openerp_saas_instance
+#: model:ir.model,name:openerp_saas_instance.model_product_product
+#: view:saas.config.setting:openerp_saas_instance.res_config_saas_product_type
+#: view:website:website_sale.cart
+#: view:website:website_sale.payment
+msgid "Product"
+msgstr "Product"
+
+#. module: openerp_saas_instance
+#: model:ir.model,name:openerp_saas_instance.model_product_template
+msgid "Product Template"
+msgstr "Productsjabloon"
+
+#. module: openerp_saas_instance
+#: view:website:website_sale.product
+msgid "Product not available"
+msgstr "Product niet beschikbaar"
+
+#. module: openerp_saas_instance
+#: view:website:website_sale.cart
+#: view:website:website_sale.payment
+msgid "Quantity"
+msgstr "Hoeveelheid"
+
+#. module: openerp_saas_instance
+#: view:website:website_sale.cart
+#: view:website:website_sale.payment
+msgid "Quantity/Users"
+msgstr "hoeveelheid/gebruikers"
+
+#. module: openerp_saas_instance
+#: field:sale.order,pwd:0
+msgid "Random Generated Password"
+msgstr "Random Generated Password"
+
+#. module: openerp_saas_instance
+#: model:ir.model,name:openerp_saas_instance.model_remove_db_wizard
+msgid "Remove Crashed Database"
+msgstr "Remove Crashed Database"
+
+#. module: openerp_saas_instance
+#: model:res.groups,name:openerp_saas_instance.group_saas_customer
+msgid "SaaS Customer"
+msgstr "SaaS Customer"
+
+#. module: openerp_saas_instance
+#: field:sale.order,saas_domain:0
+msgid "SaaS Domain"
+msgstr "SaaS Domain"
+
+#. module: openerp_saas_instance
+#: field:sale.order,instance_name_list:0
+#: field:sale.order,saas_order:0
+msgid "SaaS Order"
+msgstr "SaaS Bestellen"
+
+#. module: openerp_saas_instance
+#: field:product.product,is_saas:0
+#: field:product.template,is_saas:0
+msgid "SaaS Product"
+msgstr "SaaS Product"
+
+#. module: openerp_saas_instance
+#: field:product.product,saas_product_type:0
+#: field:product.template,saas_product_type:0
+msgid "SaaS Product Type"
+msgstr "SaaS Product Type"
+
+#. module: openerp_saas_instance
+#: model:ir.model,name:openerp_saas_instance.model_sale_order
+msgid "Sales Order"
+msgstr "Verkooporder"
+
+#. module: openerp_saas_instance
+#: model:ir.model,name:openerp_saas_instance.model_sale_order_line
+msgid "Sales Order Line"
+msgstr "Verkooporderregel"
+
+#. module: openerp_saas_instance
+#: view:website:auth_signup.signup
+msgid "Sign up"
+msgstr "Registreren"
+
+#. module: openerp_saas_instance
+#: view:website:website_sale.cart
+#: view:website:website_sale.payment
+msgid "Subscription (Months)"
+msgstr "Abonnement (maanden)"
+
+#. module: openerp_saas_instance
+#: model:mail.template,subject:openerp_saas_instance.email_template_renew_subscription
+msgid "Subscription Renewed"
+msgstr "Abonnement Hernieuwde"
+
+#. module: openerp_saas_instance
+#: view:website:website_sale.cart
+#: view:website:website_sale.payment
+msgid "Subtotal"
+msgstr "subtotaal"
+
+#. module: openerp_saas_instance
+#: view:website:website_sale.total
+msgid "Taxes may be updated after providing shipping address"
+msgstr "Belastingen kunnen bijgewerkt worden na het invoeren van het afleveradres"
+
+#. module: openerp_saas_instance
+#: view:website:website_sale.total
+msgid "Taxes:"
+msgstr "Belastingen:"
+
+#. module: openerp_saas_instance
+#: view:website:website_sale.checkout
+msgid "Top-Up"
+msgstr "Uitbreiding"
+
+#. module: openerp_saas_instance
+#: view:website:website_sale.total
+msgid "Total:"
+msgstr "Totaal:"
+
+#. module: openerp_saas_instance
+#: code:addons/openerp_saas_instance/sale.py:437
+#, python-format
+msgid "Unable to Install Modules \n"
+""
+msgstr "Niet in staat te installeren Modules \n"
+""
+
+#. module: openerp_saas_instance
+#: code:addons/openerp_saas_instance/sale.py:453
+#, python-format
+msgid "Unable to Upgrade Modules"
+msgstr "Niet in staat om te upgraden Modules"
+
+#. module: openerp_saas_instance
+#: field:saas.config.setting,group_active_saas_product_type:0
+msgid "Use SaaS Product Type"
+msgstr "Gebruik SaaS Product Type"
+
+#. module: openerp_saas_instance
+#: help:saas.config.setting,group_active_saas_product_type:0
+msgid "Use SaaS Product type to differentiate Base and Add-ons product separately"
+msgstr "Gebruik SaaS product type Base differentiëren en add-ons product afzonderlijk"
+
+#. module: openerp_saas_instance
+#: model:res.groups,name:openerp_saas_instance.group_active_saas_product_type
+msgid "Use SaaS product Type (Base and Addons)"
+msgstr "Gebruik SaaS Product Type (Base and Addons)"
+
+#. module: openerp_saas_instance
+#: field:sale.order,user_uid:0
+msgid "User"
+msgstr "Gebruiker"
+
+#. module: openerp_saas_instance
+#: field:product.template,user_product_check_price:0
+msgid "User Product Check"
+msgstr "User Product Check"
+
+#. module: openerp_saas_instance
+#: field:account.voucher,website_message_ids:0
+msgid "Website Messages"
+msgstr "Website berichten"
+
+#. module: openerp_saas_instance
+#: help:account.voucher,website_message_ids:0
+msgid "Website communication history"
+msgstr "Website communicatie geschiedenis"
+
+#. module: openerp_saas_instance
+#: model:mail.template,subject:openerp_saas_instance.email_template_database_creation
+msgid "Welcome: "
+msgstr "Welcome: "
+
+#. module: openerp_saas_instance
+#: model:ir.model,name:openerp_saas_instance.model_saas_config_setting
+msgid "email alert before day"
+msgstr "email-alert voor de dag"
+
+#. module: openerp_saas_instance
+#: field:sale.order,existed_product:0
+msgid "product Name"
+msgstr "productnaam"

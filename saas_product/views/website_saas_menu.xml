@@ -1,0 +1,36 @@
+<odoo>
+	<data>
+		<!-- Used to add Menu of custom webpage on Main Website Menu -->
+		<record id="website_menu1" model="website.menu">
+			<field name="name">Shop</field>
+			<field name="url">/apps</field>
+			<field name="parent_id" ref="website.main_menu" />
+		</record>
+		
+		<!-- <delete id="website_sale.menu_shop" model="website.menu" /> -->
+	<delete model="website.menu"
+		search="[('name','=','Shop'), ('url','=','/shop')]" />
+		<!-- 
+		<record id="menu_shop" model="website.menu">
+            <field name="name">Shop</field>
+            <field name="url">/shop</field>
+            <field name="parent_id" ref="website.main_menu"/>
+            <field name="sequence" type="int">20</field>
+
+
+
+        </record> -->
+
+
+		<template id="website_sale.header" inherit_id="website.layout" name="Header Shop My Cart Link">
+        <xpath expr="//header//ul[@id='top_menu']/li" position="before">
+            <t t-set="website_sale_order" t-value="website.sale_get_order()" />
+            <li class="nav-item divider d-none"/> <!-- Make sure the cart and related menus are not folded (see autohideMenu) -->
+            <li t-attf-class="nav-item o_wsale_my_cart #{'' if website_sale_order and website_sale_order.cart_quantity else 'd-none'}">
+
+            </li>
+        </xpath>
+    </template>
+		
+	</data>
+</odoo>

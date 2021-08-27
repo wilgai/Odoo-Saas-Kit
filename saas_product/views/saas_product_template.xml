@@ -1,0 +1,988 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<template id="website_sale.address" name="Address Management">
+		<t t-set="no_footer">1</t>
+		<t t-call="website.layout">
+			<div id="wrap">
+			<div class="oe_structure" >
+				<div class="container oe_website_sale py-2">
+					<div class="row">
+						<div class="col-12">
+							<t t-call="website_sale.wizard_checkout">
+								<t t-set="step" t-value="20"/>
+							</t>
+						</div>
+					</div>
+					<div class="row">
+						<div class="col-12 col-xl-auto order-xl-2 d-none d-xl-block">
+							<t t-call="website_sale.cart_summary"/>
+						</div>
+						<div class="col-12 col-xl order-xl-1 oe_cart">
+							<div>
+								<t t-if="mode == ('new', 'billing')">
+									<h2 class="o_page_header mt8">
+										Your Address
+										<small> or </small>
+										<a role="button" href='/web/login?redirect=/shop/checkout' class='btn btn-primary' style="margin-top: -11px">Log In</a>
+									</h2>
+								</t>
+								<t t-if="mode == ('edit', 'billing')">
+									<h2 class="o_page_header mt8">Your Address</h2>
+								</t>
+								<t t-if="mode[1] == 'shipping'">
+									<h2 class="o_page_header mt8">Shipping Address </h2>
+								</t>
+								<t t-if="error" t-foreach="error.get('error_message', [])" t-as="err">
+									<h4 class="text-danger" t-esc="err"/>
+								</t>
+								<form action="/shop/address" method="post" class="checkout_autoformat" id="address_form">
+									<div class="form-row">
+										<div t-attf-class="form-group #{error.get('name') and 'o_has_error' or ''} col-lg-12 div_name">
+											<label class="col-form-label" for="name">Name</label>
+											<input type="text" name="name" t-attf-class="form-control #{error.get('name') and 'is-invalid' or ''}"
+												t-att-value="'name' in checkout and checkout['name']"/>
+										</div>
+										<div class="w-100"/>
+										<t t-if="mode[1] == 'billing'">
+											<div t-attf-class="form-group #{error.get('email') and 'o_has_error' or ''} col-lg-6" id="div_email">
+												<label class="col-form-label" for="email">Email</label>
+												<input type="email" name="email" t-attf-class="form-control #{error.get('email') and 'is-invalid' or ''}"
+													t-att-value="'email' in checkout and checkout['email']"/>
+											</div>
+										</t>
+										<div t-attf-class="form-group #{error.get('phone') and 'o_has_error' or ''} col-lg-6" id="div_phone">
+											<label class="col-form-label" for="phone">Phone</label>
+											<input type="tel" name="phone" t-attf-class="form-control #{error.get('phone') and 'is-invalid' or ''}"
+												t-att-value="'phone' in checkout and checkout['phone']"/>
+										</div>
+										<div class="w-100"/>
+										<div t-attf-class="form-group #{error.get('street') and 'o_has_error' or ''} col-lg-12 div_street">
+											<label class="col-form-label" for="street">
+												Street
+												<span class="d-none d-md-inline"> and Number</span>
+											</label>
+											<input type="text" name="street" t-attf-class="form-control #{error.get('street') and 'is-invalid' or ''}"
+												t-att-value="'street' in checkout and checkout['street']"/>
+										</div>
+										<div t-attf-class="form-group #{error.get('street2') and 'o_has_error' or ''} col-lg-12 div_street2">
+											<label class="col-form-label label-optional" for="street2">Street 2</label>
+											<input type="text" name="street2" t-attf-class="form-control #{error.get('street2') and 'is-invalid' or ''}"
+												t-att-value="'street2' in checkout and checkout['street2']"/>
+										</div>
+										<div class="w-100"/>
+										<t t-set='zip_city' t-value='country and [x for x in country.get_address_fields() if x in ["zip", "city"]] or ["city", "zip"]'/>
+										<t t-if="'zip' in zip_city and zip_city.index('zip') &lt; zip_city.index('city')">
+											<div t-attf-class="form-group #{error.get('zip') and 'o_has_error' or ''} col-md-4 div_zip">
+												<label class="col-form-label label-optional" for="zip">Zip Code</label>
+												<input type="text" name="zip" t-attf-class="form-control #{error.get('zip') and 'is-invalid' or ''}"
+													t-att-value="'zip' in checkout and checkout['zip']"/>
+											</div>
+										</t>
+										<div t-attf-class="form-group #{error.get('city') and 'o_has_error' or ''} col-md-8 div_city">
+											<label class="col-form-label" for="city">City</label>
+											<input type="text" name="city" t-attf-class="form-control #{error.get('city') and 'is-invalid' or ''}"
+												t-att-value="'city' in checkout and checkout['city']"/>
+										</div>
+										<t t-if="'zip' in zip_city and zip_city.index('zip') &gt; zip_city.index('city')">
+											<div t-attf-class="form-group #{error.get('zip') and 'o_has_error' or ''} col-md-4 div_zip">
+												<label class="col-form-label label-optional" for="zip">Zip Code</label>
+												<input type="text" name="zip" t-attf-class="form-control #{error.get('zip') and 'is-invalid' or ''}"
+													t-att-value="'zip' in checkout and checkout['zip']"/>
+											</div>
+										</t>
+										<div class="w-100"/>
+										<div t-attf-class="form-group #{error.get('country_id') and 'o_has_error' or ''} col-lg-6 div_country">
+											<label class="col-form-label" for="country_id">Country</label>
+											<select id="country_id" name="country_id" t-attf-class="form-control #{error.get('country_id') and 'is-invalid' or ''}">
+												<option value="">Country...</option>
+												<t t-foreach="countries" t-as="c">
+													<option t-att-value="c.id" t-att-selected="c.id == (country and country.id or -1)">
+														<t t-esc="c.name"/>
+													</option>
+												</t>
+											</select>
+										</div>
+										<div t-attf-class="form-group #{error.get('state_id') and 'o_has_error' or ''} col-lg-6 div_state"
+											t-att-style="(not country or not country.state_ids) and 'display: none'">
+											<label class="col-form-label" for="state_id">State / Province</label>
+											<select name="state_id" t-attf-class="form-control #{error.get('state_id') and 'is-invalid' or ''}" data-init="1">
+												<option value="">State / Province...</option>
+												<t t-foreach="country and country.state_ids or []" t-as="s">
+													<option t-att-value="s.id"
+														t-att-selected="s.id == ('state_id' in checkout and country and checkout['state_id'] != '' and int(checkout['state_id']))">
+														<t t-esc="s.name"/>
+													</option>
+												</t>
+											</select>
+										</div>
+										<div class="w-100"/>
+										<t t-if="mode == ('new', 'billing') and not only_services">
+											<div class="col-lg-12">
+												<div class="checkbox">
+													<label>
+														<input type="checkbox" id='shipping_use_same' class="mr8" name='use_same' value="1" checked='checked'/>
+														Ship to the same address
+														<span class='ship_to_other text-muted' style="display: none">
+															&amp;nbsp;(
+															<i>Your shipping address will be requested later) </i>
+														</span>
+													</label>
+												</div>
+											</div>
+										</t>
+									</div>
+
+									<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+									<input type="hidden" name="submitted" value="1"/>
+									<input type="hidden" name="partner_id" t-att-value="partner_id or '0'"/>
+									<input type="hidden" name="callback" t-att-value="callback"/>
+									Example
+									<input type="hidden" name="field_required" t-att-value="'phone,name'"/>
+
+									<div class="d-flex justify-content-between">
+										<a role="button" t-att-href="mode == ('new', 'billing') and '/shop/cart' or '/shop/checkout'" class="btn btn-secondary mb32">
+											<i class="fa fa-chevron-left"/>
+											<span>Back</span>
+										</a>
+										<a role="button" class="btn btn-primary mb32 a-submit a-submit-disable a-submit-loading" href="#" id="address_next_btn">
+											<span>Next</span>
+											<i class="fa fa-chevron-right"/>
+										</a>
+									</div>
+								</form>
+							</div>
+						</div>
+					</div>
+				</div>
+				</div>
+			</div>
+		</t>
+	</template>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<!-- to inherit from base class and access js file -->
+	<template id="saas_products_view" name="Javascript_Test" inherit_id="website.assets_frontend">
+		<xpath expr="." position="inside">
+			<script type="text/javascript" src="/saas_product/static/src/js/product_template.js"/>
+			<link rel="stylesheet" href="/saas_product/static/src/css/appointment.css" type="text/css"/>
+		</xpath>
+	</template>
+
+	<template id="my_database_link" inherit_id="portal.frontend_layout">
+		<xpath expr="//a[@id='o_logout']" position="after">
+			<a href="/apps/dbs" class="dropdown-item" role="menuitem">My Instances</a>
+		</xpath>
+	</template>
+
+
+	<template id="saas_index" name="Products">
+		<t t-call="website.layout">
+			<t t-set="title">Saas Website</t>
+			<div class="oe_structure"/>
+				<div class="container">
+					<div t-if="not product">
+						<h1>No Products to display</h1>
+					</div>
+					<!-- <div class="row">
+					<div class="col-md-12">
+					<div class="banner">
+						<div class='banner_text col-md-6 col-12 mx-auto'>
+							
+						</div>
+					</div>
+					</div>
+					</div> -->
+					
+					<div class="d-flex h-100 banner">
+    <div class="row align-self-center w-100 mx-auto">
+        <div class="col-12 col-lg-6 mx-auto banner_text">
+            <div class="jumbotron">
+                <h2>Grow your Business with Us</h2>
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+					
+		
+					<div t-if="product" id="products_desc">
+					<div class="row">
+					<div class="col-12 mt-4 mb-4">
+						<h3>
+							Choose your
+							<strong>Apps</strong>
+							
+						</h3>
+						</div>
+						</div>
+					</div>
+					<!-- <div t-if="product"> -->
+					<div t-if="product" class="main_div">
+					<div class="row">
+						<div class="col-lg-8 col-12">
+							<t t-foreach="product" t-as="item">
+
+								<div class="col-md-6 col-sm-6 col-12 maindiv float-left mt-3">
+									<div class="app-bg">
+									<div style="display: flex; ">
+										<div style="font-size: 0.75em;font-weight:bold; display: block; ">
+											<div style="padding-bottom: 25px;font-size: 0.75em; font-weight:bold;">
+												<img class="img img-responsive pull-left" t-attf-src="/web/image/product.product/{{item.id}}/image_1024" t-att-alt="item.name"
+													style="hover:{{item.description}}}; height: auto; width: 100px; margin-top: 0%;"/>
+
+												<!-- /web/image/product.product/9/image_1024 -->
+
+												<!-- <t t-if="item.image_1920"> -->
+												<!-- <img class="img img-responsive pull-left" width="97" height="50" t-attf-src="data:image/jpg;base64, {{item.image_1920}}/image/90x90" -->
+												<!-- t-att-alt="item.name" style="width:100px;height:100px;margin-top: 5%;"/> -->
+												<!-- </t> -->
+												<!-- <t t-if="not item.image_1920"> -->
+												<!-- <img class="img img-responsive pull-left" width="97" height="125" t-attf-src="/website/image/product.product/{{item.id}}/image/90x90" -->
+												<!-- t-att-alt="item.name" style="hover:{{item.description}}}; height: 35%; width: 30%; margin-top: 5%;"/> -->
+												<!-- </t> -->
+											</div>
+										</div>
+										<div class="middle-content">
+											<strong>
+												<p t-esc="item.name" style="background-color: #F2F2F2;font-size: 1.25em; background-color: #d8b960;"/>
+											</strong>
+											<span>
+												<!-- <t t-esc="str(round(item.lst_price, 2))"/>
+												<t t-esc="item.currency_id.name"/> -->
+												<span t-esc="item.get_list_price()" />
+												<span t-esc="item.get_list_currency()"/>
+ 												<span> /month</span>
+											</span>
+										</div>
+										<div style="margin-top: 15px;">
+										
+											<input type="checkbox" t-att-id="item.id" t-att-pro_id="item.id" tyle="transform: scale(1.3, 1.3);" t-att-pro_price="item.get_list_price()"
+												class="product_check col-xs-1"/>
+										<div class="more-info">
+										<a href='#'>More info</a>
+									</div>
+										</div>
+									</div>
+
+									
+								</div>
+								</div>
+								
+
+							</t>
+						</div>
+							
+
+
+
+
+						<!-- <div class="pull-right summary_div"> -->
+						<div class="col-lg-4 col-12">
+						<div class="summary_div">
+							<div id="intro">
+							<h2>Order Summary</h2>
+								<div class='radiodiv' id="radiobuttons" t-if="uid">
+									<div class="form-check">
+  										<label class="form-check-label">
+										<input type="radio" name="type" id="new" value='new' checked="checked">
+											<span>New Instance</span>
+										</input>
+										<input style="margin-left:20px;" type="radio" name="type" id="topup" value='topup'
+											title='If you already have an Instance you can install/add top up products into it'>
+											<span>Top-up</span>
+										</input>
+										</label>
+										</div>
+									
+								</div>
+								<div id="new_instance" class='instance-div'>
+
+									<br/>
+									
+									<div title='No. of Users to be add into the tenant Instance'>
+									  <div class="form-group">
+									  <label for="Number of Users" title='No. of Users to be add into the tenant Instance'><strong>No. of Users</strong>
+									</label>
+										<input class="text-right input-div-user" id="users" name="num_users" type="number" min="1" value="1"/>
+										</div>
+									</div>
+									<br/>
+									
+
+									<div>
+									<div class="form-group">
+									<label for="Instance Name"><strong>
+										Instance Name
+									</strong></label>
+									(
+									<i>Sub domain name</i>
+									)
+										<input class='input-div-db' id="instance" name="db_instance" type="text"/>
+										</div>
+									</div>
+									<br/>
+								</div>
+								<div id="topup_instance" class='instance-div'>
+
+									<div t-if="not tenant">
+										<br></br>
+										<h6>You don't have any Tenant for Top-up</h6>
+										<h6>
+											<strong>Please Create a New Tenant</strong>
+										</h6>
+									</div>
+									<div class='tenant-div' t-if="tenant">
+										<strong>
+											Select your Instance
+										</strong>
+										<div>
+											<select class='input-div-db' id="db_option" default="Select">
+												<option t-att-value="default" t-att-usersnumber="1">
+												</option>
+												<t t-foreach="tenant" t-as="db">
+													<option t-att-value="db.id" t-att-dbterm="db.sale_order_ref.invoice_term_id.id" t-att-usersnumber="db.no_of_users"
+														t-att-lines="db.sale_order_ref.order_line">
+														<t t-esc="db.name"/>
+													</option>
+												</t>
+											</select>
+										</div>
+									</div>
+								</div>
+							</div>
+							<hr></hr>
+							<div id="products_calc">
+								<div id="new_instance_calculation" class='calc-div'>
+									<br/>
+									<!-- <ul id="tabs" class="nav nav-tabs"> <li class="active" data-type="yearly"> <a id="year" data-toggle="tab" href="#yearly">Annually</a> </li>
+										<li data-type="monthly"> <a id="month" data-toggle="tab" href="#monthly">Monthly</a> </li> </ul> -->
+
+									<ul class="nav nav-tabs" id="tabs">
+										<li class="active" data-type="yearly">
+											<a id="year" data-toggle="tab" href="#yearly" class="nav-link active" role="tab">Annually</a>
+										</li>
+										<li class="nav-item" data-type="monthly">
+											<a id="month" data-toggle="tab" href="#monthly" class="nav-link" role="tab">Monthly</a>
+										</li>
+									</ul>
+									<div class="tab-content">
+										<table id="monthly" class="table tab-pane fade" style="white-space:nowrap">
+											<tbody>
+												<tr>
+													<td>
+														Number of Users
+													</td>
+													<td class="text-right">
+														<span id="m_num_users">1</span>
+													</td>
+													<td>
+														<span>
+															Users
+														</span>
+													</td>
+												</tr>
+												<tr>
+													<td id="m_num_apps">
+														0 Apps
+													</td>
+													<td class="text-right">
+														<t t-esc="product[0].get_list_currency()"/>
+														<span id="m_apps_price">0.00</span>
+													</td>
+													<td>
+														<span>
+															<t t-esc="product[0].get_list_currency()"/>
+														</span>
+													</td>
+												</tr>
+												<tr>
+													<td>
+														<b>Total</b>
+														/ month
+													</td>
+													<td class="text-right">
+														<b>
+															<t t-esc="product[0].get_list_currency()"/>
+															<span id="m_all_total">0.00</span>
+														</b>
+
+														<td>
+															<span>
+																<t t-esc="product[0].get_list_currency()"/>
+															</span>
+														</td>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+										<table id="yearly" class="table tab-pane fade show active" style="white-space:nowrap">
+											<tbody>
+												<tr>
+													<td>
+														Number of Users
+													</td>
+													<td class="text-right">
+														<span id="num_users">1</span>
+													</td>
+													<td>
+														<span>
+															Users
+														</span>
+													</td>
+												</tr>
+												<tr>
+													<td id="num_apps">
+														0 Apps
+													</td>
+													<td class="text-right">
+														<t t-esc="product[0].get_list_currency()"/>
+														<span id="apps_price">0.00</span>
+													</td>
+													<td>
+														<span>
+															<t t-esc="product[0].get_list_currency()"/>
+														</span>
+													</td>
+												</tr>
+												<tr class="active">
+													<td>
+														<b>Total</b>
+														/ year
+													</td>
+													<td class="text-right">
+														<b>
+															<t t-esc="product[0].get_list_currency()"/>
+															<span id="all_total">0.00</span>
+														</b>
+
+														<td>
+															<span>
+																<t t-esc="product[0].get_list_currency()"/>
+															</span>
+														</td>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+										<div class="pricing-rules mt-3 mb-3">
+											<p>*Pricing Rule</p>
+											<p>Price = Product Price * months * Users
+											</p><!-- class="text-muted" -->
+											<p>Anually = 12 months</p><!-- class="text-muted" -->
+										</div>
+									</div>
+								</div>
+								<div id="top_up_instance_calculation" class='calc-div'>
+									<br/>
+									<br/>
+									<br/>
+									<table id="topup_table" class="table" style="white-space:nowrap">
+										<tbody>
+											<tr>
+												<td> Number of Users
+												</td>
+												<td class="text-right">
+													<span id="topup_users">1</span>
+												</td>
+												<td>
+													<span> Users </span>
+												</td>
+											</tr>
+											<tr>
+												<td id="topup_apps"> 0 Apps </td>
+												<td class="text-right">
+													<t t-esc="product[0].currency_id.symbol"/>
+													<span id="topup_apps_price">0.00</span>
+												</td>
+												<td>
+													<span>
+														<t t-esc="product[0].currency_id.name"/>
+													</span>
+												</td>
+											</tr>
+											<tr class="active">
+												<td>
+													<b>Total</b>
+												</td>
+												<td class="text-right">
+													<b>
+														<t t-esc="product[0].currency_id.symbol"/>
+														<span id="topup_all_total">0.00</span>
+													</b>
+													<td>
+														<span>
+															<t t-esc="product[0].currency_id.name"/>
+														</span>
+													</td>
+												</td>
+											</tr>
+										</tbody>
+									</table>
+								</div>
+
+
+
+
+
+								<br/>
+								<div class="mt-4">
+									<div class="text-center" id="paybuttons">
+										<form id="tosubmit" action="/shop/shop_cart_custom_update">
+											<strong>
+												<button value="Proceed to confirm" id="pay" class='sub_btn'>Proceed to Confirm</button>
+											</strong>
+										</form>
+									</div>
+								</div>
+							</div>
+							</div>
+						</div>
+						</div>
+						</div>
+
+
+					</div>
+					<!-- </div> -->
+			<div class="oe_structure"/>
+		</t>
+	</template>
+
+
+	<!-- Remove checkout status bar from header -->
+	<!-- <template id="website_sale_template_inherit_id" inherit_id="website_sale.address"> <xpath expr="//div[@id='wrap']/div[1]/div[1]/div[1]/div[1]"v12
+		<xpath expr="//div[@id='wrap']/div[1]/div[2]/div[2]/div[2]" position="replace"> </xpath> </template> -->
+
+
+	<!-- <template id="website_sale_template_payment_inherit_id" inherit_id="website_sale.payment"> <xpath expr="//div[@id='wrap']/div[1]/div[1]/div[2]/div[1]"v12
+		<xpath expr="//div[@id='wrap']/div[1]/div[1]/div[2]" position="replace"> </xpath> </template> -->
+
+
+	<!-- <template id="website_sale_template_payment_inherit_id2" -->
+	<!-- inherit_id="website_sale.payment"> -->
+	<!-- <xpath expr="//div[@id='wrap']/div[1]/div[1]/div[2]/div[1]/div[1]/h2" -->
+	<!-- position="replace"> -->
+	<!-- <h2 class="mb8 mt8">Your Order</h2> -->
+	<!-- </xpath> -->
+	<!-- </template> -->
+
+
+
+
+
+
+
+
+
+	<!--TEMPLATE INHERITED TO HIDE OR SHOW ACQUIRER DIV ACCORDING TO "hide_acquirer_div" key in values-->
+	<template id="payment_tokens_list_saas" inherit_id="payment.payment_tokens_list" name="Payment Tokens list">
+		<xpath expr="//form/div[@class='card']" position="replace">
+			<div class="card" style="display: none" t-if="hide_acquirer_div">
+				<t t-set="acquirers_count" t-value="len(acquirers) if acquirers else 0"/>
+				<t t-set="pms_count" t-value="len(pms) if pms else 0"/>
+				<t t-set="MAX_BRAND_LINE" t-value="3"/>
+				<t t-foreach="acquirers" t-as="acq">
+					<div class="card-body o_payment_acquirer_select">
+						<label>
+							<t t-if="acq.payment_flow == 'form'">
+								<input type="radio" t-att-data-acquirer-id="acq.id" t-att-data-form-payment="true" t-att-data-provider="acq.provider"
+									t-att-class="'d-none' if (acquirers_count==1 and pms_count==0) else ''" name="pm_id" t-attf-value="form_{{acq.id}}"
+									t-att-checked="acquirers_count==1 and pms_count==0 or acquirers[0] == acq"/>
+							</t>
+							<t t-else="acq.payment_flow == 's2s'">
+								<input type="radio" t-att-data-acquirer-id="acq.id" t-att-data-s2s-payment="true" t-att-data-provider="acq.provider" name="pm_id"
+									t-attf-value="new_{{acq.id}}" t-att-class="'d-none' if (acquirers_count==1 and pms_count==0) else ''"
+									t-att-checked="acquirers_count==1 and pms_count==0 or acquirers[0] == acq"/>
+							</t>
+							<span class="payment_option_name">
+								<t t-esc="acq.display_as or acq.name"/>
+								<div t-if="acq.state == 'test'" class="badge-pill badge-warning float-right" style="margin-left:5px">
+									Test Mode
+								</div>
+							</span>
+							<t t-if="acq_extra_fees and acq_extra_fees.get(acq)">
+								<span class="badge badge-pill badge-secondary">
+									+
+									<t t-esc="acq_extra_fees[acq]" t-options='{"widget": "monetary", "display_currency": acq_extra_fees["currency_id"]}'/>
+									Fee
+								</span>
+							</t>
+							<t t-elif="acq.fees_active">
+								<small class="text-muted">(Some fees may apply)</small>
+							</t>
+						</label>
+						<ul class="float-right list-inline payment_icon_list">
+							<t t-set="i" t-value="0"/>
+							<t t-foreach="acq.payment_icon_ids" t-as="pm_icon">
+								<li t-attf-class="list-inline-item#{'' if (i &lt; MAX_BRAND_LINE) else ' d-none'}">
+									<span t-field="pm_icon.image_payment_form" t-options='{"widget": "image", "alt-field": "name"}'/>
+								</li>
+								<li t-if="i==MAX_BRAND_LINE" style="display:block;" class="list-inline-item">
+									<span class="float-right more_option text-info">
+										<a href="#" class="o_payment_form_pay_icon_more" data-toggle="tooltip"
+											t-att-title="', '.join([opt.name for opt in acq.payment_icon_ids[MAX_BRAND_LINE:]])">and more</a>
+									</span>
+								</li>
+								<t t-set="i" t-value="i+1"/>
+							</t>
+						</ul>
+						<div t-raw="acq.pre_msg" class="text-muted ml-3"/>
+					</div>
+					<t t-if="acq.payment_flow == 'form'">
+						<div t-attf-id="o_payment_form_acq_{{acq.id}}" t-attf-class="d-none {{'card-footer' if acq.save_token == 'ask' else ''}}">
+							<label t-if="acq.save_token == 'ask'">
+								<input type="checkbox" name="o_payment_form_save_token" data-remove-me=""/>
+								Save my payment data
+							</label>
+							<t t-if="acq.save_token == 'always'">
+								<input type="checkbox" name="o_payment_form_save_token" checked="'checked'" class="o_hidden" data-remove-me=""/>
+							</t>
+						</div>
+					</t>
+					<t t-else="acq.payment_flow == 's2s'">
+						<div t-attf-id="o_payment_add_token_acq_{{acq.id}}"
+							t-attf-class="card-footer {{'d-none' if(acquirers_count &gt; 1 and pms_count==0 and acquirers[0]!=acq) else 'd-none' if pms_count &gt;0 else ''}}">
+							<div class="clearfix">
+								<input type="hidden" t-if="(verify_validity==True or mode == 'manage') and acq.check_validity" name="verify_validity"
+									t-att-value="acq.check_validity"/>
+								<t t-call="{{acq.sudo().get_s2s_form_xml_id()}}">
+									<t t-set="id" t-value="acq.id"/>
+									<t t-set="partner_id" t-value="partner_id"/>
+									<t t-if="not return_url" t-set="return_url" t-value="''"/>
+								</t>
+							</div>
+						</div>
+					</t>
+				</t>
+				<t t-foreach="pms" t-as="pm">
+					<t t-if="not verify_validity or (pm.acquirer_id.check_validity and pm.verified) or not pm.acquirer_id.check_validity">
+						<div class="card-body o_payment_acquirer_select">
+							<label>
+								<input t-if="mode == 'payment'" type="radio" name="pm_id" t-att-value="pm.id" t-att-checked="checked_pm_id == pm.id"/>
+								<span class="payment_option_name" t-esc="pm.name"/>
+								<t t-if="pm.verified">
+									<i class="fa fa-check text-success" title="This payment method is verified by our system." role="img" aria-label="Ok"></i>
+								</t>
+								<t t-else="">
+									<i class="fa fa-check text-muted" title="This payment method has not been verified by our system." role="img" aria-label="Not verified"></i>
+								</t>
+							</label>
+							<button t-if="mode == 'manage'" name="delete_pm" t-att-value="pm.id" class="btn btn-primary btn-sm float-right">
+								<i class="fa fa-trash"></i>
+								Delete
+							</button>
+						</div>
+					</t>
+				</t>
+			</div>
+
+			<div class="card" t-if="not hide_acquirer_div">
+				<t t-set="acquirers_count" t-value="len(acquirers) if acquirers else 0"/>
+				<t t-set="pms_count" t-value="len(pms) if pms else 0"/>
+				<t t-set="MAX_BRAND_LINE" t-value="3"/>
+				<t t-foreach="acquirers" t-as="acq">
+					<div class="card-body o_payment_acquirer_select">
+						<label>
+							<t t-if="acq.payment_flow == 'form'">
+								<input type="radio" t-att-data-acquirer-id="acq.id" t-att-data-form-payment="true" t-att-data-provider="acq.provider"
+									t-att-class="'d-none' if (acquirers_count==1 and pms_count==0) else ''" name="pm_id" t-attf-value="form_{{acq.id}}"
+									t-att-checked="acquirers_count==1 and pms_count==0 or acquirers[0] == acq"/>
+							</t>
+							<t t-else="acq.payment_flow == 's2s'">
+								<input type="radio" t-att-data-acquirer-id="acq.id" t-att-data-s2s-payment="true" t-att-data-provider="acq.provider" name="pm_id"
+									t-attf-value="new_{{acq.id}}" t-att-class="'d-none' if (acquirers_count==1 and pms_count==0) else ''"
+									t-att-checked="acquirers_count==1 and pms_count==0 or acquirers[0] == acq"/>
+							</t>
+							<span class="payment_option_name">
+								<t t-esc="acq.display_as or acq.name"/>
+								<div t-if="acq.state == 'test'" class="badge-pill badge-warning float-right" style="margin-left:5px">
+									Test Mode
+								</div>
+							</span>
+							<t t-if="acq_extra_fees and acq_extra_fees.get(acq)">
+								<span class="badge badge-pill badge-secondary">
+									+
+									<t t-esc="acq_extra_fees[acq]" t-options='{"widget": "monetary", "display_currency": acq_extra_fees["currency_id"]}'/>
+									Fee
+								</span>
+							</t>
+							<t t-elif="acq.fees_active">
+								<small class="text-muted">(Some fees may apply)</small>
+							</t>
+						</label>
+						<ul class="float-right list-inline payment_icon_list">
+							<t t-set="i" t-value="0"/>
+							<t t-foreach="acq.payment_icon_ids" t-as="pm_icon">
+								<li t-attf-class="list-inline-item#{'' if (i &lt; MAX_BRAND_LINE) else ' d-none'}">
+									<span t-field="pm_icon.image_payment_form" t-options='{"widget": "image", "alt-field": "name"}'/>
+								</li>
+								<li t-if="i==MAX_BRAND_LINE" style="display:block;" class="list-inline-item">
+									<span class="float-right more_option text-info">
+										<a href="#" class="o_payment_form_pay_icon_more" data-toggle="tooltip"
+											t-att-title="', '.join([opt.name for opt in acq.payment_icon_ids[MAX_BRAND_LINE:]])">and more</a>
+									</span>
+								</li>
+								<t t-set="i" t-value="i+1"/>
+							</t>
+						</ul>
+						<div t-raw="acq.pre_msg" class="text-muted ml-3"/>
+					</div>
+					<t t-if="acq.payment_flow == 'form'">
+						<div t-attf-id="o_payment_form_acq_{{acq.id}}" t-attf-class="d-none {{'card-footer' if acq.save_token == 'ask' else ''}}">
+							<label t-if="acq.save_token == 'ask'">
+								<input type="checkbox" name="o_payment_form_save_token" data-remove-me=""/>
+								Save my payment data
+							</label>
+							<t t-if="acq.save_token == 'always'">
+								<input type="checkbox" name="o_payment_form_save_token" checked="'checked'" class="o_hidden" data-remove-me=""/>
+							</t>
+						</div>
+					</t>
+					<t t-else="acq.payment_flow == 's2s'">
+						<div t-attf-id="o_payment_add_token_acq_{{acq.id}}"
+							t-attf-class="card-footer {{'d-none' if(acquirers_count &gt; 1 and pms_count==0 and acquirers[0]!=acq) else 'd-none' if pms_count &gt;0 else ''}}">
+							<div class="clearfix">
+								<input type="hidden" t-if="(verify_validity==True or mode == 'manage') and acq.check_validity" name="verify_validity"
+									t-att-value="acq.check_validity"/>
+								<t t-call="{{acq.sudo().get_s2s_form_xml_id()}}">
+									<t t-set="id" t-value="acq.id"/>
+									<t t-set="partner_id" t-value="partner_id"/>
+									<t t-if="not return_url" t-set="return_url" t-value="''"/>
+								</t>
+							</div>
+						</div>
+					</t>
+				</t>
+				<t t-foreach="pms" t-as="pm">
+					<t t-if="not verify_validity or (pm.acquirer_id.check_validity and pm.verified) or not pm.acquirer_id.check_validity">
+						<div class="card-body o_payment_acquirer_select">
+							<label>
+								<input t-if="mode == 'payment'" type="radio" name="pm_id" t-att-value="pm.id" t-att-checked="checked_pm_id == pm.id"/>
+								<span class="payment_option_name" t-esc="pm.name"/>
+								<t t-if="pm.verified">
+									<i class="fa fa-check text-success" title="This payment method is verified by our system." role="img" aria-label="Ok"></i>
+								</t>
+								<t t-else="">
+									<i class="fa fa-check text-muted" title="This payment method has not been verified by our system." role="img" aria-label="Not verified"></i>
+								</t>
+							</label>
+							<button t-if="mode == 'manage'" name="delete_pm" t-att-value="pm.id" class="btn btn-primary btn-sm float-right">
+								<i class="fa fa-trash"></i>
+								Delete
+							</button>
+						</div>
+					</t>
+				</t>
+			</div>
+
+		</xpath>
+	</template>
+
+
+
+
+
+<template id="website_sale_template_payment_inherit_id3" inherit_id="website_sale.payment">
+		<xpath expr="//div[@id='wrap']/div[1]/div[1]/div[2]" position="replace"></xpath>
+
+
+		<xpath expr="//div[@id='wrap']/div[1]/div[1]/div[3]/div[3]" position="replace">
+			<span id="selection_payment">Select Payment Basis:&#160;&#160; <select id="payement_base" name="payment_mt" t-attf-class="payment_class">
+												<option value="no_option">--Select Payment Basis--</option>
+                                                <option value="True">Pay Now </option>
+												<option value="False">Trial Period</option>
+
+<!--												<t t-foreach="countries" t-as="c">-->
+<!--													<option t-att-value="c.id" t-att-selected="c.id == (country and country.id or -1)">-->
+<!--														<t t-esc="c.name"/>-->
+<!--													</option>-->
+<!--												</t>-->
+											</select></span>
+
+			<!-- pradip code added here website -->
+			<div id="payment_method123" class="mt-3 payment_method123"
+				t-if="(acquirers or tokens) and website_sale_order.amount_total and show_payment_acquire">
+				<h3 class="mb24">Pay with</h3>
+				<t t-call="payment.payment_tokens_list">
+					<t t-set="mode" t-value="'payment'"/>
+					<t t-set="submit_txt">Pay Now</t>
+					<t t-set="icon_right" t-value="1"/>
+					<t t-set="icon_class" t-value="'fa-chevron-right'"/>
+					<t t-set="submit_class" t-value="'btn btn-primary'"/>
+					<t t-set="pms" t-value="tokens"/>
+					<t t-set="form_action" t-value="'/shop/payment/token'"/>
+					<t t-set="prepare_tx_url" t-value="'/shop/payment/transaction/'"/>
+					<t t-set="partner_id" t-value="partner"/>
+
+					<t t-set="back_button_icon_class" t-value="'fa-chevron-left'"/>
+					<t t-set="back_button_txt"></t>
+					<t t-set="back_button_class" t-value="'btn btn-secondary'"/>
+					<t t-set="back_button_link" t-value="'/shop/cart'"/>
+				</t>
+			</div>
+
+		</xpath>
+
+
+		<xpath expr="//div[@id='wrap']/div[1]/div[1]/div[3]/div[3]" position="after">
+			<t t-if="showing == 2">
+
+			<div id="payment_method_trial" t-if="not show_payment_acquire and free_days &gt; 0">
+				<t t-call="payment.payment_tokens_list">
+					<t t-set="mode" t-value="'payment'"/>
+					<t t-set="submit_txt">
+						Continue with
+						<t t-esc="free_days"/>
+						Days Trial
+					</t>
+					<t t-set="icon_right" t-value="1"/>
+					<t t-set="icon_class" t-value="'fa-chevron-right'"/>
+					<t t-set="submit_class" t-value="'btn btn-primary'"/>
+					<t t-set="pms" t-value="tokens"/>
+					<t t-set="form_action" t-value="'/shop/payment/token'"/>
+					<t t-set="prepare_tx_url" t-value="'/shop/payment/transaction/'"/>
+					<t t-set="partner_id" t-value="partner"/>
+
+					<t t-set="back_button_icon_class" t-value="'fa-chevron-left'"/>
+					<t t-set="back_button_txt"></t>
+					<t t-set="back_button_class" t-value="'btn btn-secondary'"/>
+					<t t-set="back_button_link" t-value="'/shop/cart'"/>
+				</t>
+			</div>
+			</t>
+		</xpath>
+
+		<xpath expr="//div[@id='wrap']/div[1]/div[1]/div[2]" position="replace">
+
+
+
+
+
+			<div class="row checkout_autoformat">
+				<div class='col-md-12 o_website_sale_rightfit'>
+					<h2 class="mb8 mt8">Confirm Order</h2>
+					<table class="table table-striped table-condensed" id="cart_products" t-if="website_sale_order and website_sale_order.website_order_line">
+						<thead>
+							<tr>
+								<th class='td-img'>Product</th>
+								<th></th>
+								<th class='td-qty'>Quantity</th>
+								<th class='text-center td-price'>Price</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr t-foreach="website_sale_order.website_order_line" t-as="line">
+								<td class='' colspan="2" t-if="not line.product_id.product_tmpl_id"></td>
+								<td class='td-img' t-if="line.product_id.product_tmpl_id" style="width: 16%;">
+									<a t-attf-href="/shop/product/#{ slug(line.product_id.product_tmpl_id) }">
+										<span t-field="line.product_id.image_1920" t-options="{'widget': 'image', 'class': 'img-rounded'}"/>
+									</a>
+								</td>
+								<td class='td-product_name' t-if="line.product_id.product_tmpl_id">
+									<div>
+										<strong t-field="line.product_id.with_context(display_default_code=False).display_name"/>
+									</div>
+									<div class="text-muted hidden-xs small">
+										<t t-foreach="line.name.splitlines()[1:]" t-as="name_line">
+											<span>
+												<t t-esc="name_line"/>
+											</span>
+											<br/>
+										</t>
+									</div>
+								</td>
+								<td class='td-qty'>
+									<div t-esc="line.product_uom_qty"/>
+								</td>
+								<td class="text-center td-price">
+									<span t-esc="(line.price_unit)*(line.order_id.no_of_users)*(line.month)" style="white-space: nowrap;"
+										t-options="{'widget': 'monetary','from_currency': website_sale_order.pricelist_id.currency_id,'display_currency': website.currency_id}"/>
+								</td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
+				<div class="col-md-12">
+					<t t-call="website_sale.total">
+						<t t-set='extra_class' t-value='"col-xs-12 col-sm-5 col-sm-push-7 cart_total_custom_calss"'/>
+						<t t-set='redirect'>/shop/payment</t>
+					</t>
+				</div>
+				<div class="clearfix"/>
+				<div class="oe_structure"/>
+
+<!--				<div id="payment_method" class="col-md-12 o_website_sale_rightfit"-->
+<!--					t-if="(form_acquirers or s2s_acquirers or tokens) and website_sale_order.amount_total">-->
+<!--					<h3 class="mb24">Pay with </h3>-->
+<!--					<t t-call="payment.payment_tokens_list">-->
+<!--						<t t-set="mode" t-value="'payment'"/>-->
+<!--						<t t-set="submit_txt" t-value="'Pay Now'"/>-->
+<!--						<t t-set="icon_class" t-value="'fa-lock'"/>-->
+<!--						<t t-set="pms" t-value="tokens"/>-->
+<!--						<t t-set="form_action" t-value="'/shop/payment/token'"/>-->
+<!--						<t t-set="prepare_tx_url" t-value="'/shop/payment/transaction/'"/>-->
+<!--						<t t-set="partner_id" t-value="partner"/>-->
+<!--					</t>-->
+<!--				</div>-->
+
+<!--				<div t-if="not (form_acquirers or s2s_acquirers)">-->
+<!--					<a class="btn-link" groups="base.group_system" t-attf-href="/web#return_label=Website&amp;action=#{payment_action_id}">-->
+<!--						<i class="fa fa-arrow-right" aria-hidden="true"></i>-->
+<!--						Add payment acquirers-->
+<!--					</a>-->
+<!--				</div>-->
+				<div class="js_payment mb64 row" t-if="not website_sale_order.amount_total" id="payment_method">
+					<div class="col-sm-12">
+						<form target="_self" action="/shop/payment/validate" method="post" class="pull-right">
+							<input type="hidden" name="csrf_token" t-att-value="request.csrf_token()"/>
+							<a class="btn btn-primary a-submit">
+								<span t-if="order.amount_total &gt; 0">
+									Pay Now
+									<span class="fa fa-long-arrow-right"></span>
+								</span>
+								<span t-if="order.amount_total == 0">
+									Confirm Order
+									<span class="fa fa-long-arrow-right"></span>
+								</span>
+							</a>
+						</form>
+					</div>
+				</div>
+			</div>
+		</xpath>
+	</template>
+	<template id="confirmation1">
+        <t t-call="website.layout">
+            <t t-set="additional_title">Shop - Confirmed</t>
+            <div id="wrap">
+                <div class="container oe_website_sale py-2">
+                    <h1><span>Order</span> <em t-field="order.name" /> <t t-if="order.state == 'sale'"> <span>Confirmed</span></t></h1>
+
+                    <div class="row">
+
+
+						<div class="message">
+							<h2> Your  Database <em t-field="order.instance_name" />   has been created successfully. Database credentials are sent via email to your registered email  </h2>
+						</div>
+
+					</div>
+				</div>
+			</div>
+		</t>
+	</template>
+
+</odoo>

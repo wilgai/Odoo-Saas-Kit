@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+		<!-- Bank Accounts -->
+
+		<!-- <record id="view_partner_bank_form_inherit_saas" model="ir.ui.view"> -->
+		<!-- <field name="name">Partner Bank Accounts - Journal</field> -->
+		<!-- <field name="model">res.partner.bank</field> -->
+		<!-- <field name="inherit_id" ref="base.view_partner_bank_form"/> -->
+		<!-- <field name="arch" type="xml"> -->
+		<!-- <group name="bank" position="inside"> -->
+		<!-- <field name="iban"/> -->
+		<!-- </group> -->
+		<!-- </field> -->
+		<!-- </record> -->
+
+
+	</data>
+</odoo>

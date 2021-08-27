@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+	<data>
+		<menuitem id="saas_service" name="My Service" sequence="0" web_icon="openerp_saas_tenant,static/description/my_service.png"/>
+		<menuitem id="my_saas_service" name="My Service" parent="saas_service" sequence="0"/>
+		
+		<record id="saas_service_form" model="ir.ui.view">
+            <field name="name">saas.service.form</field>
+            <field name="model">saas.service</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="My Service" version="7.0" create='false' edit="false" toolbar="false">
+	                <sheet>
+		            	<div class="oe_title">
+		                    <label for="name"/>
+		             		<h1>
+		             			<field name="name" default_focus="1" nolabel="1" readonly="1"></field>
+		        		 	</h1>
+		                </div>
+		                <group colspan="4" col="4">
+							<field name="expiry_date" readonly="1"/>
+							<field name="user_count"/>
+							<field name="use_user_count"/>
+							<field name="balance_user_count"/>
+	                    </group>
+	               	</sheet>
+                </form>
+            </field>
+    	</record>
+		<record id="saas_service_tree" model="ir.ui.view">
+			<field name="name">saas.service.tree</field>
+			<field name="model">saas.service</field>
+			<field name="type">tree</field>
+			<field name="arch" type="xml">
+			    <tree string="My Service" create='false'>
+			        <field name="name"/>
+					<field name="expiry_date"/>
+					<field name="user_count"/>
+					<field name="use_user_count"/>
+					<field name="balance_user_count"/>
+			    </tree>
+			</field>
+		</record>
+        
+        <record id="saas_service_action" model="ir.actions.act_window">
+            <field name="name">My Service</field>
+            <field name="res_model">saas.service</field>
+           <!--<field name="view_type">form</field>-->
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="saas_service_tree"/>
+	   </record>
+
+        <menuitem action="saas_service_action"
+            id="menu_saas_service" name="Service Detail"
+            parent="my_saas_service" sequence="0"/>
+		
+		<record model="ir.ui.view" id="openerp_saas_tenant_users_view">
+			<field name="name">openerp.saas.tenant.users</field>
+			<field name="model">res.users</field>
+			<field name="inherit_id" ref="base.view_users_form"/>
+			<field name="arch" type="xml">
+			 		<field name="active" position="after">
+						<field name="is_manual" invisible="1"/>
+		     		</field>
+		     		<field name="name" position="replace">
+		     			<field name="name" on_change="onchange_name()"/>
+		     		</field>
+		     </field>
+		</record>	
+
+
+
+		
+	
+	</data>
+</odoo>

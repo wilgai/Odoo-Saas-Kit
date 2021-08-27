@@ -1,0 +1,26 @@
+<odoo>
+    <data noupdate="0">
+
+        <record id="group_admin_saas" model="res.groups">
+            <field name="name">SaaS Admin</field>
+        </record>
+
+        <record id="group_admin_saas_db_admin" model="res.groups">
+            <field name="name">Tenant DB Administration</field>
+            <field name="implied_ids" eval="[(4, ref('group_admin_saas'))]"/>
+        </record>
+
+        <record id="sale.sale_order_personal_rule" model="ir.rule">
+            <field name="domain_force">[]</field>
+        </record>
+
+        <record id="manage_page" model="res.groups">
+            <field name="name">Access DB Manage Page</field>
+        </record>
+
+        <record id="sale.sale_order_line_personal_rule" model="ir.rule">
+            <field name="domain_force">[]</field>
+        </record>
+
+    </data>
+</odoo>

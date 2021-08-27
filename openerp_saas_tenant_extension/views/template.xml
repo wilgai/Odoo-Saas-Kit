@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+ 
+ <odoo>
+	<data>
+	<template id="assets_backend123456" name="im_chat assets" inherit_id="web.assets_backend">
+            <xpath expr="." position="inside">
+                <link rel="stylesheet" href="/openerp_saas_tenant_extension/static/src/css/im_chat.css"/>
+                <script type="text/javascript" src="/openerp_saas_tenant_extension/static/src/js/web_backend.js"></script>
+            </xpath>
+        </template>
+
+
+        
+        <!--        Show Technical setting menu to tenant users -->
+        <menuitem id="base.menu_custom" name="Technical" parent="base.menu_administration" sequence="110" groups="base.group_no_one,group_psuedo_admin"/>
+        
+		</data>
+</odoo>

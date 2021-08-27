@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+tenant_database_recurr_access_recurr,recurring_term,model_recurring_term,saas_base.group_admin_saas_db_admin,1,1,1,1
+tenant_database_recurr_access_recurr1,recurring_term1,model_recurring_term,sales_team.group_sale_manager,1,1,1,1
+

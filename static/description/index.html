@@ -1,0 +1,1419 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+<link href="css/bootstrap.css" type="text/css" rel="stylesheet" />
+<link href="css/font-awesome.min.css" type="text/css" rel="stylesheet" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
+<style>
+
+/* /loempia/static/src/css/description.css defined in bundle 'web.assets_frontend' */
+ .oe_styling_v8{font-family: "Open Sans", "Helvetica", Sans; font-weight: 300; color: #646464; background: white; font-size: 16px;} .oe_styling_v8 .oe_website_contents{background: whitesmoke; padding-bottom: 1px;} .oe_styling_v8 b{font-weight: 600;} .oe_styling_v8 a{color: #21B799; text-decoration: none;} .oe_styling_v8 a.btn{color: white;} .oe_styling_v8 .oe_title_font{font-family: "Lato", "Open Sans", "Helvetica", Sans;} .oe_styling_v8 .oe_page{background: white; overflow: hidden; -webkit-border-radius: 1px; -moz-border-radius: 1px; -ms-border-radius: 1px; -o-border-radius: 1px; border-radius: 1px; -webkit-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35); -moz-box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35); box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);} .oe_styling_v8 .oe_emph{font-weight: 400;} .oe_styling_v8 .oe_dark{overflow: hidden; background: #efefef; box-shadow: none;} .oe_page{margin: 0px auto 64px auto; max-width: 992px;} .oe_row{width: 928px; margin-top: 16px; margin-bottom: 16px; margin-left: auto; margin-right: auto;} .oe_row.oe_fit{width: auto;} .oe_clearfix:after, .oe_row:after{content: "."; display: block; clear: both; visibility: hidden; line-height: 0; height: 0;} [class*='oe_span']{float: left; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; padding: 0 16px;} .oe_span12{width: 928px;} .oe_span10{width: 773px;} .oe_span9{width: 696px;} .oe_span8{width: 618px;} .oe_span6{width: 464px;} .oe_span4{width: 309px;} .oe_span3{width: 232px;} .oe_span2{width: 154px;} [class*='oe_span'].oe_fit{padding-left: 0px !important; padding-right: 0px !important;} [class*='oe_span'].oe_right{float: right;} .oe_row.oe_flex [class*='oe_span']{display: inline-block; float: none; vertical-align: top; -webkit-box-sizing: border-box; -moz-box-sizing: border-box; box-sizing: border-box; padding: 0 16px; width: auto;} .oe_row.oe_flex .oe_span12{max-width: 928px;} .oe_row.oe_flex .oe_span10{max-width: 769px;} .oe_row.oe_flex .oe_span9{max-width: 692px;} .oe_row.oe_flex .oe_span8{max-width: 614px;} .oe_row.oe_flex .oe_span6{max-width: 460px;} .oe_row.oe_flex .oe_span4{max-width: 305px;} .oe_row.oe_flex .oe_span3{max-width: 228px;} .oe_row.oe_flex .oe_span2{max-width: 150px;} .oe_mb0{margin-bottom: 0px !important;} .oe_mb4{margin-bottom: 4px !important;} .oe_mb8{margin-bottom: 8px !important;} .oe_mb16{margin-bottom: 16px !important;} .oe_mb32{margin-bottom: 32px !important;} .oe_mb48{margin-bottom: 48px !important;} .oe_mb64{margin-bottom: 64px !important;} .oe_mt0{margin-top: 0px !important;} .oe_mt4{margin-top: 4px !important;} .oe_mt8{margin-top: 8px !important;} .oe_mt16{margin-top: 16px !important;} .oe_mt32{margin-top: 32px !important;} .oe_mt48{margin-top: 48px !important;} .oe_mt64{margin-top: 64px !important;} .oe_mb0{margin-bottom: 0px !important;} .oe_mb4{margin-bottom: 4px !important;} .oe_mb8{margin-bottom: 8px !important;} .oe_mb16{margin-bottom: 16px !important;} .oe_mb32{margin-bottom: 32px !important;} .oe_mb64{margin-bottom: 64px !important;} .oe_rightfit{padding-right: 0px !important;} .oe_leftfit{padding-left: 0px !important;} .oe_leftalign{text-align: left;} .oe_rightalign{text-align: right;} .oe_centeralign{text-align: center;} .oe_centered{margin-left: auto; margin-right: auto;} .oe_hidden{display: none !important; opacity: 0 !important;} .oe_invisible{visibility: hidden !important;} .oe_transparent{opacity: 0 !important;} .oe_spaced{margin-top: 32px; margin-bottom: 32px;} .oe_more_spaced{margin-top: 64px; margin-bottom: 64px;} .oe_padded{padding-top: 16px; padding-bottom: 16px;} .oe_more_padded{padding-top: 32px; padding-bottom: 32px;} .oe_button{position: relative; bottom: 0; display: inline-block; cursor: pointer; color: white; -webkit-user-select: none; -moz-user-select: none; user-select: none;} .oe_styling_v8 .oe_button, .oe_styling_v8 a.oe_button{padding: 8px 14px; background: #21B799; color: white; -webkit-transition-property: bottom, background; -moz-transition-property: bottom, background; -o-transition-property: bottom, background; transition-property: bottom, background; -webkit-transition-duration: 250ms; -moz-transition-duration: 250ms; -o-transition-duration: 250ms; transition-duration: 250ms;} .oe_styling_v8 .oe_button:hover, .oe_styling_v8 a.oe_button:hover, .oe_styling_v8 .oe_button:active, .oe_styling_v8 a.oe_button:active{background: #1b9f85;} .oe_styling_v8 .oe_button.oe_big, .oe_styling_v8 a.oe_button.oe_big{font-size: 24px;} .oe_styling_v8 .oe_button.oe_bigger, .oe_styling_v8 a.oe_button.oe_bigger{font-size: 32px;} .oe_styling_v8 .oe_button.oe_small, .oe_styling_v8 a.oe_button.oe_small{font-size: 13px; padding: 2px 4px;} .oe_styling_v8 .oe_button.oe_medium, .oe_styling_v8 a.oe_button.oe_medium{padding: 5px 12px; font-size: 16px;} .oe_styling_v8 .oe_button.oe_tacky, .oe_styling_v8 a.oe_button.oe_tacky{background: #34495E;} .oe_styling_v8 .oe_button.oe_tacky:hover, .oe_styling_v8 a.oe_button.oe_tacky:hover, .oe_styling_v8 .oe_button.oe_tacky:active, .oe_styling_v8 a.oe_button.oe_tacky:active{background: #253544;} .oe_styling_v8 .oe_button.oe_disabled, .oe_styling_v8 a.oe_button.oe_disabled{background: #c8c8c8; cursor: default;} .oe_styling_v8 .oe_button.oe_disabled:hover, .oe_styling_v8 a.oe_button.oe_disabled:hover, .oe_styling_v8 .oe_button.oe_disabled:active, .oe_styling_v8 a.oe_button.oe_disabled:active{background: #c8c8c8;} .oe_styling_v8.oe_styling_black .oe_button{-webkit-box-shadow: 0px 2px 0px #463555; -moz-box-shadow: 0px 2px 0px #463555; box-shadow: 0px 2px 0px #463555;} .oe_styling_v8{} .oe_styling_v8 .oe_input{padding: 4px 7px; border-radius: 3px; border: solid 1px #d6d6d6; box-shadow: 0px 2px #e6e6e6; background: #fafafa; font-weight: 300; outline: none; -webkit-transition: all 150ms linear; -moz-transition: all 150ms linear; -o-transition: all 150ms linear; transition: all 150ms linear;} .oe_styling_v8 .oe_input:focus{border: solid 1px #969696; box-shadow: 0px 2px #d2d2d2;} .oe_styling_v8 .oe_input.oe_valid{background: #f2ffec; border-color: #b1ebb6; box-shadow: 0px 2px #e1f8e1; color: #0f610f;} .oe_styling_v8 .oe_input.oe_invalid{background: #fff2f2; border-color: #ebb1b1; box-shadow: 0px 2px #f8e1e1; color: #610f0f;} .oe_styling_v8 .oe_input.oe_big{padding: 8px 14px;} .oe_styling_v8 .oe_input_label{font-weight: 300; font-size: 16px;} .oe_styling_v8 .oe_input_label.oe_big{font-size: 20px;} .oe_styling_v8 .oe_textarea{width: 300px; height: 80px;} .oe_styling_v8 .oe_form_layout_table{width: 100%;} .oe_styling_v8 .oe_form_layout_table td{padding-bottom: 16px;} .oe_styling_v8 .oe_form_layout_table td:first-child{text-align: right; padding-right: 16px;} .text-alpha{color: #A24689 !important;} .oe_styling_v8 .oe_slogan{color: #333333; font-family: "Lato", "Open Sans", "Helvetica", Sans; margin-top: 32px; margin-bottom: 32px; text-align: center;} .oe_styling_v8 h1.oe_slogan{font-size: 64px; font-weight: 900; margin-top: 48px; margin-bottom: 48px;} .oe_styling_v8 h2.oe_slogan{font-size: 40px; font-weight: 300;} .oe_styling_v8 h3.oe_slogan{font-size: 26px; font-weight: 300; filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=50); opacity: 0.5;} .oe_styling_v8 h4.oe_slogan{font-size: 24px; font-weight: 300;} .oe_styling_v8 h4.oe_slogan:before, .oe_styling_v8 h4.oe_slogan:after{margin: 0 20px; content: ""; display: inline-block; width: 100px; height: 0px; border-top: solid 1px; vertical-align: middle; filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=30); opacity: 0.3;} .oe_styling_v8 h5.oe_slogan{font-weight: 300;} .oe_styling_v8 h2.oe_slogan + h3.oe_slogan{margin-top: -28px;} .oe_quote{margin: 8px; padding: 16px; background: rgba(0, 0, 0, 0.02); border: solid 1px rgba(0, 0, 0, 0.06); -webkit-border-radius: 2px; -moz-border-radius: 2px; -ms-border-radius: 2px; -o-border-radius: 2px; border-radius: 2px;} .oe_quote .oe_q, .oe_quote q{margin: 10px; display: block; font-style: italic; text-align: center; font-size: 20px;} .oe_quote .oe_q:before, .oe_quote .oe_q:after, .oe_quote q:before, .oe_quote q:after{content: '"'; font-weight: 900; filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=20); opacity: 0.2;} .oe_quote cite{display: block; font-style: normal; margin-top: 16px;} .oe_quote .oe_photo{float: left; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; margin-right: 16px;} .oe_quote .oe_author{font-size: 20px; padding-top: 6px;} .oe_dark .oe_quote{background: white; border: 1px solid #f0f0ff;} .oe_picture{display: block; max-width: 84%; max-height: 400px; margin: 16px 8%;} .oe_screenshot{padding: 8px; background-color: white; -webkit-border-radius: 3px; -moz-border-radius: 3px; -ms-border-radius: 3px; -o-border-radius: 3px; border-radius: 3px; -webkit-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2); -moz-box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2); box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);} .oe_pic_ctr{position: relative;} .oe_pic_ctr > img.oe_picture{width: 100%; max-width: none; max-height: none; margin: 0;} .oe_pic_ctr > .oe_title{position: absolute; top: 15px; right: 38px;} .oe_styling_v8 .oe_pic_ctr > .oe_title{font-size: 64px; color: white; font-weight: 600; margin: 0; text-shadow: 0px 2px 0px #494949, 0px 2px 5px rgba(0, 0, 0, 0.33), 0px 0px 60px rgba(0, 0, 0, 0.22);} div.oe_demo{position: relative; border: 1px solid #dedede;} div.oe_demo span.oe_demo_play{top: 50%; left: 50%; width: 80px; height: 60px; margin-top: -30px; margin-left: -40px; display: block; position: absolute; background: url("/loempia/static/src/css/../img/layout/play-button.png") no-repeat left top transparent; pointer-events: none;} div.oe_demo img{max-width: 100%; width: 100%;} div.oe_demo div.oe_demo_footer{position: absolute; left: 0; background-color: rgba(162, 70, 137, 0.7); opacity: 0.85; bottom: -1px; width: 100%; padding-top: 7px; padding-bottom: 7px; color: white; font-size: 14px; font-weight: bold; border-bottom-left-radius: 3px; border-bottom-right-radius: 3px; pointer-events: none;} div.oe_demo:hover span.oe_demo_play{background: url("/loempia/static/src/css/../img/layout/play-button-over.png") no-repeat left top transparent;} .oe_styling_v8 .oe_container.oe_separator{height: 64px; margin-bottom: 16px; background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0.02))); background: -webkit-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.02)); background: -moz-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.02)); background: -o-linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.02)); background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.02)); -webkit-box-shadow: 0px -3px 10px -5px rgba(0, 0, 0, 0.1) inset; -moz-box-shadow: 0px -3px 10px -5px rgba(0, 0, 0, 0.1) inset; box-shadow: 0px -3px 10px -5px rgba(0, 0, 0, 0.1) inset; overflow-y: hidden;} .oe_row_tabs{text-align: center; margin-top: 0px; margin-bottom: 0px; padding-top: 21px;} .oe_row_tab{position: relative; min-width: 120px; padding: 8px; font-size: 20px; display: inline-block; margin: 0px -2px; border-top-left-radius: 4px; border-top-right-radius: 4px; border: solid 1px rgba(0, 0, 0, 0.1); border-bottom: none; background: #fafafa; background-image: +linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.02)); box-shadow: 0px -3px 10px -5px rgba(0, 0, 0, 0.1) inset; cursor: pointer; -webkit-transition: all 250ms linear; -moz-transition: all 250ms linear; -o-transition: all 250ms linear; transition: all 250ms linear;} .oe_row_tab:hover{padding-bottom: 12px; top: -4px; background-color: white;} .oe_row_tab.oe_active{background-color: white; background-image: none; box-shadow: none; border-top-color: #8272b6; border-top-width: 2px; cursor: default;} .oe_row_tab.oe_active:hover{padding-bottom: 8px; top: 0asx;} .oe_calltoaction{height: 32px; margin-top: -32px; position: relative;}
+
+
+
+	.oe_styling_v8 .oe_slogan {
+    color: #333333;
+    font-family: "Lato", "Open Sans", "Helvetica", Sans;
+    margin-top: 32px;
+    margin-bottom: 32px;
+    text-align: center;
+}
+
+	.oe_slogan{text-align: center}
+
+ .oe_dark {
+    overflow: hidden;
+    background: #efefef;
+    box-shadow: none;
+}
+
+.oe_styling_v8 .oe_dark {
+    overflow: hidden;
+    background: #efefef;
+    box-shadow: none;
+}
+
+
+
+
+</style>
+
+
+</head>
+
+
+<!--Gif Section Start-->
+<section id="learn_more" class="oe_container oe_dark" style=" padding-bottom:20px; ">
+  <div class="col-md-12 col-sm-12 col-xs-12 padding-none text-center mb32">
+    <div> <img class="img img-responsive" style="max-width:100%; width:100%" src="Design-gif-for-Appstore.gif"> </div>
+  </div>
+</section>
+<!--Gif Section End-->
+
+<!--Banner Section Start-->
+<section class="oe_container oe_dark">
+  <div class="xero_bg pt80 pb64" style="background-color:rgb(34, 194, 115); background-size: cover; background-position: center center; height:auto; padding-top:60px; padding-bottom:60px;">
+    <div class="col-sm-6 col-md-6 col-xs-12 offset-md-3 offset-sm-3" style="background-color: rgba(0, 0, 0, 0.6);
+    padding: 21px;
+    text-align: center;">
+      <h3 style="color:#fff; font-size: 35px;font-weight: 500;">Odoo SaasKit All in one (Trial &amp; Domain Masking Included)</h3>
+
+      <!--<p>Business organizations uses different software specifically to different department activities eg : XERO Accounting system is used to keep online records of Invoices and its payment.</p>-->
+
+      <p style="color: #fff; font-size: 25px;">Our Pricing includes User Manual, 90 Days Support <span style="
+    color: #ff0;"><b>(Monday-Friday 10am to 7pm IST)</b></span> and One time Setup</p>
+      <p><a class="btn m-2" href="mailto:support@pragtech.co.in" style="background-color:#22c273; padding:9px; color:#fff; font-size:20px;"><i class="fa fa-envelope" style="padding-right:9px"></i>support@pragtech.co.in</a> <a class="btn m-2" href="skype:pragtech?call" style="background-color:#22c273; padding:9px; color:#fff; font-size:20px;"><i class="fa fa-skype" style="padding-right:9px"></i>pragtech</a> </p>
+      <h3 style="color: #fff; margin-top:5px; ">We support for <b>English / French / Spanish at an additional cost</b></h3>
+		<div class="row">
+
+  <!-- START For Desktop Purpose Only -->
+  <div class="col-md-12 mt-3 hidden-xs" style="margin:auto; padding-left: 5px; padding-right: 5px;">
+    <table class="table-sm" width="100%" border="1" background="#fff" style="background-color:#fff;">
+      <thead style="    background-color: #22c273; color: #FFF;">
+        <tr>
+          <td colspan="10" style="padding: 15px; font-size: 23px;"><b>Supported Odoo versions & platforms</b></td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background-color: #f8f8f8; font-size: 14px;">
+          <td style="padding:10px;"><b>Odoo.sh</b></td>
+          <td style="padding: 10px;"><b>Self Hosted</b></td>
+          <td style="padding: 10px;"><b>Enterprise</b></td>
+          <td style="padding: 10px;"><b>Community</b></td>
+          <td style="padding: 10px;"><b>Odoo Online</b></td>
+        </tr>
+        <tr>
+          <!--<td style="text-align:center; padding:10px;"><img src="img/yes_icon.svg" width="28"></td>
+                    <td style="text-align:center"><img src="img/yes_icon.svg" width="28"></td>
+                    <td style="text-align:center"><img src="img/yes_icon.svg" width="28"></td>
+                   <td style="text-align:center"><img src="img/yes_icon.svg" width="28"></td>
+                   <td style="text-align:center"><img src="img/no_icon.svg" width="28"></td>-->
+
+          <td style="text-align:center; padding:10px;"><img src="img/yes_icon.svg" width="28"></td>
+          <td style="text-align:center"><img src="img/yes_icon.svg" width="28"></td>
+          <td style="text-align:center"><img src="img/yes_icon.svg" width="28"></td>
+          <td style="text-align:center"><img src="img/yes_icon.svg" width="28"></td>
+          <td style="text-align:center"><img src="img/no_icon.svg" width="28"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <!-- END For Desktop Purpose Only -->
+
+  <!-- START For Mobile Purpose Only -->
+
+  <div class="col-md-8 mt-3 visible-xs" style="margin:auto; padding-left: 5px; padding-right: 5px;">
+    <table class="table-sm" width="100%" border="1" background="#fff" style="background-color:#fff;">
+      <thead style="    background-color: #22c273; color: #FFF;">
+        <tr>
+          <td colspan="2" style="padding: 15px; font-size: 23px;"><b>Supported Odoo versions & platforms</b></td>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td style="padding: 10px;"><b>Odoo.sh</b></td>
+          <td style="text-align:center"><img src="img/yes_icon.svg" width="28"></td>
+        </tr>
+        <tr>
+          <td style="padding: 10px;"><b>Self Hosted</b></td>
+          <td style="text-align:center"><img src="img/yes_icon.svg" width="28"></td>
+        </tr>
+        <tr style="background-color: #f8f8f8;">
+          <td style="padding: 10px;"><b>Enterprise</b></td>
+          <td style="text-align:center"><img src="img/yes_icon.svg" width="28"></td>
+        </tr>
+        <tr>
+          <td style="padding: 10px;"><b>Community</b></td>
+          <td style="text-align:center"><img src="img/yes_icon.svg" width="28"></td>
+        </tr>
+        <tr style="background-color: #f8f8f8;">
+          <td style="padding: 10px;"><b>Odoo Online</b></td>
+          <td style="text-align:center"><img src="img/no_icon.svg" width="28"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- END For Mobile Purpose Only -->
+
+  <div style="text-align: left; color:#fff; margin-top:20px; list-style: none!important; line-height: 37px; padding-left: 14px; font-weight: 600; font-size:14px; ">
+    <p style=" margin-bottom: 15px; line-height: 21px;"><i class="fa fa-check-circle" style="margin-right: 10px; color: #fff; font-size: 22px; line-height: 15px;"></i>Works & tested on standard installations of Odoo with no third party apps</p>
+    <p style=" margin-bottom: 15px; line-height: 21px;"><i class="fa fa-check-circle" style="margin-right: 10px; color: #fff; font-size: 22px; line-height: 15px;"></i>Free support only for odoo installations with no third party apps</p>
+    <p style=" margin-bottom: 15px; line-height: 21px;"><i class="fa fa-check-circle" style="margin-right: 10px; color: #fff; font-size: 22px; line-height: 15px;"></i>Paid support availaible for Odoo installations with third party apps.</p>
+  </div>
+</div>
+      <!--<a class="btn  red-btn btn-lg" target="_blank"
+               href="http://www.blog.pragtech.co.in/odoo-quickbooks-desktop-connector/" style="background-color: #ff0000;
+    border-radius: 0px;
+    color: #000; text-transform:uppercase; font-size:18px; margin-bottom:15px;">Learn More</a>
+            <a class="btn yellow-btn btn-lg" style="background-color:#ffff00;
+    border-radius: 0px;
+    color: #000; text-transform:uppercase; font-size:18px; margin-bottom:15px;" target="_blank"
+               href="http://www.pragtech.co.in/company/proposal-form.html?id=103&name=quickbook-connector">View Demo </a>
+
+
+            <a class="btn yellow-btn btn-lg"
+               style="background-color:#22c273; border-radius: 0px; color: #000;  font-size:18px; margin-bottom: 15px; width:150px;"
+               target="_blank" href="https://www.pragtech.co.in/company/proposal-form.html?id=310&name=support-odoo-quickbooks-desktop-connector">Support</a>-->
+
+    </div>
+  </div>
+</section>
+<!--Banner Section End-->
+
+    
+       <!--Testimonial Section Start-->
+<section id="learn_more" class="oe_container oe_dark" style=" padding-bottom:20px;">
+  <div class="col-md-12 col-sm-12 col-xs-12 padding-none text-center mb8">
+    <div> <img class="img-fluid p-1 shadow-lg mt-2" src="img/saas-testimonial.jpg"/>  </div>
+  </div>
+</section>
+<!--Testimonial Section End-->
+
+   <!--Gif Section Start-->
+<section class="oe_container oe_dark" style=" padding-bottom:20px;">
+  <div class="col-md-12 col-sm-12 col-xs-12 padding-none text-center mb8">
+    <div> <img class="img-fluid p-1 shadow-lg mt-2" src="img/Offer-imagecreate-new.gif"/>  </div>
+  </div>
+</section>
+<!--Gif Section End-->
+
+
+
+
+	<section class="oe_dark">
+    <div class="oe_container">
+         <div class="oe_row oe_spaced text-center" style="max-width:100%;">
+<img class="img-fluid mb-5 p-1 shadow-lg mt-2" src="img/newdiagram-multi-server-multiprocess.gif"/>
+
+<img class="img-fluid mb-5 p-1 shadow-lg mt-2" src="img/deply-containers.jpg"/>
+
+
+<h2><b>Odoo SaaS Script Software as a Service Saaskit</b></h2>
+            <!--<h2 class="oe_slogan pl-2 pr-2"></h2>-->
+		<p class="text-center mt16">Are you starting to offer Odoo to your customers in the cloud. Do you want to avoid having to write the Subscription Management, Recurring Billing, and Credit Card Management code?
+
+The Odoo Saas Kit / Script gets your new Odoo software-as-a-service site to a running start by providing you a well-tested and proven site management system with PayPal payments. You also get a framework for building membership-based applications, including account signups/upgrades/downgrades, tiered pricing levels, multi-tenant data security in a single database.
+</p>
+             <p class="text-center mt16">Launch Odoo SaaS Services &amp; Bring Your Clients To Cloud. Odoo SaaS Delivered Instantly
+Want to Run Odoo Saas Distribution services using your Odoo? Then use this standalone solution to deliver Odoo Saas To your Clients. Create, Manage and Provide Odoo Saas instances to your customers via a streamlined subscription-based model with this module.
+</p>
+
+
+		<div class="row">
+             <div class="col-xs-12 col-sm-6 col-md-6 about-img oe_mt32"> <a target="_blank" href="https://www.youtube.com/watch?v=Hym2_t_fWhc"><img class="oe_picture oe_screenshot" src="saaskit_scrrendesign.jpg" style="width:100%;"></a> </div>
+             <div class="col-xs-12 col-sm-6 col-md-6 about-img oe_mt32 pl-5 pr-5">
+            <p><b>Avail Odoo as a Service(SaaS) on your servers with Odoo SaaS Kit.</b></p>
+            <ul style="text-align:left;">
+                 <li>Using Odoo as a Service (SaaS) is a minimal requirement service which uses least server resources. This helps in bringing down the cost substantially. </li>
+                 <li>On the other hand, Odoo Saas setup is a bit hard and providing the service to others  only compounds the challenges.</li>
+                 <li>With Odoo SaaS Kit, you get the necessary ready-to-use structure to start your own Odoo SaaS service.</li>
+               </ul>
+          </div>
+             <div class="clearfix"></div>
+
+			<div class="col-xs-12 col-sm-12 col-md-12 pl-5 pr-5 mt-5 text-center">
+                <h2><strong>Why SaaS? Because SaaS Computing Is The Future!!!</strong></h2>
+                <p class="text-left mt-4">Gartner predicts that worldwide revenue for SaaS Based Applications will grow to $143 billion by 2022.<br/>
+Becoming a Odoo Saas Services Provider is advantageous to both; You as 'The Odoo SaaS Provider' and your clients As 'The Customers or SaaS Users'</p>
+                
+                <div class="row mt-5 mb-5">
+                <div class="col-md-6 text-left">
+                    <h4><strong>Advantages for You</strong></h4>
+                    <ul>
+                    <li>Easy To Sell as clients do not need any physical setup at their end to use.</li>
+                    <li>Trial Version For clients is easily feasible.</li>
+                    <li>Best suited for Medium and small industries.</li>
+                    <li>Subscription Based Model</li>
+                    <li>Recurring Revenue</li>
+                    <li>Saas Computing trend is only going to increase.</li>
+                    <li>Multi-tenant SaaS Architecture Possible.</li>
+                    <li>Keep Odoo Saas Kit Plans and Clients separate with remote servers integration.</li>
+                    </ul>
+                    
+                    </div>
+                    
+                    <div class="col-md-6 text-left">
+                    <h4><strong>Advantages for your Clients</strong></h4>
+                    <ul>
+                    <li>Low Initial Setup Cost.</li>
+                    <li>No requirement of Physical server Setup.</li>
+                    <li>Can test the Product trial version easily before using.</li>
+                    <li>Subscription Based usage.</li>
+                    <li>Improve and customize as per needs.</li>
+                    </ul>
+                    
+                    </div>
+                
+                </div>
+                
+                <h2><strong>What is Odoo SaaS Kit? One-Stop Solution To All The Odoo SaaS Based Challenges!!!</strong></h2>
+                
+                <p class="mb-4 text-left"><strong>Odoo Saas Kit presents the Ready-To-Use Structure for you to Start your Own Odoo SaaS Services for your Clients.</strong></p>
+                
+                <ul class="text-left">
+                <li>Effortlessly Install Odoo SaaS Distribution Architecture to your Odoo Server.</li>
+                <li>Provide Odoo as a Service(SaaS) via instances on your servers with Odoo SaaS Kit.</li>
+                </ul>
+                
+                
+                <p class="text-left"><strong>Odoo SaaS Kit is what you need if you are looking to run your own Odoo SaaS Services for your customers.</strong></p>
+                
+                <ul class="text-left mb-3">
+                <li>Sell Odoo SaaS as a subscription service to the customers directly from the Odoo Website.</li>
+                <li>Create subscription plans comprising Odoo modules bundles. Publish them on the website as Odoo SaaS subscription Products.</li>
+                <li>Once a customer purchases a plan, he gets exclusive access to an instance of Odoo as SaaS. The modules mentioned in the plan are installed in this instance.</li>
+                </ul>
+                
+                <div class="col-md-12 col-sm-12 col-xs-12 padding-none text-center mb-5">
+    <img class="img-fluid p-1 shadow-lg mt-2" src="img/features.png"/>
+  </div>
+                
+                
+    <p class="text-left">What is domain masking ? Domain masking or URL masking is the act of hiding the actual domain name of a website from the URL field of a user’s web browser in favor of another name.<br/><br/>
+
+
+Pragmatic Techsoft Pvt. Ltd. provides a module for Odoo SaaS Kit. This module helps to sell Odoo modules as a services. Every new instance request shall be accessible using a subdomain of the host company domain url.<br/><br/>
+
+Eg : if a new tenant database “tenant1” is created then this db can be accessible on browser using link “tenant1.hostcompanydomain.com”.<br/><br/>
+
+If customer has its own domain to be used to access this database eg : xyz.com , This can be achieved using our module “domain_masking”.<br/><br/>
+
+This module has a dependency of SaaS Kit Module.<br/><br/>
+
+Following configurations are available for “domain_masking”</p>
+  </div>
+           </div>
+
+			 <div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 pl-5 pr-5 mt-5 text-center">
+    <h2 class="oe_slogan"><b>Odoo SaasKit all in one Features <br/><small>(Trial &amp; domain Masking Included)</small></b></h2>
+  </div>
+</div>
+			 <div class="row pl-2 pr-2">
+
+  <div class="col" style="margin: 10px; padding-top: 15px; padding-bottom: 15px; margin: 10px; padding-top: 10px; padding-bottom: 10px; border: 1px solid #e3e3e3;
+    background-color: #fff;">
+    <div class="row align-items-center">
+      	<div class="col-md-3 text-center mb-3"> <img class="img img-responsive" style="width:90px;" src="img/saas.svg"> </div>
+      <div class="col-md-9 text-center text-md-left">
+        <h4>Odoo as a Service</h4>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col" style="margin: 10px; padding-top: 15px; padding-bottom: 15px; margin: 10px; padding-top: 10px; padding-bottom: 10px; border: 1px solid #e3e3e3;
+    background-color: #fff;">
+    <div class="row align-items-center">
+      <div class="col-md-3 text-center mb-3"> <img class="img img-responsive" style="width:90px;" src="img/subscription.svg"> </div>
+      <div class="col-md-9 text-center text-md-left">
+        <h4>Subscription Plans</h4>
+      </div>
+    </div>
+  </div>
+</div>
+			 <div class="row pl-2 pr-2">
+  <div class="col" style="margin: 10px; padding-top: 15px; padding-bottom: 15px; margin: 10px; padding-top: 10px; padding-bottom: 10px; border: 1px solid #e3e3e3;
+    background-color: #fff;">
+    <div class="row align-items-center">
+      	<div class="col-md-3 text-center mb-3"> <img class="img img-responsive" style="width:90px;" src="img/instance.svg"> </div>
+      <div class="col-md-9 text-center text-md-left">
+        <h4><b>Odoo Instance</b></h4>
+      </div>
+    </div>
+  </div>
+  <div class="col" style="margin: 10px; padding-top: 15px; padding-bottom: 15px; margin: 10px; padding-top: 10px; padding-bottom: 10px; border: 1px solid #e3e3e3;
+    background-color: #fff;">
+    <div class="row align-items-center">
+      <div class="col-md-3 text-center mb-3"> <img class="img img-responsive" style="width:90px;" src="img/invoice.svg"> </div>
+      <div class="col-md-9 text-center text-md-left">
+        <h4>Invoicing</h4>
+      </div>
+    </div>
+  </div>
+</div>
+			 <div class="row pl-2 pr-2">
+  <div class="col" style="margin: 10px; padding-top: 15px; padding-bottom: 15px; margin: 10px; padding-top: 10px; padding-bottom: 10px; border: 1px solid #e3e3e3;
+    background-color: #fff;">
+    <div class="row align-items-center">
+      	<div class="col-md-3 text-center mb-3">
+            <img class="img img-responsive" style="width:90px;" src="img/accounting.svg"> </div>
+      <div class="col-md-9 text-left text-md-left">
+        <h4>Customers Website Account View</h4>
+      </div>
+    </div>
+  </div>
+  <div class="col" style="margin: 10px; padding-top: 15px; padding-bottom: 15px; margin: 10px; padding-top: 10px; padding-bottom: 10px; border: 1px solid #e3e3e3;
+    background-color: #fff;">
+    <div class="row align-items-center">
+      <div class="col-md-3 text-center mb-3"><img class="img img-responsive" style="width:90px;" src="img/domain.svg"></div>
+      <div class="col-md-9 text-center text-md-left">
+        <h4>Domain Masking System</h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+			 <div class="row pl-2 pr-2">
+  <div class="col" style="margin: 10px; padding-top: 15px; padding-bottom: 15px; margin: 10px; padding-top: 10px; padding-bottom: 10px; border: 1px solid #e3e3e3;
+    background-color: #fff;">
+    <div class="row align-items-center">
+      	<div class="col-md-3 text-center mb-3"> <img class="img img-responsive" style="width:90px;" src="img/easy.png"> </div>
+      <div class="col-md-9 text-center text-md-left">
+        <h4>Convenient and Easy to use</h4>
+      </div>
+    </div>
+  </div>
+  <div class="col" style="margin: 10px; padding-top: 15px; padding-bottom: 15px; margin: 10px; padding-top: 10px; padding-bottom: 10px; border: 1px solid #e3e3e3;
+    background-color: #fff;">
+    <div class="row align-items-center">
+      	<div class="col-md-3 text-center mb-3"> <img class="img img-responsive" style="width:110px;" src="img/trial.svg"> </div>
+      <div class="col-md-9 text-center text-md-left">
+        <h4>Free Trial Version</h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="row pl-2 pr-2">
+  <div class="col" style="margin: 10px; padding-top: 15px; padding-bottom: 15px; margin: 10px; padding-top: 10px; padding-bottom: 10px; border: 1px solid #e3e3e3;
+    background-color: #fff;">
+    <div class="row align-items-center">
+      	<div class="col-md-3 text-center mb-3"> <img class="img img-responsive" style="width:90px;" src="img/import_users.svg"> </div>
+      <div class="col-md-9 text-center text-md-left">
+        <h4>Option to Increase  / Decrease Users in Tenant Database</h4>
+      </div>
+    </div>
+  </div>
+  <div class="col" style="margin: 10px; padding-top: 15px; padding-bottom: 15px; margin: 10px; padding-top: 10px; padding-bottom: 10px; border: 1px solid #e3e3e3;
+    background-color: #fff;">
+    <div class="row align-items-center">
+      	<div class="col-md-3 text-center mb-3"> <img class="img img-responsive" style="width:90px;" src="img/odoo_screen.svg"> </div>
+      <div class="col-md-9 text-center text-md-left">
+        <h4>Option to Import Custom Module from Odoo screen</h4>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<div class="row pl-2 pr-2">
+
+
+  <div class="col" style="margin: 10px; padding-top: 15px; padding-bottom: 15px; margin: 10px; padding-top: 10px; padding-bottom: 10px; border: 1px solid #e3e3e3;
+    background-color: #fff;">
+    <div class="row align-items-center">
+      	<div class="col-md-3 text-center mb-3"> <img class="img img-responsive" style="width:90px;" src="img/invoice-for.svg"> </div>
+      <div class="col-md-9 text-center text-md-left">
+        <h4>Invoice for Increased number of Users</h4>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="col" style="margin: 10px; padding-top: 15px; padding-bottom: 15px; margin: 10px; padding-top: 10px; padding-bottom: 10px; border: 1px solid #e3e3e3;
+    background-color: #fff;">
+    <div class="row align-items-center">
+      	<div class="col-md-3 text-center mb-3"> <img class="img img-responsive" style="width:90px;" src="img/install-uninstall.svg"> </div>
+      <div class="col-md-9 text-center text-md-left">
+        <h4>option to Install / uninstall modules to tenant databases from Saas Master panel it self</h4>
+      </div>
+    </div>
+  </div>
+
+
+</div>
+
+
+
+			 <div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 pl-5 pr-5 mt-2 mb-2" style="margin: auto;">
+    <p style="text-align: center;"> <a class="btn m-2" href="mailto:support@pragtech.co.in" style="background-color:#000000;padding: 19px;color: #fff;font-size: 20px;border-radius: 4px;"><i class="fa fa-envelope" style="padding-right: 9px;"></i>REQUEST A FREE DEMO</a> <a class="btn m-2" href="skype:pragtech?call" style="background-color:#22c273; padding:19px; border-radius:4px; color:#fff; font-size:20px;"><i class="fa fa-skype" style="padding-right:9px"></i>pragtech</a></p>
+  </div>
+</div>
+
+        </div>
+    </div>
+</section>
+
+
+	<section class="white_patch">
+    <div class="oe_container">
+         <div class="oe_row oe_spaced" style="max-width:100%;">
+            <h2 class="text-center mt-4 mb-4"><strong>Detailed Features List</strong></h2>
+            
+             <div class="row">
+             <div class="col-md-6 mh-100" style="background: #bfcfd7!important; padding: 30px;">
+                 <h4 class="text-center mb-3"><strong>Run Odoo SaaS With Subscription Based Model</strong></h4>
+                 <ul>
+                 <li>Use Odoo SaaS kit to offer Odoo as SaaS to your clients through unique Odoo instances.</li>
+                 <li>The module provides the structure for the subscription-based service model to your clients.</li>
+                 <li>The user can sell Odoo and its modules/apps (official &amp; custom) as Odoo SaaS services</li>
+                 </ul>
+                 
+                 </div>
+                 
+                 <div class="col-md-6 mh-100" style="background: #d7e2e7!important; padding: 30px;">
+                 <h4 class="text-center mb-3"><strong>Add Custom modules and libraries to client instance</strong></h4>
+                 <ul>
+               <li>You can add any custom modules and python libraries in Clients' SaaS instance.</li>
+               <li>Add custom modules to individual client or all clients' instances.</li>
+                 </ul>
+                 
+                 </div>
+                  
+             </div>
+             
+             <div class="row">
+                 
+                 <div class="col-md-6 mh-100" style="background: #d7e2e7!important; padding: 30px;">
+                 <h4 class="text-center mb-3"><strong>Create Odoo SaaS Subscription Plans</strong></h4>
+                 <ul>
+                   <li>Create subscription plans for odoo SaaS instances.</li>
+                   <li>Set the duration and price for each plan.</li>
+                   <li>Add the Odoo modules available with each plan.</li>
+                   <li>The customers need to purchase the plan to start the subscription.</li>
+                   <li>The customers can use the modules mentioned in the plan on Odoo Saas instance after purchase.</li>
+                 </ul>
+                 
+                 </div>
+             <div class="col-md-6 mh-100" style="background: #bfcfd7!important; padding: 30px;">
+                 <h4 class="text-center mb-3"><strong>Simplified Invoicing for Odoo SaaS Business</strong></h4>
+                 <ul>
+                    <li>Once an Odoo SaaS contract is confirmed. The order can be invoiced.</li>
+                    <li>The subsequent recurring invoices can be either created manually or automatically (by enabling from the settings).</li>
+                 </ul>
+                 
+                 </div>
+                 
+                 
+                  
+             </div>
+             
+             <div class="row">
+             <div class="col-md-6 mh-100" style="background: #bfcfd7!important; padding: 30px;">
+                 <h4 class="text-center mb-3"><strong>Publish Odoo SaaS Plans on Odoo Website</strong></h4>
+                 <ul>
+                 <li>Saas Plans can be purchased directly from the Odoo Website.</li>
+                 <li>The clients can opt for the desired plan.</li>
+                 <li>A unique contract is created for Each Odoo SaaS order.</li>
+                 </ul>
+                 
+                 </div>
+                 
+                 <div class="col-md-6 mh-100" style="background: #d7e2e7!important; padding: 30px;">
+                 <h4 class="text-center mb-3"><strong>SaaS instance management portal in Client's Website Account</strong></h4>
+                 <ul>
+                   <li>The customer can check the subscription contract details in his website account.</li>
+                   <li>The modules included in the plan are displayed in the details.</li>
+                   <li>The customer can check the status of the plan and login to his Odoo SaaS instance directly from the website account.</li>
+                 </ul>
+                 
+                 </div>
+                  
+             </div>
+             
+             <div class="row">
+                 
+                 <div class="col-md-6 mh-100" style="background: #d7e2e7!important; padding: 30px;">
+                 <h4 class="text-center mb-3"><strong>Manage Saas Clients With Contracts</strong></h4>
+                 <ul>
+                   <li>Draw a unique contract for each Odoo SaaS order.</li>
+                   <li>The contract records the details of the clients and the instance.</li>
+                   <li>An automatic email is sent to the client when a contract is validated.</li>
+                 </ul>
+                 
+                 </div>
+             <div class="col-md-6 mh-100" style="background: #bfcfd7!important; padding: 30px;">
+                 <h4 class="text-center mb-3"><strong>Give Unique Odoo Saas Instance To each Client</strong></h4>
+                 <ul>
+                    <li>Create unique Odoo SaaS instance for each Odoo SaaS order.</li>
+                    <li>The instance is provided to the client.</li>
+                    <li>Allows the client to choose his own desired domain name for each instance.</li>
+                    <li>Clients can Just login into the odoo SaaS instance to use the provided Odoo modules.</li>
+                 </ul>
+                 
+                 </div>
+                 
+                 
+                  
+             </div>
+             
+             <div class="row">
+             <div class="col-md-6 mh-100" style="background: #bfcfd7!important; padding: 30px;">
+                 <h4 class="text-center mb-3"><strong>Manage Client Access Rights In His SaaS Instance</strong></h4>
+                 <ul>
+                 <li>Choose to give the Admin or User Access Rights to the Client in his Odoo SaaS instance.</li>
+                 </ul>
+                 
+                 </div>
+                 
+                 <div class="col-md-6 mh-100" style="background: #d7e2e7!important; padding: 30px;">
+                 <h4 class="text-center mb-3"><strong>Manage users Based pricing for SaaS Clients</strong></h4>
+                 <ul>
+                   <li>You can choose to bill the clients on the number of internal users he creates in his saas instances.</li>
+                   <li>Set a predefined number of internal users a client can make in his instance.</li>
+                 </ul>
+                 
+                 </div>
+                  
+             </div>
+
+		<div class="row">
+
+			<div class="col-xs-12 col-sm-12 col-md-12 about-img oe_mt32 pl-5 pr-5">
+			<h2 class="text-center">Odoo as a Service</h2>
+				<p class="text-center">With this module, Odoo can be offered as SaaS to the clients. This is done mainly in the form of instances.</p>
+
+			</div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 about-img oe_mt32">
+
+                <div class="oe_row_img oe_centered">
+                <img class="img-fluid" src="img/saaskit1.png" style="margin: auto;">
+            </div>
+                 <br><br>
+            </div>
+
+			<div class="clearfix"></div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 about-img oe_mt32">
+
+                <div class="oe_row_img oe_centered">
+                <img class="img-fluid" src="img/saaskit2.png" style="margin: auto;">
+            </div>
+
+            </div>
+
+
+			<div class="col-xs-12 col-sm-12 col-md-12 about-img oe_mt32 pl-5 pr-5">
+				<p>The module provides the structure for the subscription-based service model to the users.</p>
+				<p>This also enables Odoo users to sell its official modules/apps with the Odoo instances as a subscription-based service to their clients.</p>
+
+			</div>
+
+
+		</div>
+
+        </div>
+    </div>
+</section>
+
+
+	<section class="oe_dark">
+    <div class="oe_container">
+         <div class="oe_row oe_spaced" style="max-width:100%;">
+            <h2 class="oe_slogan pl-2 pr-2" style="font-weight: 600;">Subscription Plans</h2>
+
+
+
+		<div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 about-img oe_mt32">
+                <div class="oe_row_img oe_centered">
+                <img class="img-fluid" src="img/saaskit3.png" style="margin: auto;">
+            </div>
+
+
+            </div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 about-img oe_mt32 pl-5 pr-5">
+			<ul>
+			<li>Currently, the module has two subscription plans - Yearly and Monthly.</li>
+			<li>The customers need to purchase the Saaskit plan to start the subscription.</li>
+			<li>The user has the option to undergo a trial run before purchasing the Saaskit plan. We have provided a configuration on Master DB for trial period DB and their notifications as follows.</li>
+			</ul>
+
+			</div>
+
+
+		</div>
+
+        </div>
+    </div>
+</section>
+
+
+<section>
+  <div class="oe_container">
+       <div class="oe_row oe_spaced" style="max-width:100%;">
+          <h2 class="oe_slogan pl-2 pr-2" style="font-weight: 600;
+    margin-bottom: 0px;">Database Details and Adding Users</h2>
+
+
+
+  <div class="row">
+
+
+          <div class="col-12 about-img oe_mt16 pl-5 pr-5">
+    <p class="text-center">As shown,we get a detailed description about the database and its users.
+Flexibility of adding more users is of course possible through our module.</p>
+
+    </div>
+
+    <div class="col-xs-12 col-sm-12 col-md-12 about-img oe_mt32">
+        <div class="oe_row_img oe_centered">
+        <img class="" src="img/saas-database-details.png" style="margin: auto; width:100%;">
+    </div>
+</div>
+</div>
+
+      </div>
+  </div>
+</section>
+
+
+
+<section class="oe_row" style="width:100%;">
+  <div class="oe_container">
+       <div class="oe_spaced" style="max-width:100%;">
+          <h2 class="oe_slogan pl-2 pr-2" style="font-weight: 600;
+    margin-bottom: 0px;">Trial Period and Payment Options</h2>
+
+
+
+  <div class="row">
+
+
+          <div class="col-12 about-img oe_mt16 pl-5 pr-5">
+    <p class="text-center">We also provide an additional feature of selection of trial basis or proceed with the payment gateways configured.</p>
+    </div>
+
+    <div class="col-md-12" style="text-align:center; margin-top:17px">
+                    <img class="mb-16" style="margin-bottom:30px" src="img/shop-select payment-acquirer1.png" alt="" width="100%">
+                    <img style="margin-bottom:30px" src="img/shop-select payment-acquirer2.png" alt="" width="100%">
+                    <img style="margin-bottom:30px" src="img/shop-select payment-acquirer3.png" alt="" width="100%">
+      </div>
+
+
+</div>
+
+      </div>
+  </div>
+</section>
+
+
+<section class="oe_row" style="width:100%;">
+    <div class="oe_container">
+        <div class="oe_spaced" style="max-width:100%;">
+          <h2 class="oe_slogan pl-2 pr-2" style="font-weight: 600;
+    margin-bottom: 0px;">User Increase Notification Template</h2>
+
+            <div class="row">
+              <div class="col-12 about-img oe_mt16 pl-5 pr-5">
+              <p class="text-center">An email notification can be sent whenever a request for increase in users is made which thereby includes complete details of the number of users to be increased,related to which database as well as the date and time on which the request was made.</p>
+              </div>
+
+              <div class="col-md-12" style="text-align:center; margin-top:17px">
+                <img class="mb-16" style="margin-bottom:30px" src="img/user-interface.png" alt="" width="100%">
+              </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+<section class="oe_row" style="width:100%;">
+    <div class="oe_container">
+        <div class="oe_spaced" style="max-width:100%;">
+          <h2 class="oe_slogan pl-2 pr-2" style="font-weight: 600;
+    margin-bottom: 0px;">Scheduled Database Bakcup for Tenant Databases</h2>
+
+            <div class="row">
+              <div class="col-12 about-img oe_mt16 pl-5 pr-5">
+              <p class="text-center">Operations user can define a frequecy to take a periodic back up of all tenant databases. Database backups can be stored on the same server or on report location ie. Using SFTP connection . We can setup the limit of number of days for which that back up to be kept. i.e for 10 days. </p>
+              </div>
+
+              <div class="col-md-12" style="text-align:center; margin-top:17px">
+                <img class="mb-16" style="margin-bottom:30px" src="img/Selection_184.png" alt="" width="100%">
+              </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+<section class="oe_row" style="width:100%;">
+    <div class="oe_container">
+        <div class="oe_spaced" style="max-width:100%;">
+          <h2 class="oe_slogan pl-2 pr-2" style="font-weight: 600;
+    margin-bottom: 0px;">Database Backups availbe on portal for download</h2>
+
+            <div class="row">
+              <div class="col-12 about-img oe_mt16 pl-5 pr-5">
+              <p class="text-center">Portal user can see database backup lists on thier respective logins and can download the backups on the local disc.  </p>
+              </div>
+
+              <div class="col-md-12" style="text-align:center; margin-top:17px">
+                <img class="mb-16" style="margin-bottom:30px" src="img/Selection_186.png" alt="" width="100%">
+              </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+
+<section class="oe_row" style="width:100%;">
+    <div class="oe_container">
+        <div class="oe_spaced" style="max-width:100%;">
+          <h2 class="oe_slogan pl-2 pr-2" style="font-weight: 600;
+    margin-bottom: 0px;">Importing of Custome Modules From Odoo Frontend</h2>
+
+            <div class="row">
+              <div class="col-12 about-img oe_mt16 pl-5 pr-5">
+              <p class="text-center">User does not need to login to backend in order to import new custom module. This module provides funtionality to import modules from front end itself </p>
+              </div>
+
+              <div class="col-md-12" style="text-align:center; margin-top:17px">
+                <img class="mb-16" style="margin-bottom:30px" src="img/Selection_187.png" alt="" width="100%">
+              </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+<section class="oe_row" style="width:100%;">
+    <div class="oe_container">
+        <div class="oe_spaced" style="max-width:100%;">
+          <h2 class="oe_slogan pl-2 pr-2" style="font-weight: 600;
+    margin-bottom: 0px;">Bulk Module Installation in Tenant Database from frontend</h2>
+
+            <div class="row">
+              <div class="col-12 about-img oe_mt16 pl-5 pr-5">
+              <p class="text-center">User can install / uninstall custom modules from tenant databases from frontend itself with a simple interface. </p>
+              </div>
+
+              <div class="col-md-12" style="text-align:center; margin-top:17px">
+                <img class="mb-16" style="margin-bottom:30px" src="img/Selection_189.png" alt="" width="100%">
+              </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<section class="oe_dark">
+    <div class="oe_container">
+         <div class="oe_row oe_spaced" style="max-width:100%;">
+            <h2 class="oe_slogan pl-2 pr-2" style="font-weight: 600;
+    margin-bottom: 0px;">Odoo Instance</h2>
+
+
+
+		<div class="row">
+
+			<div class="col-xs-12 col-sm-12 col-md-12 about-img oe_mt32 pl-5 pr-5">
+        <img src="img/saaskit-gifnaimation.gif" width="100%" style="margin-bottom: 40px;"/>
+<ul>
+<li>Every time a customer needs Saaskit, a new instance is created.  </li>
+<li>The instance can be created manually by the user or a scheduler can be used to create instances for all the orders.</li>
+<li>The customer is provided with an Odoo instance with all the modules featured in a purchased plan installed in the instance.</li>
+<li>The login details automatically is automatically sent to the registered email address of the customer.</li>
+<li>The customer can also login to his/her Odoo SaaS instance from his/her Odoo website account.</li>
+<li>The customer can use the instance to run the module for the length of the subscription plan.</li>
+</ul>
+
+
+
+
+			</div>
+
+		</div>
+
+        </div>
+    </div>
+</section>
+
+
+
+	<section>
+    <div class="oe_container">
+    <div class="oe_row oe_spaced deep-1" style="max-width:100%;  border: 1px solid #ccc; border-left: 5px solid #13b24f;">
+
+		   <div class="row">
+             <div class="col-xs-12 col-sm-12 col-md-12 about-img pl-5 pr-5">
+               <h2 class="oe_slogan pl-2 pr-2" style="font-weight: 600;
+    margin-bottom: 10px;">Invoicing</h2>
+               <ul>
+                 <li>Once an Odoo SaaS contract is confirmed, the order can be invoiced.</li>
+                 <li>The subsequent recurring invoices</li>
+               </ul>
+             </div>
+           </div>
+
+
+        </div>
+    </div>
+</section>
+
+	<section class="oe_dark">
+    <div class="oe_container">
+    <div class="oe_row_img oe_centered">
+					<img class="oe_picture oe_screenshot mt-5" src="img/domain-maskin-1.png" style="margin:auto">
+					</div>
+		<br/>
+		<br/>
+		<div class="col-12 pl-5 pr-5">
+		<p>On selection of above module it will raise a popup window where user can select appropriate report that needs to be generated.<br>
+<br>
+In SaaS master database user will have to provide a directory name and path where the ssl certificates from the customer will be stored. You will also have to provide Apache configuration file path here.<br>
+<br>
+When a tenant database is created it is by default accessible on browser using subdomain functionality. In every tenant database configuration at SaaS master db we have provided a provision as follows :</p>
+	</div>
+		<div class="oe_row_img oe_centered">
+					<img class="oe_picture oe_screenshot" src="img/domain-maskin-2.png" style="margin:auto">
+					</div>
+
+
+
+		<div class="row">
+  <div class="col-xs-12 col-sm-12 col-md-12 pl-5 pr-5 mt-5 mb-5" style="margin:auto">
+    <p style="text-align:center"> <a class="btn m-2" href="mailto:support@pragtech.co.in" style="background-color:#000000; padding:19px; color:#fff; font-size:20px; border-radius:4px"><i class="fa fa-envelope" style="padding-right:9px"></i>REQUEST A FREE DEMO</a> <a class="btn m-2" href="skype:pragtech?call" style="background-color:#22c273; padding:19px; border-radius:4px; color:#fff; font-size:20px"><i class="fa fa-skype" style="padding-right:9px"></i>pragtech</a></p>
+  </div>
+</div>
+
+    </div>
+</section>
+
+	<section class="oe_container">
+	<h2 style="color: #091E42;font-family: &quot;Montserrat&quot;;text-align: center;margin: 25px auto;text-transform: uppercase;" class="oe_slogan">
+         <b>Related Products</b>
+      </h2>
+
+    <div id="slide-bottom1" class="row carousel slide mt64 mb32" data-ride="carousel">
+    <!-- The slideshow -->
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+        <div class="col-xs-12 col-sm-4 col-md-4 mb16 mt16" style="float: left;"> <a href="https://apps.odoo.com/apps/modules/14.0/odoo_saaskit_load_balancing_auto_scaling/" target="_blank">
+          <div style="box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);border-radius: 10px;"> <img class="img img-fluid center-block" style="border-top-left-radius: 10px;border-top-right-radius: 10px;" src="img/odoo_saaskitload_balancing.gif">
+            <h4 class="mt0" style="padding:6% 4%;text-align: center;white-space: normal;width: 100%;overflow: hidden;text-overflow: ellipsis;font-family: Roboto-medium;">odoo saaskit AWS load balancing auto scaling</h4>
+          </div>
+          </a> </div>
+      </div>
+
+      </div>
+
+    <!-- Left and right controls -->
+    <a class="carousel-control-prev" href="#slide-bottom1" data-slide="prev" style="left:-25px;width: 35px;color: #000;"> <span class="carousel-control-prev-icon"><i class="fa fa-chevron-left" style="font-size:24px"></i></span> </a> <a class="carousel-control-next" href="#slide-bottom1" data-slide="next" style="right:-25px;width: 35px;color: #000;"> <span class="carousel-control-next-icon"><i class="fa fa-chevron-right" style="font-size:24px"></i></span> </a> </div>
+
+</section>
+
+
+
+
+
+    <section class="white_patch">
+    <div class="oe_container">
+<div class="oe_row oe_spaced deep-1 p-1" style="max-width:100%; border: 1px solid #ccc;     border-left: 5px solid #13b24f;">
+
+    <div class="pl-3 d-flex align-items-center">
+        <img src="img/prag-icon.png" style="width: 90px;
+    margin-right: 10px;" /><h2 class="oe_slogan pr-2 text-left" style="font-weight: 600; font-size: 32px;
+    margin-bottom: 0px;"><b>Why you should go for Pragmatic Odoo Saaskit</b></h2>
+        </div>
+
+
+
+		<div class="row">
+
+			<div class="col-xs-12 col-sm-12 col-md-12 about-img oe_mt32 pl-5 pr-5">
+			<h4 style="color:#184372;"><b>SaaSkit by Pragmatic</b></h4>
+        <p>SaasKit is a state of art solution for cloud-based Software as a Service for Odoo 8 (formerly OpenERP) that can be easily adopted by SMEs. Companies can add different features or modules to the existing Odoo installation or system just by configurations and provide it in SaaS model to their Clients or end-users. ‘As-is’ installation of the SaaSKit would help any company to leverage on its pragmatic power in achieving SaaS advantage and strategically places them in the new found SaaS market.</p>
+
+        <p>SaaSKit enables companies to resell Odoo to multiple tenants in subscription model and thereby leverage on Odoo SaaS implementation at just click of a few buttons.</p>
+
+			</div>
+
+            <div class="col-xs-12 col-sm-12 col-md-12 about-img oe_mt32 pl-5 pr-5">
+			<h4 style="color:#184372;"><b>Overcome Odoo installation and management challenges with Pragmatic SaaSKit</b></h4>
+            <h5><b>Odoo Challenges/ Bottleneck:</b></h5>
+        <p>The bottleneck in Odoo SaaS direct implementation is the load balancing and connection pooling that need to happen in Postgre SQL.  There is a known issue of 100+ simultaneous connections throwing the Postgres database into a stalemate or impasse which needed to be overcome. </p>
+
+        <p>We at Pragmatic has used connection pooling along with AWS RDS and using multiport approach for segregating Master and Tenant account  based optimization to achieve this resilience, with loose-coupling and Enterprise Postgre for advanced implementations when loads would be soaring. </p>
+
+        <p><b>We use cutting edge technologies (Advanced Version- Need Based)</b></p>
+                <ul>
+                <li>Loose Coupling with segregation of lookup and transactional database</li>
+                <li>Load balancing with nGinx,</li>
+                <li>Multiple installation based high availability</li>
+                <li>Multiport Tenancy; user data discreteness (up to 4 Levels - Master, Tenant, Portal, Web store)</li>
+                <li>Failover management with Database replication</li>
+                <li>Database Connection Pooling for handling simultaneous users.</li>
+                </ul>
+
+    <!--<img class="img-fluid" src="img/multi-server.jpg" style="margin-right: 10px;" /> -->
+
+			</div>
+
+		</div>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+	<section class="white_patch">
+    <div class="oe_container">
+<div class="oe_row oe_spaced deep-1 p-1" style="max-width:100%; border: 1px solid #ccc;     border-left: 5px solid #13b24f;">
+
+    <div class="pl-3 d-flex align-items-center p-3">
+        <img src="img/customer-account-view.svg" style="width: 90px;
+    margin-right: 10px;" /><h2 class="oe_slogan pr-2 text-left" style="font-weight: 600; font-size: 32px;
+    margin-bottom: 0px;">Customers <b>Website Account</b> View</h2>
+        </div>
+
+
+
+		<div class="row">
+
+			<div class="col-xs-12 col-sm-12 col-md-12 about-img oe_mt32 pl-5 pr-5">
+				<ul>
+<li>The customer can check the subscription contract details in his/her website account.</li>
+<li>The modules included in the plan are displayed in the details.</li>
+<li>The customer can check the status of the plan and login to his/her Odoo SaaS instance directly from the website account.</li>
+
+				</ul>
+
+			</div>
+
+		</div>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+	<section>
+    <div class="oe_container">
+         <div class="oe_row oe_spaced deep-1 p-1" style="max-width:100%; border: 1px solid #ccc; border-left: 5px solid #13b24f;">
+
+             <div class="pl-3 d-flex align-items-center p-3">
+        <img src="img/one-time.svg" style="width: 90px;
+    margin-right: 10px;" />
+            <h2 class="oe_slogan pl-2 pr-2 text-left" style="font-weight: 600; margin-bottom: 0px;">Get Your <b>One-Time Free Installation Setup</b> With The Module</h2>
+             </div>
+
+
+		<div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 about-img oe_mt32">
+                <ul>
+<li>We provide one time setup installation with the module to help you set up your Odoo SaaS service.</li>
+<li>The installation allows you to have your Odoo SaaS up and running on one primary Server.</li>
+<li>The Customers and clients are managed on the same server.</li>
+<li>All the instance created with this installation will also be on the same server.</li>
+<li>The number of instances that can be successfully created on the server depends upon the capacity of the server.</li>
+<li>This does not include any Odoo Setup at your end from our side. You should have a running Odoo server already set up at your end.</li>                    
+<li>The number of instances that can be successfully created on the server depends upon the capacity of the Odoo server.</li>
+
+				</ul>
+
+
+            </div>
+
+		</div>
+
+        </div>
+    </div>
+</section>
+
+
+
+	<section class="white_patch">
+    <div class="oe_container">
+         <div class="oe_row oe_spaced deep-1 p-1" style="max-width:100%; border: 1px solid #ccc; border-left: 5px solid #13b24f;">
+
+    <div class="pl-3 d-flex align-items-center p-3">
+        <img src="img/scale-grow.svg" style="width: 90px;
+    margin-right: 10px;" />
+            <h2 class="oe_slogan pl-2 pr-2 text-left" style="font-weight: 600;
+    margin-bottom: 0px; font-size: 32px;">Scale as you <b>grow</b></h2>
+             </div>
+
+		<div class="row">
+
+			<div class="col-xs-12 col-sm-12 col-md-12 about-img oe_mt32 pl-5 pr-5">
+				<p>The ability of Odoo to scale as you grow provides tremendous opportunity to increase the capability of your servers on demand. The architecture can be scaled to any required capacity to suit your needs.
+
+<p><strong>Such As;</strong></p>
+<ul>
+<li>You can Enhance it further with advanced setup options to improve different areas;</li>
+    <ul>
+    <li>Load balancing on the servers.</li>
+    <li>Auto-Scaling</li>
+    <li>AWS Fargate</li>
+    <li>Use Odoo SaaS Multi-Tenant Architecture</li>
+    </ul>
+<li>Instead of a single server, you can choose to have multiple servers to increase the number of clients running at the same time.</li>
+</ul>
+
+In other cases, the primary server can be separate from other servers on which instances are created so allow compartmentalization and better control.
+<br>
+<br>
+
+The expanse of the Odoo SaaS service is only limited to your ability to grow. With years of experience in Odoo, we at Pragmatic, have niche in coming up with latest and new software to make it more effective and easy for you.
+</p>
+            
+<p>To know more in details Contact Our Technical Team Now at <a href="mailto:support@pragtech.co.in" target="_blank">support@pragtech.co.in</a> (*Customizations may fall under paid services).</p>
+
+			</div>
+
+		</div>
+
+        </div>
+    </div>
+</section>
+
+	<section>
+    <div class="oe_container">
+         <div class="oe_row oe_spaced p-1" style="max-width:100%; border: 1px solid #ccc;     border-left: 5px solid #13b24f;">
+
+    <div class="pl-3 d-flex align-items-center p-2 p-3">
+        <img src="img/features.svg" style="width: 90px;
+    margin-right: 10px;" />
+
+            <h2 class="oe_slogan pl-2 pr-2 text-left" style="font-weight: 600; font-size: 32px;
+    margin-bottom: 0px;">Additional Features of <b>Odoo SaasKit</b></h2>
+             </div>
+
+
+		<div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 about-img oe_mt32">
+                <ul>
+<li>Works with Odoo (Community and Enterprise)</li>
+<li>Sub-domain support with individual customers getting their own sub-domains or domains</li>
+<li>Sub-domains URLS with only 1 Database listing thus isolating users from seeing other databases</li>
+<li>Removal of Database creation URL so that no one can create a new database</li>
+<!--<li>Supported gateways: PayPal</li>-->
+<li>Support for a Demo site with a direct lead creation in Odoo CRM</li>
+<li>A separate URL is provided for the administrator to create databases</li>
+<li>Automated trial versions which expires in as per setting</li>
+<li>Ability for users to reset their own passwords (Forgot your password?)</li>
+<li>Support for SSL with a digital certificate</li>
+<!--<li>Ability to monitor the databases system wise</li>-->
+<li>Ability to increase the number of users for each database</li>
+<li>Ability to send automatic invoices every month</li>
+				</ul>
+
+				<p class="pl-5 pr-5">Our aim to provide solutions to your ERP system needs that are cost effective and faster.
+No matter if you are looking to make small tweaks or an entire project, our developers are there to assist you.
+</p>
+
+
+            </div>
+
+		</div>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+   <section>
+    <div class="oe_container">
+         <div class="oe_row oe_spaced" style="max-width:100%; ">
+
+    <div class="pl-3 d-flex align-items-center p-3">
+        <img src="img/terminology.svg" style="width: 90px;
+    margin-right: 10px;" />
+
+            <h2 class="oe_slogan pl-2 pr-2 text-left" style="font-weight: 600; font-size: 32px;
+    margin-bottom: 0px;">SaaSKit Terminologies</b></h2>
+             </div>
+
+
+		<div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 d-flex about-img oe_mt16" style="flex-wrap: wrap;" >
+
+                <div class="col-md-6 col-12 d-flex border p-3 mb-2">
+                <div class="col-md-3 col-3" style="text-align: center;
+    font-size: 44px;font-weight: 800;">1</div>
+                    <div class="col-md-9 col-9">
+                <div><h4><b>SaaS Master/ Provider</b></h4></div>
+            <p>Technology Company (SaaS Vendor) who sells Odoo in SaaS model</p>
+                </div>
+                </div>
+
+                <div class="col-md-6 col-12 d-flex border p-3 mb-2">
+                <div class="col-md-3 col-3" style="text-align: center;
+    font-size: 44px;font-weight: 800;">2</div>
+                    <div class="col-md-9 col-9">
+                <div><h4><b>SaaSKit Admin</b></h4></div>
+            <p>The Admin account for SaaS Master</p>
+                </div>
+                </div>
+            </div>
+
+		</div>
+
+
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 d-flex about-img oe_mt16" style="flex-wrap: wrap;">
+
+                <div class="col-md-6 col-12 d-flex border p-3 mb-2">
+                <div class="col-md-3 col-3" style="text-align: center;
+    font-size: 44px;font-weight: 800;">3</div>
+                    <div class="col-md-9 cosl-9">
+                <div><h4><b>SaaS Master/ Provider</b></h4></div>
+            <p>Technology Company (SaaS Vendor) who sells Odoo in SaaS model</p>
+                </div>
+                </div>
+
+                <div class="col-md-6 col-12 d-flex border p-3 mb-2">
+                <div class="col-md-3 col-3" style="text-align: center;
+    font-size: 44px;font-weight: 800;">4</div>
+                    <div class="col-md-9 col-9">
+                <div><h4><b>SaaSKit Tenant </b></h4></div>
+            <p>The end user of the Odoo installation (Each tenant has a unique Database)</p>
+                </div>
+                </div>
+            </div>
+
+		</div>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+
+ <section>
+    <div class="oe_container">
+         <div class="oe_row oe_spaced" style="max-width:100%; border: 1px solid #ccc;     border-left: 5px solid #13b24f;">
+
+    <div class="pl-3 d-flex align-items-center p-3">
+        <img src="img/installation.svg" style="width: 90px;
+    margin-right: 10px;" />
+
+            <h2 class="oe_slogan pl-2 pr-2 text-left" style="font-weight: 600; font-size: 32px;
+    margin-bottom: 0px;"><b>Installation of SaaSKit and Setup</b> of Odoo Server</h2>
+             </div>
+
+
+		<div class="row pl-4">
+            <div class="col-xs-12 col-sm-12 col-md-12 about-img oe_mt32">
+        <p><b>Preferred – always new instance (new Odoo with bare DB), installation to be done by Pragmatic.</b></p>
+
+        <p>If there is an Odoo installation that is already present with operational data and SaaSKit need to be added to make this instance as the SaaSMaster – we need to match Odoo Version with that of SaaSKit, that SaaS Module can be installed without errors. Not Preferred approach</p>
+                
+                <p>It is well tested for compatibility on Ubuntu.<br/>
+The module works perfectly on it.<br/>
+For queries regarding compatibility with the OS please contact <a href="mailto:support@pragtech.co.in">support@pragtech.co.in</a></p>
+
+            </div>
+
+		</div>
+
+        </div>
+    </div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--Relative Products Section Start-->
+<section class="oe_container">
+	<h2 style="color: #091E42;font-family: &quot;Montserrat&quot;;text-align: center;margin: 25px auto;text-transform: uppercase;" class="oe_slogan">
+         <b>Related Products</b>
+      </h2>
+
+    <div id="slide-bottom" class="row carousel slide mt64 mb32" data-ride="carousel">
+    <!-- The slideshow -->
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+        <div class="col-xs-12 col-sm-4 col-md-4 mb16 mt16" style="float: left;">
+            <a href="https://apps.odoo.com/apps/modules/14.0/odoo_saaskit_load_balancing_auto_scaling/" target="_blank">
+          <div style="box-shadow: 0 15px 35px rgba(50, 50, 93, 0.1), 0 5px 15px rgba(0, 0, 0, 0.07);border-radius: 10px;"> <img class="img img-fluid center-block" style="border-top-left-radius: 10px;border-top-right-radius: 10px;" src="img/odoo_saaskitload_balancing.gif">
+            <h4 class="mt0" style="padding:6% 4%;text-align: center;white-space: normal;width: 100%;overflow: hidden;text-overflow: ellipsis;font-family: Roboto-medium;">odoo saaskit AWS load balancing auto scaling</h4>
+          </div>
+          </a>
+    </div>
+      </div>
+
+      </div>
+
+    <!-- Left and right controls -->
+    <a class="carousel-control-prev" href="#slide-bottom" data-slide="prev" style="left:-25px;width: 35px;color: #000;"> <span class="carousel-control-prev-icon"><i class="fa fa-chevron-left" style="font-size:24px"></i></span> </a> <a class="carousel-control-next" href="#slide-bottom" data-slide="next" style="right:-25px;width: 35px;color: #000;"> <span class="carousel-control-next-icon"><i class="fa fa-chevron-right" style="font-size:24px"></i></span> </a> </div>
+
+</section>
+<!--Relative Products Section End-->
+
+
+
+
+
+<section class="oe_container oe_dark">
+    <div class="oe_row oe_spaced" style="max-width: 100%; margin-bottom:0px; ">
+        <!--<h2 class="oe_slogan">Help support COVID Relief</h2>-->
+
+
+        <div class="col-md-12 col-sm-12 col-xs-12" style="width: 100%;
+    background-color: #fff;
+    padding-top:20px!important;
+    padding-bottom: 0px!important; 
+    padding-left: 0px;
+    padding-right: 0px;">
+
+
+            <div class="text-center mb-3">
+                <h2 class="text-center mb-3">Help Support <b>Covid Relief</b></h2>
+                <p style="padding-left:20px; padding-right: 20px; padding-bottom: 0px;"><b>Pragmatic</b> has always been contributing itswarsa social causes by exercising its Corporate Social Responsibility. We are pledged to COVID relief and have been donating a major share of our profits to COVID Pandemic Relief. By purchasing our apps and services you are becoming a part of helping the needy in these critical times. If you want to help further please connect with us  and we will help you find NGOs whom you can donate directly.
+                </p>
+
+                <p><a class="btn m-2" href="mailto:support@pragtech.co.in" style="background-color:#ff8000; padding:9px; color:#fff; font-size:20px; font-weight:600;     border-radius: 0px;"><i class="fa fa-envelope" style="padding-right:9px"></i>support@pragtech.co.in</a></p>
+            </div>
+
+
+            <div class="oe_row_img oe_centered">
+                <img class="img-fluid oe_screenshot" src="img/Help_support.jpg" style="margin: 0 auto">
+            </div>
+
+
+
+        </div>
+
+    </div>
+</section>
+
+
+
+
+<!--Footer Section Start-->
+<section class="oe_container oe_dark" style="padding-left:15px!important; padding-right:15px!important;">
+    <div class="oe_row" style="max-width:100%;">
+        <div class="col-md-8 col-sm-8 col-xs-12 offset-md-2 offset-sm-2 padding-none text-center">
+           <h2 class="oe_slogan" style="font-size: 35px; margin-bottom: 10px;"><b>Contact / Support</b></h2>
+			<span><b>(Monday-Friday 10am to 7pm IST)</b></span>
+            <h2 style="margin-top:10px; color:#0aab77; font-weight: 600;">Pragmatic Techsoft Pvt. Ltd.</h2>
+			<a class="btn yellow-btn btn-lg"
+               style="background-color:#0aab77; border-radius: 0px; color: #fff; width: 150px; font-size:18px;"
+               target="_blank" href="mailto:support@pragtech.co.in">Support </a>
+
+            <hr style="border-top: 1px solid #e4e4e4; margin-bottom: 5px;">
+        </div>
+
+       <div class="row">
+        <div class="col-md-7 col-sm-7 col-xs-12 mt32" style="display: table-cell;">
+
+              <p style="font-size:16px;"><b>Pragmatic</b> is a global open source enterprise software development,
+            consulting and products company. Our philosophy is to use Open Source
+             tools and technologies to provide cost effective and green solutions for our customers.</p>
+
+           <p style="font-size:16px;">We are a dynamic and fast growing company committed towards creating
+            value for our customers. Located in Pune, India the educational and IT
+            hub of western India, we take pride in delivering rapid, customized open
+             source enterprise applications following agile and lean software methods.
+              Whether you are developing an application from scratch, working on an existing
+               application or porting your application to a new platform or framework, we can meet your business needs.</p>
+
+
+             <p class="oe_mt32" style="font-size:16px;">If you need any help or want more additional features, you may contact us through:</p>
+              <div style="text-align: center;"><a href="http://www.pragtech.co.in"><img src="logo.png"></a></div>
+             <div class="row">
+
+             	<div class="col-md-6 col-sm-6 col-xs-12" style="text-align: center;">
+
+            	<a style="color:#ed143d; font-size: 17px;" href="mailto:sales@pragtech.co.in"> <i class="fa fa-envelope" style="font-size:19px;" aria-hidden="true"></i> sales@pragtech.co.in</a><br/>
+            	</div>
+
+               <div class="col-md-6 col-sm-6 col-xs-12" style="text-align: center;">
+
+                <a style="color:#ed143d; font-size: 17px;" href="https://www.pragtech.co.in/"><i class="fa fa-globe" style="font-size:19px;" aria-hidden="true"></i> www.pragtech.co.in</a><br/>
+				 </div>
+             </div>
+		</div>
+
+        <div class="col-md-5 col-sm-5 col-xs-12 mt32 pull-right pt32" style="display:table-cell; background-color:rgb(34, 194, 115); padding:20px">
+  <h3 style="text-align:center"><b>Our solutions focus on your problems</b></h3>
+  <ul style="line-height:30px; font-size:15px; padding-left:20px; text-decoration:none; color:#fff; text-transform:uppercase">
+    <li list-style-type:=""> <span style="color:#fff" target="_blank" href="http://www.pragtech.co.in/services/customization-implementation-service/odoo-openerp/odoo-openerp-implementation-methodology.html">Odoo Implementation</span></li>
+    <!--<li list-style-type:> <a style="color:#fff;" href="http://www.pragtech.co.in/contact.html" target="_blank">Odoo Support</a></li>-->
+    <li list-style-type:=""> <span style="color:#fff" target="_blank" href="http://www.pragtech.co.in/services/customization-implementation-service/odoo-openerp.html">Odoo Customization</span></li>
+    <li> <span style="color:#fff" href="http://www.pragtech.co.in/technologies/odoo-openerp/odoo-11-features.html">ERP Development and Implementation</span></li>
+    <li> <span style="color:#fff" href="https://ipaas.pragtech.co.in/">Odoo Ipass Cloud</span></li>
+    <li> <span style="color:#fff" href="http://www.pragtech.co.in/products/other-products/odoo-voice-bring-artificial-intelligence-ai-to-odoo-platform.html">AI for Odoo</span></li>
+    <li> <span style="color:#fff" href="https://store.pragtech.co.in/shop">Odoo Apps</span></li>
+    <li> <span style="color:#fff" href="https://aws.amazon.com/marketplace/seller-profile?id=6559afc1-9219-494e-b8d0-831be5da3b1e">Aws Marketplace Products</span></li>
+    <li> <span style="color:#fff" href="https://businessengines.co.in/">Business Engines</span></li>
+  </ul>
+  <h3 style="text-align:center; margin-bottom:25px"><b>Get In Touch</b></h3>
+  <h2 style="text-align:center; margin-top:12px"> <span style="color:#fff; margin-right:10px" href="https://www.facebook.com/pragmatic.co.in" target="new"> <i class="fa fa-facebook-square" style="font-size:28px"></i> </span> <span style="color:#fff; margin-right:10px" href="https://twitter.com/Pragmatic_Tech" target="new"> <i class="fa fa-twitter" style="font-size:28px"></i> </span> <span style="color:#fff; margin-right:10px" href="https://www.linkedin.com/company/228353" target="new"> <i class="fa fa-linkedin" style="font-size:28px"></i> </span> <a style="color:#fff; margin-right:10px" href="https://www.youtube.com/user/PragmaticVideos" target="new"> <i class="fa fa-youtube-play" style="font-size:28px"></i> </a> <span style="color:#fff; margin-right:10px" href="https://plus.google.com/u/0/104748260070453259356" target="new" rel="publisher"> <i class="fa fa-google-plus-square" style="font-size:28px"></i> </span> <span style="color:#fff; margin-right:10px" href="http://blog.pragtech.co.in/" target="new" rel="publisher"> <i class="fab fa-blogger" style="font-size:28px"></i> </span> </h2>
+</div>
+
+
+	</div>
+	</div>
+
+</section>
+<!--Footer Section End-->
+</html>

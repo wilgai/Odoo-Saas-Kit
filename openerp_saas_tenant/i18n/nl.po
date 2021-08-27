@@ -1,0 +1,181 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* openerp_saas_tenant
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-09-11 06:22+0000\n"
+"PO-Revision-Date: 2015-09-11 06:22+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: openerp_saas_tenant
+#: field:saas.service,balance_user_count:0
+msgid "Balance User"
+msgstr "Vrije gebruikers"
+
+#. module: openerp_saas_tenant
+#: field:saas.service,use_user_count:0
+msgid "Consume User"
+msgstr "Actieve gebruikers"
+
+#. module: openerp_saas_tenant
+#: field:saas.service,create_uid:0
+msgid "Created by"
+msgstr "Gemaakt door"
+
+#. module: openerp_saas_tenant
+#: field:saas.service,create_date:0
+msgid "Created on"
+msgstr "Created on"
+
+#. module: openerp_saas_tenant
+#: code:addons/openerp_saas_tenant/users.py:23
+#: code:addons/openerp_saas_tenant/users.py:30
+#: code:addons/openerp_saas_tenant/users.py:46
+#: code:addons/openerp_saas_tenant/users.py:63
+#: code:addons/openerp_saas_tenant/users.py:80
+#: code:addons/openerp_saas_tenant/users.py:100
+#: code:addons/openerp_saas_tenant/users.py:122
+#, python-format
+msgid "Error!"
+msgstr "fout!"
+
+#. module: openerp_saas_tenant
+#: field:saas.service,expiry_date:0
+msgid "Expiry Date"
+msgstr "Verloop datum"
+
+#. module: openerp_saas_tenant
+#: field:saas.service,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: openerp_saas_tenant
+#: field:saas.service,name:0
+msgid "Instance Name"
+msgstr "Naam Instantie"
+
+#. module: openerp_saas_tenant
+#: code:addons/openerp_saas_tenant/openerp_saas_tenant.py:105
+#: code:addons/openerp_saas_tenant/openerp_saas_tenant.py:113
+#, python-format
+msgid "Invalid Access"
+msgstr "ongeldige Access"
+
+#. module: openerp_saas_tenant
+#: field:saas.service,write_uid:0
+msgid "Last Updated by"
+msgstr "Laatst bijgewerkt door"
+
+#. module: openerp_saas_tenant
+#: field:saas.service,write_date:0
+msgid "Last Updated on"
+msgstr "Laatst bijgewerkt op"
+
+#. module: openerp_saas_tenant
+#: field:res.users,is_manual:0
+msgid "Manual"
+msgstr "Manual"
+
+#. module: openerp_saas_tenant
+#: model:ir.model,name:openerp_saas_tenant.model_ir_module_module
+msgid "Module"
+msgstr "Module"
+
+#. module: openerp_saas_tenant
+#: model:ir.actions.act_window,name:openerp_saas_tenant.saas_service_action
+#: model:ir.ui.menu,name:openerp_saas_tenant.my_saas_service
+#: model:ir.ui.menu,name:openerp_saas_tenant.saas_service
+#: view:saas.service:openerp_saas_tenant.saas_service_form
+#: view:saas.service:openerp_saas_tenant.saas_service_tree
+msgid "My Service"
+msgstr "Mijn Service"
+
+#. module: openerp_saas_tenant
+#: model:res.groups,name:openerp_saas_tenant.group_saas_service
+msgid "My Service Access"
+msgstr "Mijn Service Access"
+
+#. module: openerp_saas_tenant
+#: code:addons/openerp_saas_tenant/openerp_saas_tenant.py:28
+#, python-format
+msgid "Only administrators can change the settings"
+msgstr "Alleen beheerders kunnen de instellingen veranderen"
+
+#. module: openerp_saas_tenant
+#: field:saas.service,user_count:0
+msgid "Purchase User"
+msgstr "Aangekochte gebruikers"
+
+#. module: openerp_saas_tenant
+#: model:ir.ui.menu,name:openerp_saas_tenant.menu_saas_service
+msgid "Service Detail"
+msgstr "Diensten"
+
+#. module: openerp_saas_tenant
+#: code:addons/openerp_saas_tenant/users.py:63
+#: code:addons/openerp_saas_tenant/users.py:80
+#: code:addons/openerp_saas_tenant/users.py:122
+#, python-format
+msgid "To add More Users please contact Service Provider!"
+msgstr "Om meer gebruikers toe te voegen kunt u contact opnemen Service Provider!"
+
+#. module: openerp_saas_tenant
+#: model:ir.model,name:openerp_saas_tenant.model_res_users
+msgid "Users"
+msgstr "Gebruikers"
+
+#. module: openerp_saas_tenant
+#: code:addons/openerp_saas_tenant/users.py:108
+#, python-format
+msgid "Warning!"
+msgstr "Warning!"
+
+#. module: openerp_saas_tenant
+#: code:addons/openerp_saas_tenant/users.py:23
+#: code:addons/openerp_saas_tenant/users.py:30
+#, python-format
+msgid "You are not a authorized person to make changes!"
+msgstr "U bent niet bevoegd persoon om wijzigingen aan te brengen!"
+
+#. module: openerp_saas_tenant
+#: code:addons/openerp_saas_tenant/openerp_saas_tenant.py:106
+#, python-format
+msgid "You are not authorised to install the module...!!! "
+msgstr "U bent niet bevoegd om de module te installeren...!!! "
+
+#. module: openerp_saas_tenant
+#: code:addons/openerp_saas_tenant/openerp_saas_tenant.py:114
+#, python-format
+msgid "You are not authorised to uninstall the module...!!! "
+msgstr "U bent niet bevoegd om de module te verwijderen...!!! "
+
+#. module: openerp_saas_tenant
+#: code:addons/openerp_saas_tenant/users.py:100
+#, python-format
+msgid "You can't deactivate this user!'"
+msgstr "U kunt deze gebruiker niet uitschakelen!'"
+
+#. module: openerp_saas_tenant
+#: code:addons/openerp_saas_tenant/users.py:46
+#, python-format
+msgid "You can't delete this user!'"
+msgstr "U kunt deze gebruiker niet verwijderen!'"
+
+#. module: openerp_saas_tenant
+#: code:addons/openerp_saas_tenant/users.py:108
+#, python-format
+msgid "You can't remove group 'My Service Access'"
+msgstr "Je kunt geen groep te verwijderen 'My Service Access'"
+
+#. module: openerp_saas_tenant
+#: view:ir.actions.act_window:openerp_saas_tenant.view_window_action_form_inherit_domain
+msgid "{'invisible':[('res_model','=','ir.module.module')]}"
+msgstr "{'invisible':[('res_model','=','ir.module.module')]}"

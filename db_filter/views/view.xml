@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<template id="db_filter.manage_select_db">
+
+		<div>
+			<form class="container" action="/web/check_manage_db" method="post">
+
+				<div class="container" style="display: inline-grid;
+    margin-left: 35%;
+    margin-top: 5%;
+    width: 25%; margin-bottom: 60px; border: #e2d6d6 1px solid;
+    padding: 20px;">
+					<h4 style="background-color: #9c9dbd; padding: 20px; text-align: center;">Login Again to Access Manager Page</h4>
+					<h5 style="color: red"><t t-esc="error" /></h5>
+					<br></br>
+					<br></br>
+					<label for="uname">
+						<b>Username</b>
+					</label>
+					<input type="text" placeholder="Enter Username" name="user_id" required="True"
+						style="margin-top: 10px;
+    line-height: 3;
+    padding: 5px; border: 1px solid #ced4da;
+    border-radius: 0.25rem;font-size: 0.975rem;
+    font-weight: 400;
+    color: #1d1e1f"/>
+
+					<label for="psw" style="margin-top: 15px;">
+						<b>Password</b>
+					</label>
+					<input type="password" placeholder="Enter Password" name="user_pwd" required="True"
+						style="margin-top: 4px;
+    line-height: 3;
+    padding: 5px; border: 1px solid #ced4da;
+    border-radius: 0.25rem;font-size: 0.975rem;
+    font-weight: 400;
+    color: #1d1e1f"/>
+
+					<button type="submit" style="margin-top: 19px;
+    line-height: 3;background-color: #00A09D;
+    border-color: #00A09D;
+    color: white;
+    border-radius: 5px;
+    font-weight: bold;">Login</button>
+				</div>
+
+			</form>
+
+		</div>
+
+	</template>
+
+</odoo>

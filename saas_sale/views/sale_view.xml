@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<odoo>
+	<data noupdate="0">
+	
+		<record model="ir.ui.view" id="view_order_form_saas_hide_confirm">
+			<field name="name">view.order.for.saas.hide.confirm</field>
+			<field name="model">sale.order</field>
+			<field name="inherit_id" ref="sale.view_order_form" />
+			<field name="arch" type="xml">
+
+				<button name="action_confirm" id="action_confirm" position="replace">
+					<button name="action_confirm" id="action_confirm" attrs="{'invisible': [('state', 'not in', ['sent'])]}" string="Confirm Sale"  class="oe_highlight" type="object" context="{'show_sale': True}" groups="saas_base.group_admin_saas"/>
+			    </button>
+			    <button name="action_confirm" attrs="{'invisible': [('state', 'not in', ['draft'])]}" position="replace">
+					<button name="action_confirm" attrs="{'invisible': [('state', 'not in', ['draft'])]}" string="Confirm Sale" type="object" context="{'show_sale': True}" groups="saas_base.group_admin_saas"/>
+			    </button>
+
+				<button name="action_cancel" states="draft,sent,sale" type="object"  position="before">
+					<button name="action_confirm1" attrs="{'invisible': [('state', 'not in', ['draft'])]}" string="Create Database" type="object" context="{'show_sale': True}" groups="saas_base.group_admin_saas"/>
+				</button>
+			</field>
+		</record>
+	
+	
+		<record model="ir.cron" id="check_so_for_confirm">
+            <field name="name">Check for any SO to confirm it.</field>
+            <field name="interval_number">100</field>
+            <field name="interval_type">minutes</field>
+            <field name="numbercall">-1</field>
+            <field eval="False" name="doall"/>
+            <field ref="model_sale_order" name="model_id"/>
+            <field name="code">model.check_so_to_confirm()</field>
+			 <field name="state">code</field>
+            <field name="code">model.check_so_to_confirm</field>
+			 <field name="active" eval="False"/>
+       	</record>
+
+		<!-- Email Template for Database Creation alert mail -->
+		<record id="email_template_database_creation" model="mail.template">
+			<field name="name">Database Creation Alert Mail</field>
+			<field name="email_from">${object.company_id.email}</field>
+			<field name="model_id" ref="sale.model_sale_order" />
+			<field name="email_to">${object.partner_id.email}</field>
+			<field name="subject">Welcome to ${object.company_id.name} </field>
+			<field name="body_html"> <![CDATA[ Hello ${object.partner_id.name}<br/><br/> We are ready with setting up your instance.<br/>
+            URL: ${object.saas_domain}<br/>
+            
+            <br/>UserName:${object.customer_email}
+            <br/>Password:${object.pwd}<br/><br/>
+            Kind Regards,<br/>
+            The ${object.company_id.name} Team
+            
+            ]]>
+			</field>
+			<!-- <field name="email_recipients">${object.partner_id.id}</field> -->
+			<field name="auto_delete" eval="False" />
+		</record>
+		<!-- <field name="body_html"> <![CDATA[ Hello ${object.partner_id.name}<br/><br/> 
+			Your database on ${object.company_id.name} SaaS has been created : -->
+
+		<!-- Email Template for Notify On Order Import -->
+
+		<record id="email_template_on_order_import" model="mail.template">
+			<field name="name">Alert Mail on Order Import</field>
+			<field name="email_from">${object.company_id.email}</field>
+			<field name="email_to">${object.partner_id.email}</field>
+			<field name="model_id" ref="sale.model_sale_order" />
+			<field name="subject">${object.company_id.name} Purchase Order Acceptance
+			</field>
+			<field name="body_html"> <![CDATA[  Hello ${object.partner_id.name},<br/><br/>
+            Your order (${object.name}) is accepted at ${object.company_id.name} ,${object.create_date} <br/><br/>
+            Order Status: Under Processing.<br/><br/>
+            Note: You will receive a link of your on-line store with the login credentials within the next 24 hours after we confirm your payment.<br/><br/>
+
+			We Thank You for the business with  ${object.company_id.name}.
+             
+            ]]>
+			</field>
+			<!-- <field name="email_recipients">${object.partner_id.id}</field> -->
+			<field name="auto_delete" eval="False" />
+		</record>
+
+
+		<!-- Renew Subscription Email Template tenant.database.list obj  -->
+
+		<record id="email_template_renew_subscription" model="mail.template">
+			<field name="name">Subscription Renewed Email</field>
+			<field name="email_from">${object.user_id.company_id.email or object.sale_order_ref.company_id.email or ''}</field>
+			<field name="model_id" ref="saas_base.model_tenant_database_list" />
+			<field name="email_to">${object.sale_order_ref.partner_id.email}</field>
+			<field name="subject">Subscription Renewed</field>
+			<field name="body_html"> <![CDATA[
+					            Dear ${object.sale_order_ref.partner_id.name}<br/><br/>
+					        Tenant url:${object.tenant_url}
+					         <br/><br/>
+							Your subscription of instance   on SaaS, for ${object.name}, has been Renewed  till  ${object.exp_date}. <br/>
+				 <br/><br/> 
+				If you have any questions, please do not hesitate to contact us! <br/>
+				Have A Great Day !
+	            ]]>
+			</field>
+			<!-- <field name="email_recipients">${object.sale_order_ref.partner_id.id}</field> -->
+			<field name="auto_delete" eval="False" />
+		</record>
+
+	</data>
+
+	<!-- Your subscription with ${object.company_id.name} instance on SaaS, 
+		for ${object.instance_name}, has been Renewed till ${object.exp_date}. <br/> 
+		Enjoy your experience with ${object.company_id.name} Cloud Services. Thanking 
+		you for your business with ${object.company_id.name}. <br/> -->
+	
+	<data>
+		<!--Inherited Sale Order View -->
+		<record model="ir.ui.view" id="view_order_form_saas_inherit">
+			<field name="name">view.order.for.saas.inherit</field>
+			<field name="model">sale.order</field>
+			<field name="inherit_id" ref="sale.view_order_form" />
+			<field name="arch" type="xml">
+				<field name="pricelist_id" position="after">
+					<field name="saas_order" />
+					<field name="is_top_up" attrs="{'invisible':[('is_top_up','!=', True)]}" />
+					<field name="instance_name"
+						attrs="{'readonly' : [('state','not in',['draft'])], 'required':[('saas_order','=', True)], 'invisible':[('saas_order','!=', True)]}"></field>
+					<field name="invoice_term_id"
+						attrs="{'readonly' : [('state','not in',['draft'])], 'required':[('saas_order','=', True)], 'invisible':[('saas_order','!=', True)]}"></field>
+					<field name="no_of_users"
+						attrs="{'readonly' : [('state','not in',['draft'])], 'required':[('saas_order','=', True)], 'invisible':[('saas_order','!=', True)]}"></field>
+					<field name="lang_code"
+						attrs="{'readonly' : [('state','not in',['draft'])], 'required':[('saas_order','=', True)], 'invisible':[('saas_order','!=', True)]}"></field>
+				</field>
+				
+			</field>
+		</record>
+		
+		
+		<record model="ir.ui.view" id="account_invoice_form_inv_type">
+            <field name="name">Account Invoice Type</field>
+            <field name="model">account.move</field>
+            <field name="inherit_id" ref="account.view_move_form"/>
+            <field name="arch" type="xml">
+                <data>
+                    <xpath expr="//field[@name='partner_shipping_id']" position="after">
+                        <field name="instance_name"/>
+                        <field name="invoice_type"/>
+                        <field name="create_date" string='Create Date'/>
+<!--                         <field name="expiry_date"/> -->
+                    </xpath>
+                </data>
+            </field>
+        </record>
+
+
+
+        
+        
+        
+        
+	</data>
+</odoo>

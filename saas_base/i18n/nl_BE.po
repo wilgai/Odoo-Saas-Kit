@@ -1,0 +1,559 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* base_admin
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-09-13 09:20+0000\n"
+"PO-Revision-Date: 2015-09-13 09:20+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: base_admin
+#: model:mail.template,body_html:base_admin.email_template_renew_tenant_subscription_alert
+msgid "  \n"
+"	            Dear ${object.sale_order_ref.partner_id.name}<br/><br/>             \n"
+"							This is a reminder that your subscription instance on SaaS, for ${object.name}, is nearing its end of usable period by  ${object.exp_date}<br/>\n"
+"				\n"
+"				We request you to kindly renew the subscription to continue using the services. <br/><br/>\n"
+"				\n"
+"				Renewal Methods<br/>\n"
+"											\n"
+"				If you have any questions, please do not hesitate to contact us! <br/>\n"
+"	            \n"
+"	             "
+msgstr "  \n"
+"	            Dear ${object.sale_order_ref.partner_id.name}<br/><br/>             \n"
+"							This is a reminder that your subscription instance on SaaS, for ${object.name}, is nearing its end of usable period by  ${object.exp_date}<br/>\n"
+"				\n"
+"				We request you to kindly renew the subscription to continue using the services. <br/><br/>\n"
+"				\n"
+"				Renewal Methods<br/>\n"
+"											\n"
+"				If you have any questions, please do not hesitate to contact us! <br/>\n"
+"	            \n"
+"	             "
+
+#. module: base_admin
+#: model:mail.template,body_html:base_admin.email_template_tenant_db_grace_alert
+msgid "  \n"
+"	            Dear ${object.sale_order_ref.partner_id.name}<br/><br/>             \n"
+"							This is to inform you that your subscription with  ${object.sale_order_ref.company_id.name} instance on Odoo SaaS, for ${object.name}, has expired on ${object.exp_date} and you are on grace period.<br/>\n"
+"				Your service would be inactive from ${object.grace_period_date}.<br/>\n"
+"				We request you to kindly renew the subscription to continue using the services. <br/><br/>\n"
+"				\n"
+"				\n"
+"				If you have any questions, please do not hesitate to contact us! <br/>\n"
+"	            \n"
+"	             "
+msgstr "  \n"
+"	            Dear ${object.sale_order_ref.partner_id.name}<br/><br/>             \n"
+"							This is to inform you that your subscription with  ${object.sale_order_ref.company_id.name} instance on Odoo SaaS, for ${object.name}, has expired on ${object.exp_date} and you are on grace period.<br/>\n"
+"				Your service would be inactive from ${object.grace_period_date}.<br/>\n"
+"				We request you to kindly renew the subscription to continue using the services. <br/><br/>\n"
+"				\n"
+"				\n"
+"				If you have any questions, please do not hesitate to contact us! <br/>\n"
+"	            \n"
+"	             "
+
+#. module: base_admin
+#: model:mail.template,body_html:base_admin.email_template_tenant_db_purge_alert
+msgid "  \n"
+"	            Dear ${object.sale_order_ref.partner_id.name}<br/><br/>             \n"
+"							This is to inform you that your subscription with  ${object.sale_order_ref.company_id.name} instance on Odoo SaaS, for ${object.name}, has expired on ${object.grace_period_date}.<br/>\n"
+"				\n"
+"				As per contractual agreement, we are going to purge your data from cloud. <br/><br/>\n"
+"				\n"
+"				\n"
+"				If you have any questions, please do not hesitate to contact us! <br/>\n"
+"	            \n"
+"	             "
+msgstr "  \n"
+"	            Dear ${object.sale_order_ref.partner_id.name}<br/><br/>             \n"
+"							This is to inform you that your subscription with  ${object.sale_order_ref.company_id.name} instance on Odoo SaaS, for ${object.name}, has expired on ${object.grace_period_date}.<br/>\n"
+"				\n"
+"				As per contractual agreement, we are going to purge your data from cloud. <br/><br/>\n"
+"				\n"
+"				\n"
+"				If you have any questions, please do not hesitate to contact us! <br/>\n"
+"	            \n"
+"	             "
+
+#. module: base_admin
+#: field:saas.config.setting,free_trail_no_of_days:0
+msgid " Alert before No. Of Days (for Free Trial)"
+msgstr " Alert voordat Aantal Dagen (voor Free Trial)"
+
+#. module: base_admin
+#: view:deactive_db.wizard:base_admin.active_db_wizard_form
+msgid "Activate"
+msgstr "Activeren"
+
+#. module: base_admin
+#: view:deactive_db.wizard:base_admin.active_db_wizard_form
+#: model:ir.actions.act_window,name:base_admin.active_db_wizard
+#: model:ir.ui.menu,name:base_admin.active_db_menu
+msgid "Activate Database"
+msgstr "Activeren Database"
+
+#. module: base_admin
+#: field:tenant.database.list,active:0
+#: field:tenant.database.stage,is_active:0
+#: model:tenant.database.stage,name:base_admin.stage_record0
+msgid "Active"
+msgstr "Actief"
+
+#. module: base_admin
+#: view:adduser.wizard:base_admin.adduser_wizard_form_view
+#: model:ir.actions.act_window,name:base_admin.adduser_wizard
+msgid "Add User"
+msgstr "Gebruiker toevoegen"
+
+#. module: base_admin
+#: view:adduser.wizard:base_admin.adduser_wizard_form_view
+msgid "Add Users"
+msgstr "Gebruikers toevoegen"
+
+#. module: base_admin
+#: model:ir.model,name:base_admin.model_adduser_wizard
+msgid "Add user"
+msgstr "Gebruiker toevoegen"
+
+#. module: base_admin
+#: field:saas.config.setting,admin_pwd:0
+msgid "Admin Password"
+msgstr "Admin Wachtwoord"
+
+#. module: base_admin
+#: field:saas.config.setting,db_expire_no_of_days:0
+msgid "Alert before No. Of Days (for Database Expiration)"
+msgstr "Alert voordat Aantal Dagen (Voor Database Vervaldatum)"
+
+#. module: base_admin
+#: field:adduser.wizard,user_no:0
+msgid "Allocate Users"
+msgstr "Toewijzen Gebruikers"
+
+#. module: base_admin
+#: view:saas.config.setting:base_admin.email_alert_setting_form_view
+msgid "Apply"
+msgstr "Solliciteren"
+
+#. module: base_admin
+#: field:saas.config.setting,billing:0
+msgid "Billing Type"
+msgstr "Billing Type"
+
+#. module: base_admin
+#: view:deactive_db.wizard:base_admin.active_db_wizard_form
+#: view:deactive_db.wizard:base_admin.deactive_db_wizard_form
+#: view:deactive_db.wizard:base_admin.terminate_db_wizard_form
+#: view:saas.config.setting:base_admin.email_alert_setting_form_view
+#: view:update.tenants.wizard:base_admin.update_tenant_wizard_form
+msgid "Cancel"
+msgstr "Annuleer"
+
+#. module: base_admin
+#: field:tenant.database.list,color:0
+msgid "Color Index"
+msgstr "kleur Index"
+
+#. module: base_admin
+#: field:adduser.wizard,create_uid:0
+#: field:deactive_db.wizard,create_uid:0
+#: field:saas.config.setting,create_uid:0
+#: field:tenant.database.list,create_uid:0
+#: field:tenant.database.stage,create_uid:0
+#: field:update.tenants.wizard,create_uid:0
+msgid "Created by"
+msgstr "Gemaakt door"
+
+#. module: base_admin
+#: field:adduser.wizard,create_date:0
+#: field:deactive_db.wizard,create_date:0
+#: field:saas.config.setting,create_date:0
+#: field:tenant.database.list,create_date:0
+#: field:tenant.database.stage,create_date:0
+#: field:update.tenants.wizard,create_date:0
+msgid "Created on"
+msgstr "Aangemaakt op"
+
+#. module: base_admin
+#: view:tenant.database.list:base_admin.view_db_admin_filter
+#: field:tenant.database.list,name:0
+msgid "DB Name"
+msgstr "DB Naam"
+
+#. module: base_admin
+#: field:saas.config.setting,data_purging_days:0
+msgid "Data Purging Days(after Grace Period)"
+msgstr "Gegevens Purging Dagen(na Grace Period)"
+
+#. module: base_admin
+#: model:mail.template,subject:base_admin.email_template_tenant_db_grace_alert
+msgid "Database Grace Period is started"
+msgstr "Database Gratieperiode wordt gestart"
+
+#. module: base_admin
+#: model:ir.ui.menu,name:base_admin.menu_dblist_tree
+msgid "Database List"
+msgstr "Database Lijst"
+
+#. module: base_admin
+#: model:ir.model,name:base_admin.model_deactive_db_wizard
+msgid "DeActivate Database"
+msgstr "Deactiveren Database"
+
+#. module: base_admin
+#: view:deactive_db.wizard:base_admin.deactive_db_wizard_form
+msgid "Deactivate"
+msgstr "deactiveren"
+
+#. module: base_admin
+#: view:deactive_db.wizard:base_admin.deactive_db_wizard_form
+#: model:ir.actions.act_window,name:base_admin.deactive_db_wizard
+#: model:ir.ui.menu,name:base_admin.deactive_db_menu
+msgid "Deactivate Database"
+msgstr "Deactiveren Database"
+
+#. module: base_admin
+#: field:tenant.database.stage,is_deactivated:0
+#: model:tenant.database.stage,name:base_admin.tenant_database_stage_5
+msgid "Deactivated"
+msgstr "gedeactiveerd"
+
+#. module: base_admin
+#: field:tenant.database.list,deactivated_date:0
+msgid "Deactivated Date"
+msgstr "Deactivated Date"
+
+#. module: base_admin
+#: view:tenant.database.list:base_admin.saas_admin_dblist_form
+msgid "Deactivation details"
+msgstr "deactivering informatie"
+
+#. module: base_admin
+#: model:ir.actions.act_window,name:base_admin.email_alert_setting_action1
+#: view:saas.config.setting:base_admin.email_alert_setting_form_view
+msgid "Email Alert Setting"
+msgstr "Via e-mail instellen"
+
+#. module: base_admin
+#: view:saas.config.setting:base_admin.email_alert_setting_form_view
+msgid "Email Alerts"
+msgstr "e-mail alerts"
+
+#. module: base_admin
+#: code:addons/base_admin/wizard/db_controll.py:35
+#: code:addons/base_admin/wizard/db_controll.py:64
+#: code:addons/base_admin/wizard/db_controll.py:105
+#, python-format
+msgid "Error!"
+msgstr "Fout!"
+
+#. module: base_admin
+#: field:adduser.wizard,existing_user_no:0
+msgid "Existing Users"
+msgstr "Bestaande Gebruikers"
+
+#. module: base_admin
+#: field:tenant.database.list,exp_date:0
+msgid "Expire Date"
+msgstr "Houdbaarheidsdatum"
+
+#. module: base_admin
+#: field:tenant.database.list,expired:0
+#: field:tenant.database.stage,is_expired:0
+#: model:tenant.database.stage,name:base_admin.stage_record2
+msgid "Expired"
+msgstr "Verlopen"
+
+#. module: base_admin
+#: view:tenant.database.list:base_admin.saas_admin_dblist_kanban
+msgid "Expiry Date :"
+msgstr "Houdbaarheidsdatum :"
+
+#. module: base_admin
+#: selection:saas.config.setting,billing:0
+msgid "Flat module/Per User/ Per Month"
+msgstr "Flat module/Per User/ Per Month"
+
+#. module: base_admin
+#: field:tenant.database.stage,fold:0
+msgid "Folded in Kanban View"
+msgstr "Folded in Kanban View"
+
+#. module: base_admin
+#: field:tenant.database.list,free_trial:0
+msgid "Free Trial"
+msgstr "Free Trial"
+
+#. module: base_admin
+#: field:saas.config.setting,free_trial_days:0
+msgid "Free Trial Period(days)"
+msgstr "Gratis proefperiode(dagen)"
+
+#. module: base_admin
+#: field:tenant.database.stage,is_grace:0
+#: model:tenant.database.stage,name:base_admin.stage_record1
+msgid "Grace Period"
+msgstr "Bedenktijd"
+
+#. module: base_admin
+#: field:tenant.database.list,grace_period_date:0
+msgid "Grace Period Date"
+msgstr "Datum van Gratieperiode"
+
+#. module: base_admin
+#: field:saas.config.setting,grace_period:0
+msgid "Grace Period for Pay Invoice(after Expiry)"
+msgstr "Grace Period for Pay Invoice(after Expiry)"
+
+#. module: base_admin
+#: field:adduser.wizard,id:0
+#: field:deactive_db.wizard,id:0
+#: field:saas.config.setting,id:0
+#: field:tenant.database.list,id:0
+#: field:tenant.database.stage,id:0
+#: field:update.tenants.wizard,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: base_admin
+#: field:adduser.wizard,write_uid:0
+#: field:deactive_db.wizard,write_uid:0
+#: field:saas.config.setting,write_uid:0
+#: field:tenant.database.list,write_uid:0
+#: field:tenant.database.stage,write_uid:0
+#: field:update.tenants.wizard,write_uid:0
+msgid "Last Updated by"
+msgstr "Laatst aangepast door"
+
+#. module: base_admin
+#: field:adduser.wizard,write_date:0
+#: field:deactive_db.wizard,write_date:0
+#: field:saas.config.setting,write_date:0
+#: field:tenant.database.list,write_date:0
+#: field:tenant.database.stage,write_date:0
+#: field:update.tenants.wizard,write_date:0
+msgid "Last Updated on"
+msgstr "Laatst aangepast op"
+
+#. module: base_admin
+#: field:tenant.database.list,next_invoice_create_date:0
+msgid "Next invoice create date"
+msgstr "Volgende factuurdatum creëren"
+
+#. module: base_admin
+#: field:tenant.database.list,no_of_users:0
+msgid "No of users"
+msgstr "Aantal gebruikers"
+
+#. module: base_admin
+#: selection:saas.config.setting,billing:0
+msgid "Per User/Per Module/Per Month"
+msgstr "Per User/Per Module/Per Month"
+
+#. module: base_admin
+#: field:tenant.database.stage,is_purge:0
+msgid "Purge"
+msgstr "Purge"
+
+#. module: base_admin
+#: model:mail.template,subject:base_admin.email_template_tenant_db_purge_alert
+msgid "Purge Database"
+msgstr "Purge Database"
+
+#. module: base_admin
+#: field:deactive_db.wizard,reason:0
+#: field:tenant.database.list,reason:0
+msgid "Reason"
+msgstr "Reden"
+
+#. module: base_admin
+#: model:res.groups,name:base_admin.group_admin_saas
+msgid "SaaS Admin"
+msgstr "SaaS Admin"
+
+#. module: base_admin
+#: model:ir.ui.menu,name:base_admin.saas_config_setting_menu
+msgid "SaaS Configuration"
+msgstr "SaaS configuratie"
+
+#. module: base_admin
+#: model:ir.ui.menu,name:base_admin.saas_panel_main
+msgid "SaaS Panel"
+msgstr "SaaS Panel"
+
+#. module: base_admin
+#: view:saas.config.setting:base_admin.email_alert_setting_form_view
+msgid "SaaS-Kit Configuration"
+msgstr "SaaS-Kit configuratie"
+
+#. module: base_admin
+#: field:tenant.database.list,sale_order_ref:0
+msgid "Sale Order Ref."
+msgstr "Referentie verkoop Bestel"
+
+#. module: base_admin
+#: view:tenant.database.list:base_admin.saas_admin_dblist_kanban
+msgid "Schedule Meeting"
+msgstr "schema vergadering"
+
+#. module: base_admin
+#: view:tenant.database.list:base_admin.view_db_admin_filter
+msgid "Search Db List"
+msgstr "Search Db List"
+
+#. module: base_admin
+#: field:adduser.wizard,tenant_db_id:0
+msgid "Select DB"
+msgstr "Select DB"
+
+#. module: base_admin
+#: field:deactive_db.wizard,db_name:0
+msgid "Select Database"
+msgstr "Selecteer Database"
+
+#. module: base_admin
+#: field:tenant.database.stage,sequence:0
+msgid "Sequence"
+msgstr "Sequence"
+
+#. module: base_admin
+#: code:addons/base_admin/wizard/db_controll.py:71
+#, python-format
+msgid "Sorry, you can not activate the Database...!"
+msgstr "Sorry, kunt u de database niet te activeren...!"
+
+#. module: base_admin
+#: field:tenant.database.list,stage_id:0
+msgid "Stage"
+msgstr "podium"
+
+#. module: base_admin
+#: field:tenant.database.stage,name:0
+msgid "Stage Name"
+msgstr "Artiestennaam"
+
+#. module: base_admin
+#: model:ir.model,name:base_admin.model_tenant_database_stage
+msgid "Stage of case"
+msgstr "Fase van dossier"
+
+#. module: base_admin
+#: model:mail.template,subject:base_admin.email_template_renew_tenant_subscription_alert
+msgid "Subscription renew"
+msgstr "Abonnement te verlengen"
+
+#. module: base_admin
+#: model:ir.ui.menu,name:base_admin.db_controll
+#: model:res.groups,name:base_admin.group_admin_saas_db_admin
+msgid "Tenant DB Administration"
+msgstr "Beheer Klanten DB’s"
+
+#. module: base_admin
+#: view:tenant.database.list:base_admin.saas_admin_dblist_form
+msgid "Tenant Database"
+msgstr "Tenant Database"
+
+#. module: base_admin
+#: model:ir.actions.act_window,name:base_admin.base_dblist_tree_action
+#: model:ir.ui.menu,name:base_admin.menu_tenant_database_list
+#: view:tenant.database.list:base_admin.saas_admin_dblist_tree
+msgid "Tenant Database List"
+msgstr "Klanten Databases"
+
+#. module: base_admin
+#: view:deactive_db.wizard:base_admin.terminate_db_wizard_form
+msgid "Terminate"
+msgstr "beëindigen"
+
+#. module: base_admin
+#: view:deactive_db.wizard:base_admin.terminate_db_wizard_form
+#: model:ir.ui.menu,name:base_admin.terminate_db_menu
+msgid "Terminate Database"
+msgstr "Beëindigen Database"
+
+#. module: base_admin
+#: help:tenant.database.stage,fold:0
+msgid "This stage is folded in the kanban view whenthere are no records in that stage to display."
+msgstr "This stage is folded in the kanban view whenthere are no records in that stage to display."
+
+#. module: base_admin
+#: model:tenant.database.stage,name:base_admin.stage_record3
+msgid "To Purge"
+msgstr "To Purge"
+
+#. module: base_admin
+#: view:update.tenants.wizard:base_admin.update_tenant_wizard_form
+msgid "Update"
+msgstr "Bijwerken"
+
+#. module: base_admin
+#: model:ir.actions.act_window,name:base_admin.action_update_tenants
+#: view:update.tenants.wizard:base_admin.update_tenant_wizard_form
+msgid "Update Tenants"
+msgstr "Bijwerken Tenants"
+
+#. module: base_admin
+#: model:ir.model,name:base_admin.model_update_tenants_wizard
+msgid "Update Tenants stages"
+msgstr "Actualiseren Huurders stadia"
+
+#. module: base_admin
+#: help:tenant.database.stage,sequence:0
+msgid "Used to order stages. Lower is better."
+msgstr "Used to order stages. Lower is better."
+
+#. module: base_admin
+#: field:tenant.database.list,user_id:0
+msgid "User"
+msgstr "gebruiker"
+
+#. module: base_admin
+#: field:tenant.database.list,user_pwd:0
+msgid "User Password"
+msgstr "Gebruikerswachtwoord"
+
+#. module: base_admin
+#: code:addons/base_admin/wizard/db_controll.py:71
+#, python-format
+msgid "Warning!"
+msgstr "waarschuwing!"
+
+#. module: base_admin
+#: help:saas.config.setting,admin_pwd:0
+msgid "admin login password for Tenant DB"
+msgstr "admin login wachtwoord voor huurder DB"
+
+#. module: base_admin
+#: model:ir.model,name:base_admin.model_saas_config_setting
+msgid "email alert before day"
+msgstr "email-alert voor de dag"
+
+#. module: base_admin
+#: view:deactive_db.wizard:base_admin.active_db_wizard_form
+#: view:deactive_db.wizard:base_admin.deactive_db_wizard_form
+#: view:deactive_db.wizard:base_admin.terminate_db_wizard_form
+#: view:saas.config.setting:base_admin.email_alert_setting_form_view
+#: view:update.tenants.wizard:base_admin.update_tenant_wizard_form
+msgid "or"
+msgstr "or"
+
+#. module: base_admin
+#: model:ir.actions.act_window,name:base_admin.terminate_db_wizard
+msgid "terminate Database"
+msgstr "Database beëindigen"
+
+#. module: base_admin
+#: view:tenant.database.list:base_admin.saas_admin_dblist_kanban
+msgid "users)"
+msgstr "gebruikers)"

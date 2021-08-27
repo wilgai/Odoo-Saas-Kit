@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+            <field name="name">ir.actions.windows.form.domain</field>
+            <field name="model">ir.actions.act_window</field>
+            <field name="inherit_id" ref="base.view_window_action_form"/>
+            <field name="arch" type="xml">
+        <xpath expr="//field[@name='domain']" position="attributes">
+                	<attribute name="attrs">{'invisible':[('res_model','=','ir.module.module')]}</attribute>
+                 </xpath>  
+             </field>   
+
+    </data>
+</odoo>

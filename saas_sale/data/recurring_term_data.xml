@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <data noupdate="0">
+    
+       <record id="recurring_term_record0" model="recurring.term">
+           <field name="name">Monthly</field>       
+           <field name="type">from_first_date</field>
+       	</record>
+       	<record id="recurring_term_record1" model="recurring.term">
+           <field name="name">Quarterly</field>
+           <field name="type">quarter</field>
+       	</record>
+       	<record id="recurring_term_record2" model="recurring.term">
+           <field name="name">Half yearly</field>
+           <field name="type">half_year</field>
+       	</record>
+       	<record id="recurring_term_record3" model="recurring.term">
+           <field name="name">Yearly</field>
+           <field name="type">year</field>
+       	</record>
+
+        <record id="user_product_boolean" model="product.template">
+           <field name="name">Manage Users</field>
+           <field name="type">service</field>
+            <field name="user_product">1</field>
+
+       </record>
+    </data>
+</odoo>

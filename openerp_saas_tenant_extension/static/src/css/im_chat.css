@@ -1,0 +1,52 @@
+ .oe_im_chatview .oe_im_chatview_right { 
+    padding: 0px  !important;
+    background: none repeat scroll 0% 0% transparent;
+    border: 0px none;  
+    float: right;
+    color: #808080;
+}
+
+ .oe_im_chatview .oe_im_chatview_content {
+  overflow:  auto ;
+  height: 82%  !important ; 
+  width: 240px !important ; 
+  
+}
+
+
+
+.oe_im_chatview .oe_im_chatview_input {
+    width: 100%  !important;
+    font-family: Lato, Helvetica, sans-serif;
+    font-size: 13px;
+    color: #333;
+    padding: 0% ;
+    border: 1px solid #AEB9BD;
+    -moz-border-radius: 3px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    -moz-box-shadow: inset 0 1px 4px rgba(0,0,0,0.2);
+    -webkit-box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.2);
+    box-shadow: inset 0 1px 4px rgba(0, 0, 0, 0.2);
+    height: 28px !important;
+    margin-top: 3px;
+}
+
+.oe_im_chatview_input {width:50px!important; }
+
+
+.oe_im_chatview .oe_im_chatview_footer { 
+    position: relative;
+    padding: 0%  !important ;
+    border-top: 1px solid #AEB9BD;
+    background: #DEDEDE;
+    background: -moz-linear-gradient(#FCFCFC, #DEDEDE);
+    background: -webkit-gradient(linear, left top, left bottom, from(#FCFCFC), to(#DEDEDE));
+    -moz-border-radius: 0 0 3px 3px;
+    -webkit-border-radius: 0 0 3px 3px;
+    border-radius: 0 0 3px 3px;
+    height: 35px !important;
+    margin-top: 0% ;
+	width : 100%;  
+} 
+ 

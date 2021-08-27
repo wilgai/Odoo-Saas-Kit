@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="0">
+        <record id="user_increase_notification_template" model="mail.template">
+          <field name="name">User Increase Notification Template</field>
+          <field name="email_from">Test</field>
+          <field name="subject">Increase Users in Instance</field>
+          <field name="email_to">test</field>
+          <field name="lang"></field>
+          <field name="auto_delete" eval="True"/>
+	  	  <field name="body_html">
+            <![CDATA[
+		   This is to update you that, <Cusotmer name> has increased the number of users recently on <Date and Time>
+ 			by <Increased No. of Users> for <Instance Name>. 
+	    ]]>
+	  </field>
+       </record>
+    </data>
+</odoo>

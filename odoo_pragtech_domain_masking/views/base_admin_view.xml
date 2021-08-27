@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<odoo>
+  <data>
+
+	<record id="saas_admin_dblist_form_domain_mask" model="ir.ui.view">
+            <field name="name">saas.admin.dblist.form.domain.mask</field>
+            <field name="model">tenant.database.list</field>
+            <field name="inherit_id" ref="saas_base.saas_admin_dblist_form" />
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+
+            <xpath expr="//form/header" position="inside">
+            		<button name="action_restart_apache" class='btn btn-sm btn-default oe_highlight' string="Restart Apache" type="object" />
+            </xpath>
+
+            <xpath expr="//form/sheet/notebook/page[2]" position="after">
+				<page  name="domain masking" string="Client Domain Details">
+
+					<group name="domain masking" string="Client Domain Details For HTTPS">
+
+						<field name="domain_masking_fields"  nolabel="1">
+
+
+
+							<tree editable="top">
+
+								<field name="client_domain" attrs="{'readonly':[('using_domain', '=', True)]}"/>
+								<field name="domain_type"/>
+								<field name="client_ssl1_filename" attrs="{'invisible':[('domain_type', '=', 'http')]}"/>
+								<field name="client_ssl1" filename="client_ssl1_filename" attrs="{'invisible':['|',('client_ssl1_filename', '=', True),('domain_type', '=', 'http')]}"  />
+								<field name="client_ssl2_filename" attrs="{'invisible':[('domain_type', '=', 'http')]}"/>
+								<field name="client_ssl2" filename="client_ssl2_filename" attrs="{'invisible':['|',('client_ssl2_filename', '=', True),('domain_type', '=', 'http')]}" />
+								<field name="client_ssl3_filename" attrs="{'invisible':[('domain_type', '=', 'http')]}"/>
+								<field name="client_ssl3" filename="client_ssl3_filename" attrs="{'invisible':['|',('client_ssl3_filename', '=', True),('domain_type', '=', 'http')]}" />
+<!--								<field name="tenant_db_management" invisible="1"/>-->
+								<field name="using_domain"/>
+<!--								<label for="action_set_client_domain" string="dddd"/>-->
+								<button name="action_set_client_domain"  icon="fa-check" type="object" string="activate Client Domain" />
+								<button name="action_remove_client_domain"  icon="fa-times" string="Deactivate Client Domain" type="object"/>
+							</tree>
+
+						</field>
+
+
+
+					</group>
+
+
+<!--					<group  name="domain masking http" string="Client Domain Details For HTTP">-->
+<!--						<field name="domain_masking_fields_http"  nolabel="1">-->
+<!--							<tree editable="top">-->
+<!--								<field name="client_domain_http" attrs="{'readonly':[('using_domain', '=', True)]}"/>-->
+<!--								<field name="using_domain"/>-->
+<!--								<button name="active_domain_http" icon="fa-check"  type="object" string="activate Client Domain Http"/>-->
+
+<!--							</tree>-->
+<!--						</field>-->
+<!--					</group>-->
+				</page>
+			</xpath>
+            </field>
+        </record>
+
+      </data>
+</odoo>
+

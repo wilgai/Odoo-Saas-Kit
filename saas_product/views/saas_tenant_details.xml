@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+	<template id="city_name1" name="Javascript_Test" inherit_id="website.assets_frontend">
+		<xpath expr="." position="inside">
+			<script type="text/javascript" src="/saas_product/static/src/js/manage_database.js" />
+		</xpath>
+	</template>
+ 	
+	<template id="saas_tenants" name="Database Details">
+		<t t-call="website.layout">
+		
+			<t t-set="title">Saas Database Details</t>
+			<div class="oe_structure">
+				<div class="container">
+					<div id="db_detail">
+						<h1>
+							<strong>
+								<t t-esc="tenant.name" />
+							</strong>
+						</h1>
+						<div id="db_name_xml" style="display:none">
+							|
+							<t t-esc="tenant.name" />
+							|
+						</div>
+						<table class="table-condensed table fixed">
+							<tbody>
+								<col width="30px" />
+								<col width="70px" />
+								<h3>
+									<!-- <tr> -->
+									<!-- <td>Sale Order Reference Number :</td> -->
+									<!-- <td> -->
+									<!-- <t t-esc="tenant.sale_order_ref.name" /> -->
+									<!-- </td> -->
+									<!-- </tr> -->
+									<tr>
+										<td>
+											Number of Users :
+										</td>
+										<td>
+											<span id="update_user">
+												<t t-esc="tenant.no_of_users" />
+											</span>
+											&#160;&#160;&#160;&#160;
+											<a id="show_user" href="#">Add more</a>
+											<span id="save_users" style="margin-left:40px; ">
+												<p id="add_text_id" style="margin-top:-19px; margin-left:40px;">Enter No. of users to add</p>
+												<span id='update_user2'>
+													<t t-esc="tenant.no_of_users" />
+												</span>
+												&#160;&#160;+&#160;&#160;
+												<input type="Number" min="1" value="1" id="num_user" />
+												&#160;&#160;&#160;&#160;
+												<input type="button" value="Confirm" id="save_user"
+													class='btncolor' />
+												&#160; or &#160;
+												<a id="id_cancel" href="#">Cancel</a>
+											</span>
+										</td>
+									</tr>
+									<tr>
+										<td>
+											Expiry Date :
+										</td>
+										<td>
+											<t t-esc="tenant.exp_date" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											URL :
+										</td>
+										<td>
+											<t t-esc="tenant.tenant_url" />
+										</td>
+									</tr>
+									<tr>
+										<td>
+											Tenant Admin User :
+										</td>
+										<td>
+											<t t-esc="tenant.user_login" />
+										</td>
+									</tr>
+									<tr></tr>
+								</h3>
+							</tbody>
+						</table>
+						<br></br>
+						<table class="table fixed">
+							<tbody>
+								<strong>
+									<h3>Users</h3>
+								</strong>
+
+
+								<t t-foreach="users" t-as="user">
+									<tr>
+										<td>
+											<span >
+												<i class="fa fa-circle" style="color: green; "></i>
+											</span>
+										</td>
+										<td>
+											<t t-esc="user['name']" />
+										</td>
+										<td>
+											<t t-esc="user['login']" />
+										</td>
+										<td>
+<!-- 												Temporary commented -->
+<!-- 											<t t-if="not user['sub_user']"> -->
+<!-- 												<button value="Deactivate" id="deactivate_user" -->
+<!-- 													class='deact' t-att-login="user['login']" t-att-db="db" -->
+<!-- 													title="Deactivating User will genarate en extra invoice of current month with single user">Deactivate</button> -->
+<!-- 											</t> -->
+											<t t-if="user['sub_user']">
+												<span> Psuedo User(Tenant Admin User)</span>
+											</t>
+										</td>
+									</tr>
+								</t>
+
+								<t t-foreach="users_inactive" t-as="user">
+									<tr>
+										<td>
+											<span >
+												<i class="fa fa-circle" style="color: red; "></i>
+											</span>
+										</td>
+										<td style="color:grey; font-style: italic;">
+											<t t-esc="user['name']" />
+											<span
+												style="color:red; font-style: italic; font-size: 12px; margin-left: 10px;">(Deactivated)</span>
+										</td>
+										<td style="color:grey; font-style: italic;">
+											<t t-esc="user['login']" />
+										</td>
+										<td>
+<!-- 												Temporary commented -->
+<!-- 											<button type="button" value="Make User Active" id="activate_user" -->
+<!-- 												class='react' t-att-login="user['login']" t-att-db="db">Make User -->
+<!-- 												Active -->
+<!-- 											</button> -->
+												
+										</td>
+									</tr>
+								</t>
+
+							</tbody>
+						</table>
+
+
+
+
+					</div>
+				</div>
+			</div>
+		</t>
+	</template>
+</odoo>

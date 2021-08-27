@@ -1,0 +1,27 @@
+<odoo>
+	<data noupdate="1">
+	    <record id="group_saas_service" model="res.groups">
+	        <field name="name">My Service Access</field>
+	    </record>
+
+	    
+	    <record id="group_saas_tenant_user" model="res.groups">
+	        <field name="name">Tenant Super User</field>
+	    </record>
+
+<!--	    <record id="hid_admin_user_rule" model="ir.rule">-->
+<!--	        <field name="name">Hide Admin User</field>-->
+<!--	        <field name="model_id" ref="model_res_users"/>-->
+<!--	        <field name="global" eval="True"/>-->
+<!--	        <field name="domain_force">[('id','=',user.id)]</field>-->
+<!--	    </record>-->
+	    	    	    
+
+
+	<record id="db_expire_dblist_tree" model="db.expire">
+		<field name="db_expire">False</field>
+
+		</record>
+
+</data>
+</odoo>

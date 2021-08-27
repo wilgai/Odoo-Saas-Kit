@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+        
+<!-- 		<delete model="ir.ui.menu" id="base.module_mi" /> -->
+<!--         <menuitem id="base.menu_management" name="Modules" parent="base.menu_administration" sequence="0" groups="group_saas_tenant_user"/> -->
+        
+        
+<!--        Set Modules menu invisible for tenant users, only tenant super user is allow to use these menu -->
+<!-- 		Change groups of existing menu item -->
+        <record model="ir.ui.menu" id="base.menu_management">
+			<field name="groups_id" eval="[(6,0,[ref('group_saas_tenant_user')])]"/>
+		</record>
+        
+	</data>
+</odoo>

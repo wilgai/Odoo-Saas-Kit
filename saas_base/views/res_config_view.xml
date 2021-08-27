@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+	<data>
+
+		<record id="res_config_settings_view_form1" model="ir.ui.view">
+			<field name="name">res.config.settings.view.form.saas.inherit</field>
+			<field name="model">res.config.settings</field>
+			<field name="priority" eval="100" />
+			<field name="inherit_id" ref="base.res_config_settings_view_form" />
+			<field name="arch" type="xml">
+				<xpath expr="//div[hasclass('settings')]" position="inside">
+					<div class="app_settings_block" data-string="SaaS" string="Saas Settings"
+						data-key="saas_base">
+
+						<h2>Email Alerts and Trial Period</h2>
+						<div class="row mt16 o_settings_container" name="email_alerts">
+							<group>
+
+								<field name="free_trail_no_of_days" />
+								<field name="db_expire_no_of_days" />
+								<field name="grace_period" />
+								<field name="data_purging_days" />
+								<field name="free_trial_days" />
+								<field name="payment_acquire" attrs="{'invisible':[('free_trial_days', '&lt;=', 0)]}" />
+							</group>
+						</div>
+
+						<h2>Tenant Configuration</h2>
+						<div class="row mt16 o_settings_container" name="tenant_config">
+							<group>
+								<field name="billing" />
+								<field name="bare_tenant_db" />
+								<field name="admin_login" />
+								<field name="admin_pwd" />
+							</group>
+						</div>
+
+						<h2>Branding</h2>
+						<div class="row mt16 o_settings_container" name="branding">
+							<group>
+								<field name="brand_name" />
+								<field name="brand_website" placeholder="http://www.domain.com" />
+								<field name="domain_name" />
+
+								<field name="filename_logo" invisible="1"/>
+								<field name="filename_fevicon" invisible="1" />
+								<field name="tenant_logo" filename="filename_logo" widget="image" class="oe_inline" />
+								<field name="favicon_logo" filename="filename_fevicon" widget="image" class="oe_inline" />
+							</group>
+						</div>
+						
+
+					</div>
+				</xpath>
+			</field>
+		</record>
+		
+		
+        
+		
+
+		<record model="ir.actions.act_window" id="email_alert_setting_action1">
+			<field name="name">Email Alert Setting</field>
+			<field name="type">ir.actions.act_window</field>
+			<field name="res_model">res.config.settings</field>
+			<field name="view_id" ref="res_config_settings_view_form1" />
+			<field name="view_mode">form</field>
+			<field name="target">inline</field>
+			<field name="context">{'module' : 'saas_base'}</field>
+		</record>
+		
+		
+
+
+		<menuitem name="SaaS Configuration" id="menu_saas_config_id"
+			parent="saas_base.saas_panel_main" sequence="100" />
+
+			<menuitem name="Settings" id="saas_config_setting_menu"
+				action="email_alert_setting_action1" parent="menu_saas_config_id" />
+			
+
+		<record model="ir.actions.server" id="update_existing_link">
+			<field name="name">Update Existing Link</field>
+			<field name="model_id" ref="website.model_website_track"/>
+			<field name="binding_model_id" ref="website.model_website_track"/>
+			<field name="state">code</field>
+			<field name="code">if records:
+				   action = records.update_existing_link()
+			</field>
+		</record>
+
+
+
+	</data>
+</odoo>

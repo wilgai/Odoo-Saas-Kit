@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+	<data>
+		<record model="ir.ui.view" id="deactive_db_wizard_form">
+			<field name="name">deactive_db.wizard.form</field>
+			<field name="model">deactive_db.wizard</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Deactivate Database" version="7.0">
+
+					<group col="4">
+						<group colspan="2">
+							<field name="db_name" domain="[('stage_id.is_active','=',True)]"
+								widget="selection" help='This lists only "Active" state databases'/>
+							<field name="reason" required="1" />
+						</group>
+						<footer>
+							<button name="deactivate_db" string="Deactivate" type="object"
+								icon="fa-forward" />
+							or
+							<button string="Cancel" class="oe_link" special="cancel" />
+						</footer>
+					</group>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="deactive_db_wizard">
+			<field name="name">Deactivate Database</field>
+			<field name="res_model">deactive_db.wizard</field>
+			<!--<field name="view_type">form</field>-->
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="deactive_db_wizard_form"></field>
+			<field name="target">new</field>
+		</record>
+
+		<menuitem id="saas_panel_main" name="SaaS Panel"
+			web_icon="saas_base,static/description/icon.png" sequence="0"
+			groups="group_admin_saas" />
+
+		<menuitem id="menu_tenant_database_list" name="Tenant Database List"
+			parent="saas_panel_main" sequence="6" />
+
+		<menuitem name="Tenant DB Administration" id="db_controll"
+			sequence="10" parent="saas_panel_main" />
+
+		<menuitem name="Deactivate Database" id="deactive_db_menu"
+			action="deactive_db_wizard" sequence="1" parent="db_controll"
+			groups="group_admin_saas_db_admin" />
+
+		<record model="ir.ui.view" id="active_db_wizard_form">
+			<field name="name">deactive_db.wizard.form</field>
+			<field name="model">deactive_db.wizard</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Activate Database" version="7.0">
+
+					<group col="4">
+						<group colspan="2">
+							<field name="db_name"
+								domain="[('stage_id.is_deactivated','=',True)]"
+								widget="selection" help='This lists only "Deactivated" databases'/>
+						</group>
+						<footer>
+							<button name="activate_db" string="Activate" type="object"
+								icon="fa-forward" />
+							or
+							<button string="Cancel" class="oe_link" special="cancel" />
+						</footer>
+					</group>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="terminate_db_wizard_form">
+			<field name="name">terminate_db.wizard.form</field>
+			<field name="model">deactive_db.wizard</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Terminate Database" version="7.0">
+						<group>
+								<group col="2">
+								<group colspan="2">
+									<field name="db_name"
+										domain="['|','|',('stage_id.is_purge','=',True),('stage_id.is_deactivated','=',True),('stage_id.is_expired','=',True)]"
+										widget="selection" />
+
+								</group>
+							</group>
+							<br/>
+							<group><p><b>Note:</b> Terminated database cannot be re-activated from frontend. </p></group>
+
+						<footer>
+							<button name="terminate_db" string="Terminate" type="object"
+								icon="fa-eject" />
+							or
+							<button string="Cancel" class="oe_link" special="cancel" />
+						</footer>
+
+</group>
+				</form>
+			</field>
+		</record>
+
+		<record model="ir.ui.view" id="update_tenant_wizard_form">
+			<field name="name">update.tenants.wizard.form</field>
+			<field name="model">update.tenants.wizard</field>
+			<field name="type">form</field>
+			<field name="arch" type="xml">
+				<form string="Update Tenants" version="7.0">
+
+					<group col="4">
+						<footer>
+							<button name="update_tenants" string="Update" type="object" />
+							or
+							<button string="Cancel" class="oe_link" special="cancel" />
+						</footer>
+					</group>
+				</form>
+			</field>
+		</record>
+
+
+		<record model="ir.actions.act_window" id="active_db_wizard">
+			<field name="name">Activate Database</field>
+			<field name="res_model">deactive_db.wizard</field>
+			<!--<field name="view_type">form</field>-->
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="active_db_wizard_form"></field>
+			<field name="target">new</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="terminate_db_wizard">
+			<field name="name">terminate Database</field>
+			<field name="res_model">deactive_db.wizard</field>
+			<!--<field name="view_type">form</field>-->
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="terminate_db_wizard_form"></field>
+			<field name="target">new</field>
+		</record>
+
+		<record model="ir.actions.act_window" id="action_update_tenants">
+			<field name="name">Update Tenants</field>
+			<field name="res_model">update.tenants.wizard</field>
+			<!--<field name="view_type">form</field>-->
+			<field name="view_mode">form</field>
+			<field name="view_id" ref="update_tenant_wizard_form"></field>
+			<field name="target">new</field>
+		</record>
+
+		<menuitem name="Activate Database" id="active_db_menu"
+			action="active_db_wizard" sequence="1" parent="db_controll"
+			groups="group_admin_saas_db_admin" />
+
+		<menuitem name="Terminate Database" id="terminate_db_menu"
+			action="terminate_db_wizard" sequence="3" parent="db_controll"
+			groups="group_admin_saas_db_admin" />
+
+		<!-- <menuitem name="Update Tenants" -->
+		<!-- id="update_tenants_menu" -->
+		<!-- action="action_update_tenants" -->
+		<!-- sequence="4" -->
+		<!-- parent="db_controll" groups="group_admin_saas_db_admin"/> -->
+
+	</data>
+</odoo>
